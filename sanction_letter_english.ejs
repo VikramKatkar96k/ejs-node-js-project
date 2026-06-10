@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sanction Letter - Satin Finserv Limited</title>
+  <style>
+    /* A4 Dimensions and Page breaks for PDF engines */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      
+      -webkit-print-color-adjust: exact;
+    }
+    .container-e{
+      .container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+    }
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      padding: 15mm 15mm 25mm 15mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+          margin: 0 auto;
+    }
+    
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* Logo and Header Box */
+    .header-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .logo-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      text-align: left;
+      font-family: 'Arial', sans-serif;
+      margin-left: 5px;
+    }
+
+    .logo-sfl {
+      font-size: 20pt;
+      font-weight: 900;
+      font-style: italic;
+      color: #1e2c80;
+      line-height: 0.8;
+      letter-spacing: -1px;
+    }
+
+    .logo-name {
+      font-size: 7.5pt;
+      font-weight: bold;
+      color: #1e2c80;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    /* Title Styling */
+    .doc-header-title {
+      text-align: center;
+      font-size: 11.5pt;
+      font-weight: bold;
+      margin-bottom: 20px;
+      line-height: 1.4;
+      text-transform: none;
+    }
+
+    /* Metadata and Form Styling */
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5pt;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .form-row {
+      font-size: 9.5pt;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .underline-value {
+      border-bottom: 1px dashed #000000;
+      display: inline-block;
+      padding-left: 5px;
+      padding-bottom: 1px;
+      font-weight: bold;
+      box-sizing: border-box;
+      flex-grow: 1;
+    }
+
+    .address-block {
+      font-size: 9.5pt;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .address-line {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 5px;
+    }
+
+    .salutation {
+      font-size: 9.5pt;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 8px;
+    }
+
+    .intro-paragraph {
+      font-size: 9.5pt;
+      line-height: 1.5;
+      text-align: justify;
+      margin: 0 0 15px 0;
+    }
+
+    .kfs-title {
+      text-align: center;
+      font-size: 10.5pt;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    /* Table Styling */
+    table.kfs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+    }
+
+    table.kfs-table td {
+      border: 1px solid #000000;
+      padding: 4px 6px;
+      font-size: 8.5pt;
+      vertical-align: middle;
+      line-height: 1.25;
+    }
+
+    table.kfs-table tr.grey-bg td {
+      background-color: #f2f2f2;
+    }
+
+    /* Terms List */
+    .terms-heading {
+      font-size: 9.5pt;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+
+    .terms-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 8.5pt;
+      line-height: 1.35;
+      text-align: justify;
+    }
+
+    .terms-list li {
+      margin-bottom: 5px;
+    }
+
+    .bullet-list {
+      margin: 5px 0 5px 0;
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+
+    .bullet-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Signatory Section */
+    .signatory-section {
+      margin-top: 25px;
+      font-size: 9pt;
+      line-height: 1.4;
+    }
+
+    .closing-text {
+      font-size: 9pt;
+      line-height: 1.45;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .employee-card {
+      margin-top: 15px;
+      font-size: 9pt;
+      line-height: 1.4;
+      width: 250px;
+    }
+
+    .accept-text {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 10pt;
+    }
+
+    /* Page Footer Styling */
+    .page-footer {
+      position: absolute;
+      bottom: 12mm;
+      left: 15mm;
+      right: 15mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      box-sizing: border-box;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 5px;
+    }
+
+    .footer-signatures {
+      display: flex;
+      justify-content: space-between;
+      width: 75%;
+      font-size: 8pt;
+      font-weight: bold;
+      color: #333333;
+    }
+
+    .footer-page-num {
+      font-size: 8pt;
+      font-weight: bold;
+      color: #5b7b9c;
+    }
+  </style>
+</head>
+<body>
+
+  <%
+    // Safely assign variables or mock fallbacks
+    const safeDated = typeof dated !== 'undefined' ? dated : 'DD/MM/20____';
+    const safeApplicationFormNo = typeof applicationFormNo !== 'undefined' ? applicationFormNo : '____________________';
+    const safeApplicationDate = typeof applicationDate !== 'undefined' ? applicationDate : '_______________';
+    const safeBorrowerName = typeof borrowerName !== 'undefined' ? borrowerName : '';
+    const safeBorrowerAddress = typeof borrowerAddress !== 'undefined' ? borrowerAddress : '';
+    const safeBorrowerPincode = typeof borrowerPincode !== 'undefined' ? borrowerPincode : '';
+    const safeBorrowerMobile = typeof borrowerMobile !== 'undefined' ? borrowerMobile : '';
+    const safeBranchName = typeof branchName !== 'undefined' ? branchName : '_________________';
+    const safeLmsLoanNo = typeof lmsLoanNo !== 'undefined' ? lmsLoanNo : '_________________';
+    
+    const safeLoanAmount = typeof loanAmount !== 'undefined' ? loanAmount : '__________';
+    const safeLifeInsuranceFinance = typeof lifeInsuranceFinance !== 'undefined' ? lifeInsuranceFinance : '__________';
+    const safeMedicalInsuranceFinance = typeof medicalInsuranceFinance !== 'undefined' ? medicalInsuranceFinance : '__________';
+    const safeGrossFinanceAmount = typeof grossFinanceAmount !== 'undefined' ? grossFinanceAmount : '__________';
+    const safeLoanTenor = typeof loanTenor !== 'undefined' ? loanTenor : '60 Months';
+    const safeInterestRate = typeof interestRate !== 'undefined' ? interestRate : '24%';
+    const safeProcessingFee = typeof processingFee !== 'undefined' ? processingFee : '_________';
+    const safeStampDuty = typeof stampDuty !== 'undefined' ? stampDuty : '________';
+    const safeCersaiCharge = typeof cersaiCharge !== 'undefined' ? cersaiCharge : '50/- or Rs. 100/- + GST (Rs. 59)';
+    
+    const safeEmiAmount = typeof emiAmount !== 'undefined' ? emiAmount : '__________';
+    const safeLastEmiAmount = typeof lastEmiAmount !== 'undefined' ? lastEmiAmount : '_______________';
+    const safeRepaymentTenor = typeof repaymentTenor !== 'undefined' ? repaymentTenor : '36';
+    const safeRepaymentStartDate = typeof repaymentStartDate !== 'undefined' ? repaymentStartDate : '_________.';
+    
+    const safeRepaymentBankName = typeof repaymentBankName !== 'undefined' ? repaymentBankName : '_____';
+    const safeRepaymentBankAccountNo = typeof repaymentBankAccountNo !== 'undefined' ? repaymentBankAccountNo : '__________';
+    
+    const safeEmployeeName = typeof employeeName !== 'undefined' ? employeeName : '';
+    const safeEmployeeCode = typeof employeeCode !== 'undefined' ? employeeCode : '';
+    const safeEmployeeDesignation = typeof employeeDesignation !== 'undefined' ? employeeDesignation : '';
+    const safeEmployeeBranch = typeof employeeBranch !== 'undefined' ? employeeBranch : '';
+  %>
+
+ <div class="container-e">
+ <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="header-container">
+      <!-- USER_LOGO: Replace the src attribute with your PNG logo image path (e.g. "/images/logo.png") -->
+      <img src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo" style="height: 40px; max-width: 200px; object-fit: contain;">
+    </div>
+
+    <div class="doc-header-title">
+      <u>Sanction letter of Pink EV Rickshaw Loan</u><br>
+      <u>Satin Finserv Limited</u>
+    </div>
+
+    <div class="meta-row">
+      <div>
+        Application Form No. <b><%= safeApplicationFormNo %></b><br>
+        Application Date: <b><%= safeApplicationDate %></b>
+      </div>
+      <div>
+        <b>Dated: <%= safeDated %></b>
+      </div>
+    </div>
+
+    <div class="address-block">
+      <div style="margin-bottom: 4px;">To,</div>
+      <div class="address-line">Name: <span class="underline-value" style="width: 320px;"><%= safeBorrowerName %></span></div>
+      <div class="address-line">Address: <span class="underline-value" style="width: 310px;"><%= safeBorrowerAddress %></span></div>
+      <div class="address-line">Pin code: <span class="underline-value" style="width: 310px;"><%= safeBorrowerPincode %></span></div>
+      <div class="address-line">Mobile No.: <span class="underline-value" style="width: 300px;"><%= safeBorrowerMobile %></span></div>
+    </div>
+
+    <div class="form-row" style="margin-top: 10px; margin-bottom: 10px;">
+      Ref No. SFL /Branch Name <span class="underline-value" style="width: 140px; text-align: center;"><%= safeBranchName %></span> / LMS Loan No. <span class="underline-value" style="width: 140px; text-align: center;"><%= safeLmsLoanNo %></span>
+    </div>
+
+    <div class="salutation">Dear Sir/Madam,</div>
+    
+    <div class="intro-paragraph">
+      With reference to your Application requesting for sanction of <u>Pink EV Rickshaw Loan</u> for Rs. 
+      <span class="underline-value" style="width: 100px; text-align: center;"><%= safeGrossFinanceAmount %></span>/- as term of loan limit. We have pleasure in advising sanction of the following credit facilities, which are available subject to your acceptance and fulfilment of the terms & Conditions detail herein under.
+    </div>
+
+    <div class="kfs-title">
+      <u>Key Fact Statement</u><br>
+      <u>Pink EV Rickshaw Loan</u>
+    </div>
+
+    <table class="kfs-table">
+      <tbody>
+        <tr>
+          <td style="width: 6%; text-align: center;">1</td>
+          <td style="width: 54%;">Borrower/Applicant</td>
+          <td style="width: 40%; font-weight: bold;"><%= safeBorrowerName %></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">2</td>
+          <td>Co-Borrower1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">3</td>
+          <td>Co-Borrower 2</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">4</td>
+          <td>Loan Amount (In INR)</td>
+          <td>Rs. <b><%= safeLoanAmount %></b></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">5</td>
+          <td>Life insurance finance</td>
+          <td>Rs. <%= safeLifeInsuranceFinance %></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">6</td>
+          <td>Medical Insurance finance</td>
+          <td>Rs. <%= safeMedicalInsuranceFinance %></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">7</td>
+          <td>Registered mortgage charge finance</td>
+          <td>NO</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">8</td>
+          <td>Gross Finance amount</td>
+          <td>Rs. <b><%= safeGrossFinanceAmount %>-</b></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">9</td>
+          <td>Loan Tenor (In Months)</td>
+          <td><%= safeLoanTenor %></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">10</td>
+          <td>Annualized Interest rate</td>
+          <td><%= safeInterestRate %></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">11</td>
+          <td>Purpose of Loan/ End Use of Fund</td>
+          <td>For Purchased of EV Auto Rickshaw</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">12</td>
+          <td>Loan Facility</td>
+          <td>EV Auto Rickshaw</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">13</td>
+          <td>On Application Processing Fee (IMD)</td>
+          <td>Not Applicable</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">14</td>
+          <td>Processing Fees (including Goods & Service Tax)</td>
+          <td>1.50% of Loan Amount + GST (<%= safeProcessingFee %>)</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">15</td>
+          <td>Stamp Duty & Documentation Charge</td>
+          <td>Rs. <%= safeStampDuty %>/-</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">16</td>
+          <td>CERSAI Charge</td>
+          <td>Rs. <%= safeCersaiCharge %></td>
+        </tr>
+        <tr class="grey-bg" style="font-weight: bold;">
+          <td style="text-align: center;">17</td>
+          <td colspan="2">During the term of Loan</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">A</td>
+          <td>On Foreclosure</td>
+          <td>2% on principal outstanding + GST</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">B</td>
+          <td>Penalty for delayed payments</td>
+          <td><b>2% P.M. on EMI Outstanding</b></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="page-footer">
+      <div class="footer-signatures">
+        <span>Borrower</span>
+        <span>Co-Borrower1</span>
+        <span>Co-Borrower2</span>
+        <span>Co-Borrower3</span>
+      </div>
+      <div class="footer-page-num">Page 1 | 3</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page">
+    <div class="header-container">
+      <!-- USER_LOGO: Replace the src attribute with your PNG logo image path (e.g. "/images/logo.png") -->
+      <img src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo" style="height: 40px; max-width: 200px; object-fit: contain;">
+    </div>
+
+    <table class="kfs-table" style="margin-top: 10px; margin-bottom: 20px;">
+      <tbody>
+        <tr>
+          <td style="width: 6%; text-align: center;">18</td>
+          <td style="width: 54%;">Equated Monthly Instalment (EMI) Amount Payable (IN INR)</td>
+          <td style="width: 40%;">Rs. <b><%= safeEmiAmount %></b>/- each and Last EMI of Rs. <b><%= safeLastEmiAmount %></b>/</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">19</td>
+          <td>Detail of Asset Financed</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">22</td>
+          <td>Other Collateral (If Any)</td>
+          <td>NA</td>
+        </tr>
+        <tr class="grey-bg" style="font-weight: bold;">
+          <td style="text-align: center;">21</td>
+          <td colspan="2">We Accept with Term & Conditions:-</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">A</td>
+          <td>Validity of Sanction Letter</td>
+          <td>30 Days from the date of sanction letter</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">B</td>
+          <td>Detail of Asset Financed</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td style="text-align: center;">C</td>
+          <td>Repayment Schedule</td>
+          <td>Loan Amount to be repaid in (<b><%= safeRepaymentTenor %></b>Months) in equal monthly instalments (EMI) of Rs. <b><%= safeEmiAmount %></b>/- each and last EMI of Rs. <b><%= safeLastEmiAmount %></b>. Start date: <b><%= safeRepaymentStartDate %></b>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="terms-heading">Other Terms & Condition: -</div>
+    
+    <ol class="terms-list">
+      <li>Disbursement will be done in OEM’s Current A/c.</li>
+      <li>Repayment date should be fixed on 5<sup>th</sup> of the succeeding month, and for sake of your convenience 1<sup>st</sup> instalment may include interest of broken days.</li>
+      <li>Prepayment charges shall be calculated on the principal amount outstanding on the day of foreclosure.</li>
+      <li>The loan will be repayable in equated monthly instalment (EMI) and/or in such other manner as mentioned in the key fact statements. <span style="color: red;">With instalment are payable every month.</span> The Emi comprises principle and interest calculated on the basis of monthly, rest at the rate applicable and is rounded off to the next Rupees.</li>
+      <li>Pre EMI interest (PREEMI) at the rate at which the EMI has been calculated subject as aforesaid, shall be charged from the respective date/s of disbursement to the date of commencement of EMI in respect of the loan.</li>
+      <li>Non-refundable charges levied by central registry of securitization of asset reconstruction and security interest of India
+        <div style="margin-left: 15px; margin-top: 3px;">
+          a) The charges for modification and satisfaction of security created in favour of the lender, if and applicable, shall be levied as per applicable law.<br>
+          b) The CERSAI charges mentioned above are non-refundable, statutory regulated and are subject to change as per applicable law.
+        </div>
+      </li>
+      <li>SFL shall cover life and medical Insurance for the tenor of loan. The policy(s)/Cover Note(s) in original should be lodged with SFL. In the event of non-compliances, SFL reserves the right to take insurance cover as required by debiting to your loan account which shall finally be paid by you.</li>
+      <li>Disbursement will be made only after completion of security documentation and formalities in respect of mortgage creation.</li>
+      <li>SFL will not be responsible for any delay in disbursement of loan caused by reasons of non-completion of loan documentation and formalities with respect to mort credit conditions.</li>
+      <li><b>Sanction Conditions are: -</b></li>
+    </ol>
+
+    <div class="page-footer">
+      <div class="footer-signatures">
+        <span>Borrower</span>
+        <span>Co-Borrower1</span>
+        <span>Co-Borrower2</span>
+        <span>Co-Borrower3</span>
+      </div>
+      <div class="footer-page-num">Page 2 | 3</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="page">
+    <div class="header-container">
+      <!-- USER_LOGO: Replace the src attribute with your PNG logo image path (e.g. "/images/logo.png") -->
+      <img src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo" style="height: 40px; max-width: 200px; object-fit: contain;">
+    </div>
+
+    <ul class="bullet-list" style="margin-top: 15px; margin-bottom: 25px; font-size: 9pt; line-height: 1.45;">
+      <li>Hypothecation to be done Towards SFL</li>
+      <li>All Internal Reports to be Positive</li>
+      <li>Repayment to be taken from <b><%= safeRepaymentBankName %></b> Bank A/c having A/c Number <b><%= safeRepaymentBankAccountNo %></b></li>
+      <li>E NACH or M NACH to be activated before disbursement</li>
+    </ul>
+
+    <div class="closing-text">
+      We forward this letter, in duplicate, and along with our terms and conditions and shall be glad if you return to us the duplicate duly signed by you and the Co-Applicant/s as a token of having accepted the terms and condition.
+    </div>
+
+    <div class="closing-text">
+      Assuring you of our best services at all times,
+    </div>
+
+    <div class="signatory-section">
+      <b>Yours Sincerely,<br>
+      For Satin Finserv Ltd.</b>
+      
+      <div style="margin-top: 10px; font-weight: bold;">Authorized Signatory</div>
+      
+      <div class="employee-card">
+        <table style="width: 100%; border: none; font-size: 9pt; border-collapse: collapse;">
+          <tr style="border: none;">
+            <td style="border: none; padding: 2px 0; width: 45%;">Employee Name:</td>
+            <td style="border: none; padding: 2px 0; font-weight: bold;"><%= safeEmployeeName %></td>
+          </tr>
+          <tr style="border: none;">
+            <td style="border: none; padding: 2px 0;">Employee Code:</td>
+            <td style="border: none; padding: 2px 0; font-weight: bold;"><%= safeEmployeeCode %></td>
+          </tr>
+          <tr style="border: none;">
+            <td style="border: none; padding: 2px 0;">Designation:</td>
+            <td style="border: none; padding: 2px 0; font-weight: bold;"><%= safeEmployeeDesignation %></td>
+          </tr>
+          <tr style="border: none;">
+            <td style="border: none; padding: 2px 0;">Branch :</td>
+            <td style="border: none; padding: 2px 0; font-weight: bold;"><%= safeEmployeeBranch %></td>
+          </tr>
+        </table>
+        <div style="margin-top: 15px;">Stamp and Signed………</div>
+      </div>
+    </div>
+
+    <div class="accept-text">We Accept.</div>
+
+    <div class="page-footer">
+      <div class="footer-signatures">
+        <span>Borrower</span>
+        <span>Co-Borrower1</span>
+        <span>Co-Borrower2</span>
+        <span>Co-Borrower3</span>
+      </div>
+      <div class="footer-page-num">Page 3 | 3</div>
+    </div>
+  </div>
+
+ </div>
+</body>
+</html>

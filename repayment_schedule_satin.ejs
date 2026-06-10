@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Repayment Schedule - Satin Finserv Limited</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    .container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+   html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  -webkit-print-color-adjust: exact;
+}
+   .page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  padding: 8mm 12mm 15mm 12mm;
+  box-sizing: border-box;
+  page-break-after: always;
+  overflow: hidden;
+  margin: 0 auto;
+}
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    @media screen {
+      .page {
+        margin: 20px auto;
+      }
+    }
+
+    @media print {
+      html, body {
+        width: 210mm;
+        min-height: auto;
+      }
+
+      .container {
+        display: block;
+      }
+
+      .page {
+        margin: 0;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+    }
+
+    /* Branding Header - centered title */
+    .branding-header {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .branding-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 40px;
+      max-width: 200px;
+      object-fit: contain;
+    }
+    
+    .doc-title {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+    }
+    
+    .company-name {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+    }
+    
+    /* Customer info - NO border, plain text rows */
+    .customer-info-box {
+      margin-bottom: 40px;
+      padding: 0;
+    }
+    
+    .info-row {
+      font-size: 13px;
+      line-height: 1.2;
+      color: #000000;
+      margin-bottom: 8px;
+    }
+    
+    .info-label {
+      font-weight: bold;
+      display: inline-block;
+      width: 145px; /* Label-Value horizontal gap: ~40-50px */
+    }
+    
+    .info-value {
+      font-weight: normal;
+    }
+    
+    /* Schedule Table */
+    table.schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0;
+    }
+    
+    table.schedule-table th,
+    table.schedule-table td {
+      border: 1px solid #000000;
+      padding: 6px 6px;
+      font-size: 10pt;
+      text-align: center;
+      vertical-align: middle;
+      color: #000000;
+    }
+    
+    table.schedule-table th {
+      font-weight: bold;
+      background-color: #ffffff;
+      white-space: nowrap;
+      font-size: 10pt;
+    }
+    
+    table.schedule-table td {
+      font-size: 9pt;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <%
+    const safeBorrowerName = typeof borrowerName !== 'undefined' ? borrowerName : 'Sukhdeep Kaur';
+    const safeOldLoanId = typeof oldLoanId !== 'undefined' ? oldLoanId : '765638';
+    const safeNewLoanId = typeof newLoanId !== 'undefined' ? newLoanId : '765638';
+    const safeCkycNumber = typeof ckycNumber !== 'undefined' ? ckycNumber : '';
+    
+    const allRows = (typeof schedule !== 'undefined' && schedule) ? schedule : [];
+    const page1Rows = allRows.filter(r => r.instNo >= 1 && r.instNo <= 30);
+    const page2Rows = allRows.filter(r => r.instNo >= 31);
+  %>
+
+  <div class="container">
+<!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="branding-header">
+      <img class="branding-logo" src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo">
+      <div class="doc-title">Loan Repayment Schedule</div>
+      <div class="company-name">Satin Finserv Limited</div>
+    </div>
+
+    <div class="customer-info-box">
+      <div class="info-row"><span class="info-label">Customer Name:</span> <span class="info-value"><%= safeBorrowerName %></span></div>
+      
+      <div class="info-row"><span class="info-label">Old Loan Id:</span> <span class="info-value"><%= safeOldLoanId %></span></div>
+      
+      <div class="info-row"><span class="info-label">New Loan Id:</span> <span class="info-value"><%= safeNewLoanId %></span></div>
+      
+      <div class="info-row"><span class="info-label">Ckyc Number:</span> <span class="info-value"><%= safeCkycNumber %></span></div>
+    </div>
+
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th style="width:12%">Instalment No</th>
+          <th style="width:18%">EMI Due Date</th>
+          <th style="width:12%">EMI</th>
+          <th style="width:22%">Principal Components</th>
+          <th style="width:15%">Interest</th>
+          <th style="width:25%">Principal Outstanding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (page1Rows.length > 0) { %>
+          <% page1Rows.forEach(function(row) { %>
+            <tr>
+              <td><%= row.instNo %></td>
+              <td><%= row.emiDueDate %></td>
+              <td><%= Math.round(row.installment) %></td>
+              <td><%= Math.round(row.principalComponent) %></td>
+              <td><%= Math.round(row.interestComponent) %></td>
+              <td><%= Math.round(row.outstandingPrincipal) %></td>
+            </tr>
+          <% }); %>
+        <% } else { %>
+          <% for(let i = 1; i <= 30; i++) { %>
+            <tr>
+              <td><%= i %></td>
+              <td><%= ('05/' + ((i % 12) + 1).toString().padStart(2, '0') + '/' + (2026 + Math.floor(i / 12))) %></td>
+              <td>4596</td>
+              <td>1954</td>
+              <td>2642</td>
+              <td><%= (106992 - (i * 1954)) %></td>
+            </tr>
+          <% } %>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  <% if (page2Rows.length > 0 || allRows.length === 0) { %>
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page">
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th style="width:12%">Instalment No</th>
+          <th style="width:18%">EMI Due Date</th>
+          <th style="width:8%">EMI</th>
+          <th style="width:22%">Principal Components</th>
+          <th style="width:15%">Interest</th>
+          <th style="width:25%">Principal Outstanding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (page2Rows.length > 0) { %>
+          <% page2Rows.forEach(function(row) { %>
+            <tr>
+              <td><%= row.instNo %></td>
+              <td><%= row.emiDueDate %></td>
+              <td><%= Math.round(row.installment) %></td>
+              <td><%= Math.round(row.principalComponent) %></td>
+              <td><%= Math.round(row.interestComponent) %></td>
+              <td><%= Math.round(row.outstandingPrincipal) %></td>
+            </tr>
+          <% }); %>
+        <% } else { %>
+          <% for(let i = 31; i <= 35; i++) { %>
+            <tr>
+              <td><%= i %></td>
+              <td>05/<%= (i-30).toString().padStart(2,'0') %>/2029</td>
+              <td>4596</td>
+              <td>4057</td>
+              <td>539</td>
+              <td><%= (21490 - ((i - 31) * 4057)) %></td>
+            </tr>
+          <% } %>
+          <tr>
+            <td>36</td>
+            <td>05/06/2029</td>
+            <td>4706</td>
+            <td>4590</td>
+            <td>116</td>
+            <td>0</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+  <% } %>
+  </div>
+
+</body>
+</html>
