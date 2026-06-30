@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Facts Statement - Satin Finserv Limited</title>
+  <style>
+    /* A4 Dimensions and Page breaks for PDF engines */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .container-e .container {
+      max-width: 1024px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      padding: 15mm 15mm 25mm 15mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* Logo and Header Box */
+    .header-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    /* Annex / Title Styling */
+    .annex-label {
+      text-align: right;
+      font-size: 10pt;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .doc-header-title {
+      text-align: center;
+      font-size: 12pt;
+      font-weight: bold;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    .doc-header-title .sub {
+      font-size: 10.5pt;
+    }
+
+    /* Table Styling */
+    table.kfs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+    }
+
+    table.kfs-table.joined {
+      margin-bottom: 0;
+    }
+
+    table.kfs-table td,
+    table.kfs-table th {
+      border: 1px solid #000000;
+      padding: 4px 6px;
+      font-size: 8.5pt;
+      vertical-align: top;
+      line-height: 1.3;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    table.kfs-table th {
+      font-weight: bold;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    /* Nested sub-table (collaborative lending) - same look as kfs-table */
+    td.nested-cell {
+      padding: 0 !important;
+    }
+
+    table.nested-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    table.nested-table td,
+    table.nested-table th {
+      border: 1px solid #000000;
+      padding: 4px 6px;
+      font-size: 8.5pt;
+      line-height: 1.3;
+      vertical-align: top;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    table.nested-table th {
+      font-weight: bold;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    .sr {
+      text-align: center;
+      font-weight: bold;
+      width: 5%;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .note {
+      font-size: 7.5pt;
+      font-style: italic;
+      margin: 2px 0 12px 0;
+      line-height: 1.3;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 11pt;
+      font-weight: bold;
+      margin: 14px 0 10px 0;
+    }
+
+    /* Page Footer Styling */
+    .page-footer {
+      position: absolute;
+      bottom: 12mm;
+      left: 15mm;
+      right: 15mm;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      box-sizing: border-box;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 5px;
+    }
+
+    .footer-page-num {
+      font-size: 8pt;
+      font-weight: bold;
+      color: #5b7b9c;
+    }
+  </style>
+</head>
+<body>
+
+  <%
+    // ---- Safe variable assignment with mock fallbacks (project convention) ----
+    // Part 1 - identity / loan
+    const safeLoanProposalNo       = typeof loanProposalNo !== 'undefined' ? loanProposalNo : '';
+    const safeTypeOfLoan           = typeof typeOfLoan !== 'undefined' ? typeOfLoan : '';
+    const safeSanctionedLoanAmount = typeof sanctionedLoanAmount !== 'undefined' ? sanctionedLoanAmount : '__________';
+    const safeProductName          = typeof productName !== 'undefined' ? productName : 'Pink EV Rickshaw';
+    const safeCustomerName         = typeof customerName !== 'undefined' ? customerName : '';
+    const safeDisbursalSchedule    = typeof disbursalSchedule !== 'undefined' ? disbursalSchedule : '100 % upfront';
+    const safeLoanTerm             = typeof loanTerm !== 'undefined' ? loanTerm : '60 Months';
+
+    // Part 1 - instalment
+    const safeInstalmentType       = typeof instalmentType !== 'undefined' ? instalmentType : 'Monthly';
+    const safeNumberOfEpis         = typeof numberOfEpis !== 'undefined' ? numberOfEpis : '60';
+    const safeEpiAmount            = typeof epiAmount !== 'undefined' ? epiAmount : '__________';
+    const safeRepaymentCommence    = typeof repaymentCommence !== 'undefined' ? repaymentCommence : '__________';
+
+    // Part 1 - interest (split into rate + type)
+    const safeInterestRate         = typeof interestRate !== 'undefined' ? interestRate : '24';
+    const safeInterestType         = typeof interestType !== 'undefined' ? interestType : 'Fixed';
+
+    // Part 1 - floating rate sub-table (object: benchmark/benchRate/spread/finalRate/resetB/resetS/impactEpi/impactNoEpis)
+    const safeFloating             = typeof floatingRate !== 'undefined' ? floatingRate : {};
+
+    // Part 1 - fee/charges rows (array of {no,label,reType,reAmount,tpType,tpAmount})
+    const safeFees = (typeof fees !== 'undefined' && Array.isArray(fees) && fees.length) ? fees : [
+      { no: '(i)',   label: 'Processing Fees',   reType: '', reAmount: '', tpType: '', tpAmount: '' },
+      { no: '(ii)',  label: 'Insurance Charges', reType: '', reAmount: '', tpType: '', tpAmount: '' },
+      { no: '(iii)', label: 'Commitment Fees',   reType: '', reAmount: '', tpType: '', tpAmount: '' },
+      { no: '(iv)',  label: 'Document Charge',   reType: '', reAmount: '', tpType: '', tpAmount: '' },
+      { no: '(v)',   label: 'CERSAI Charge',     reType: '', reAmount: '', tpType: '', tpAmount: '' }
+    ];
+
+    const safeApr                  = typeof apr !== 'undefined' ? apr : '';
+
+    // Part 1 - contingent charges
+    const safePenalCharges         = typeof penalCharges !== 'undefined' ? penalCharges : '24% p.a on Overdue Amount for the default period';
+    const safeOtherPenalCharges    = typeof otherPenalCharges !== 'undefined' ? otherPenalCharges : '';
+    const safeForeclosureCharges   = typeof foreclosureCharges !== 'undefined' ? foreclosureCharges : '5% on principal outstanding + GST';
+    const safeSwitchingCharges     = typeof switchingCharges !== 'undefined' ? switchingCharges : '';
+    const safeOtherCharges         = typeof otherCharges !== 'undefined' ? otherCharges : '';
+
+    // Part 2 - qualitative
+    const safeRecoveryAgentClause  = typeof recoveryAgentClause !== 'undefined' ? recoveryAgentClause : '';
+    const safeGrievanceClause      = typeof grievanceClause !== 'undefined' ? grievanceClause : 'Agreement clause no 27';
+    const safeNodalOfficer         = typeof nodalOfficer !== 'undefined' ? nodalOfficer : '';
+    const safeTransferToOtherRE    = typeof transferToOtherRE !== 'undefined' ? transferToOtherRE : '';
+    const safeOriginatingRE        = typeof originatingRE !== 'undefined' ? originatingRE : '';
+    const safePartnerRE            = typeof partnerRE !== 'undefined' ? partnerRE : '';
+    const safeBlendedRate          = typeof blendedRate !== 'undefined' ? blendedRate : '';
+    const safeCoolingOffPeriod     = typeof coolingOffPeriod !== 'undefined' ? coolingOffPeriod : '';
+    const safeLspDetails           = typeof lspDetails !== 'undefined' ? lspDetails : '';
+    const safeValidityPeriod       = typeof validityPeriod !== 'undefined' ? validityPeriod : '5 Days';
+
+    // Annex B - computation of APR
+    const safeTotalInterestAmount  = typeof totalInterestAmount !== 'undefined' ? totalInterestAmount : '__________';
+    const safeFeeChargesPayable    = typeof feeChargesPayable !== 'undefined' ? feeChargesPayable : '__________';
+    const safePayableToRe          = typeof payableToRe !== 'undefined' ? payableToRe : '__________';
+    const safePayableToThirdParty  = typeof payableToThirdParty !== 'undefined' ? payableToThirdParty : '-';
+    const safeNetDisbursedAmount   = typeof netDisbursedAmount !== 'undefined' ? netDisbursedAmount : '__________';
+    const safeTotalAmountPayable   = typeof totalAmountPayable !== 'undefined' ? totalAmountPayable : '__________';
+    const safeScheduleOfDisbursement = typeof scheduleOfDisbursement !== 'undefined' ? scheduleOfDisbursement : '';
+    const safeDueDate              = typeof dueDate !== 'undefined' ? dueDate : '5th of Every Month';
+
+    // Signatures
+    const safeCoBorrowerName       = typeof coBorrowerName !== 'undefined' ? coBorrowerName : '';
+    const safeAuthorizedSignatory  = typeof authorizedSignatory !== 'undefined' ? authorizedSignatory : 'For Satin Finserv Ltd.';
+  %>
+
+  <div class="container-e">
+
+  <!-- ================= PAGE 1 : ANNEX A - PART 1 ================= -->
+  <div class="page">
+
+    <div class="annex-label">Annex A</div>
+
+    <div class="doc-header-title">
+      KEY FACTS STATEMENT<br>
+      <span class="sub">PART 1 (INTEREST RATE AND FEES/CHARGES)</span>
+    </div>
+
+    <!-- Items 1 - 8 -->
+    <table class="kfs-table joined">
+      <tbody>
+        <tr>
+          <td class="sr">1</td>
+          <td style="width: 40%;">Loan Proposal/ Account No.</td>
+          <td style="width: 25%;"><%= safeLoanProposalNo %></td>
+          <td style="width: 15%;"><b>Type of Loan</b></td>
+          <td style="width: 15%;"><%= safeTypeOfLoan %></td>
+        </tr>
+        <tr>
+          <td class="sr">2</td>
+          <td>Sanctioned Loan Amount (In Rupees)</td>
+          <td class="bold"><%= safeSanctionedLoanAmount %></td>
+          <td><b>Product Name</b></td>
+          <td class="bold"><%= safeProductName %></td>
+        </tr>
+        <tr>
+          <td class="sr">3</td>
+          <td>Customer Name</td>
+          <td colspan="3" class="bold"><%= safeCustomerName %></td>
+        </tr>
+        <tr>
+          <td class="sr">4</td>
+          <td>
+            Disbursal Schedule<br>
+            (i) Disbursement in stages or 100% upfront.<br>
+            (ii) If it is stage wise, mention the clause of loan agreement having relevant details
+          </td>
+          <td colspan="3"><%= safeDisbursalSchedule %></td>
+        </tr>
+        <tr>
+          <td class="sr">5</td>
+          <td>Loan Term (year/months/days)</td>
+          <td colspan="3" class="bold"><%= safeLoanTerm %></td>
+        </tr>
+        <tr>
+          <td class="sr">6</td>
+          <td colspan="4"><b>Instalment Details</b></td>
+        </tr>
+        <tr>
+          <th>Type of Instalments</th>
+          <th>Number of EPIs</th>
+          <th>EPI (INR)</th>
+          <th colspan="2">Commencement of Repayment, Post Sanction (DD-MMM-YYYY)</th>
+        </tr>
+        <tr>
+          <td class="center"><%= safeInstalmentType %></td>
+          <td class="center"><%= safeNumberOfEpis %></td>
+          <td class="center bold"><%= safeEpiAmount %></td>
+          <td colspan="2" class="center bold"><%= safeRepaymentCommence %></td>
+        </tr>
+        <tr>
+          <td class="sr">7</td>
+          <td colspan="3">Interest Rate (%) and Type (fixed or floating or hybrid)</td>
+          <td class="bold"><%= safeInterestRate %>% , <%= safeInterestType %></td>
+        </tr>
+        <tr>
+          <td class="sr">8</td>
+          <td colspan="3">Additional Information in case of Floating Rate of Interest</td>
+          <td class="bold center">NA</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Floating-rate benchmark sub-table (RBI mandatory structure; blank for Fixed loans) -->
+    <table class="kfs-table joined" style="table-layout: fixed;">
+      <colgroup>
+        <col style="width: 16%;">
+        <col style="width: 12%;">
+        <col style="width: 10%;">
+        <col style="width: 14%;">
+        <col style="width: 6%;">
+        <col style="width: 6%;">
+        <col style="width: 18%;">
+        <col style="width: 18%;">
+      </colgroup>
+      <tbody>
+        <tr>
+          <th rowspan="2">Reference Benchmark</th>
+          <th rowspan="2">Benchmark Rate (%) (B)</th>
+          <th rowspan="2">Spread (%) (S)</th>
+          <th rowspan="2">Final Rate (%) R = (B) + (S)</th>
+          <th colspan="2">Reset Periodicity (Months)</th>
+          <th colspan="2">Impact of Change in the Reference Benchmark (For 25 bps change in 'R', change in:)</th>
+        </tr>
+        <tr>
+          <th>B</th>
+          <th>S</th>
+          <th>EPI ( )</th>
+          <th>No. of EPIs</th>
+        </tr>
+        <tr style="height: 26px;">
+          <td class="center"><%= safeFloating.benchmark || '' %></td>
+          <td class="center"><%= safeFloating.benchRate || '' %></td>
+          <td class="center"><%= safeFloating.spread || '' %></td>
+          <td class="center"><%= safeFloating.finalRate || '' %></td>
+          <td class="center"><%= safeFloating.resetB || '' %></td>
+          <td class="center"><%= safeFloating.resetS || '' %></td>
+          <td class="center"><%= safeFloating.impactEpi || '' %></td>
+          <td class="center"><%= safeFloating.impactNoEpis || '' %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Fee / Charges block (item 9) + items 10-11 in one continuous table -->
+    <table class="kfs-table" style="table-layout: fixed;">
+      <colgroup>
+        <col style="width: 5%;">
+        <col style="width: 27%;">
+        <col style="width: 14%;">
+        <col style="width: 20%;">
+        <col style="width: 14%;">
+        <col style="width: 20%;">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td class="sr">9</td>
+          <td colspan="5"><b>Fee/ Charges</b></td>
+        </tr>
+        <tr>
+          <th rowspan="2"></th>
+          <th rowspan="2"></th>
+          <th colspan="2">Payable to the RE (A)</th>
+          <th colspan="2">Payable to a Third Party Through RE (B)</th>
+        </tr>
+        <tr>
+          <th>One-time/ Recurring</th>
+          <th>Amount (in INR) or Percentage (%) as applicable</th>
+          <th>One-time/ Recurring</th>
+          <th>Amount (in INR) or Percentage (%) as applicable</th>
+        </tr>
+        <% safeFees.forEach(function (fee) { %>
+        <tr>
+          <td class="sr"><%= fee.no %></td>
+          <td><%= fee.label %></td>
+          <td class="center"><%= fee.reType || '' %></td>
+          <td class="center"><%= fee.reAmount || '' %></td>
+          <td class="center"><%= fee.tpType || '' %></td>
+          <td class="center"><%= fee.tpAmount || '' %></td>
+        </tr>
+        <% }) %>
+        <tr>
+          <td class="sr">10</td>
+          <td colspan="3">Annual Percentage Rate (APR) (%)</td>
+          <td colspan="2" class="center bold"><%= safeApr %> %</td>
+        </tr>
+        <tr>
+          <td class="sr">11</td>
+          <td colspan="5">Details of Contingent Charges (in INR or %, as applicable)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="page-footer">
+      <div class="footer-page-num">Page 1 | 3</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 2 : CONTINGENT CHARGES + PART 2 ================= -->
+  <div class="page">
+
+    <table class="kfs-table" style="margin-top: 5px;">
+      <tbody>
+        <tr>
+          <td class="sr">(i)</td>
+          <td style="width: 65%;">Penal charges, if any, in case of delayed payment</td>
+          <td><%= safePenalCharges %></td>
+        </tr>
+        <tr>
+          <td class="sr">(ii)</td>
+          <td>Other penal charges, if any</td>
+          <td><%= safeOtherPenalCharges %></td>
+        </tr>
+        <tr>
+          <td class="sr">(iii)</td>
+          <td>Foreclosure charges, if applicable</td>
+          <td><%= safeForeclosureCharges %></td>
+        </tr>
+        <tr>
+          <td class="sr">(iv)</td>
+          <td>Charges for switching of loans from floating to fixed rate and vice versa</td>
+          <td><%= safeSwitchingCharges %></td>
+        </tr>
+        <tr>
+          <td class="sr">(v)</td>
+          <td>Any other charges (please specify)</td>
+          <td><%= safeOtherCharges %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      1. REs may disclose the amount net of any taxes such as GST<br>
+      2. Please refer Annex B
+    </div>
+
+    <div class="section-title">PART 2 (OTHER QUALITATIVE INFORMATION)</div>
+
+    <table class="kfs-table" style="table-layout: fixed;">
+      <colgroup>
+        <col style="width: 5%;">
+        <col style="width: 55%;">
+        <col style="width: 40%;">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td class="sr">1</td>
+          <td>Clause of Loan agreement relating to engagement of recovery agents</td>
+          <td><%= safeRecoveryAgentClause %></td>
+        </tr>
+        <tr>
+          <td class="sr">2</td>
+          <td>Clause of Loan agreement which details Grievance Redressal mechanism</td>
+          <td><%= safeGrievanceClause %></td>
+        </tr>
+        <tr>
+          <td class="sr">3</td>
+          <td>Phone number and email id of the nodal grievance redressal officer</td>
+          <td><%= safeNodalOfficer %></td>
+        </tr>
+        <tr>
+          <td class="sr">4</td>
+          <td>Whether the loan is, or in future maybe, subject to transfer to other REs or securitisation (Yes/ No)</td>
+          <td><%= safeTransferToOtherRE %></td>
+        </tr>
+        <tr>
+          <td class="sr">5</td>
+          <td colspan="2">In case of lending under collaborative lending arrangements (e.g. co-lending/ outsourcing), following additional details may be furnished:</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="nested-cell">
+            <table class="nested-table">
+              <colgroup>
+                <col style="width: 40%;">
+                <col style="width: 35%;">
+                <col style="width: 25%;">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>Name of the originating RE, along with its funding proportion</th>
+                  <th>Name of the partner RE along with its proportion of funding</th>
+                  <th>Blended rate of interest</th>
+                </tr>
+                <tr>
+                  <td class="center"><%= safeOriginatingRE %>&nbsp;</td>
+                  <td class="center"><%= safePartnerRE %></td>
+                  <td class="center"><%= safeBlendedRate %></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="sr">6</td>
+          <td colspan="2">In case of digital loans, following specific disclosures may be furnished:</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>(i) Cooling off/look-up period, in terms of RE's board approved policy, during which borrower shall not be charged any penalty on prepayment of loan</td>
+          <td><%= safeCoolingOffPeriod %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>(ii) Details of LSP acting as recovery agent and authorized to approach the borrower</td>
+          <td><%= safeLspDetails %></td>
+        </tr>
+        <tr>
+          <td class="sr">7</td>
+          <td>Validity period</td>
+          <td><%= safeValidityPeriod %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="page-footer">
+      <div class="footer-page-num">Page 2 | 3</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 3 : ANNEX B - COMPUTATION OF APR ================= -->
+  <div class="page">
+
+    <div class="annex-label">ANNEX B</div>
+
+    <div class="doc-header-title">COMPUTATION OF APR</div>
+
+    <table class="kfs-table">
+      <thead>
+        <tr>
+          <th style="width: 8%;">Sr. No.</th>
+          <th>Parameter</th>
+          <th style="width: 25%;">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center">1</td>
+          <td>Sanctioned Loan Amount (in Rupees) (Sl no. 2 of the KFS template &ndash; Part 1)</td>
+          <td class="center bold"><%= safeSanctionedLoanAmount %></td>
+        </tr>
+        <tr>
+          <td class="center">2</td>
+          <td>Loan Term (in years/ months/ days) (Sl No.5 of the KFS template &ndash; Part 1)</td>
+          <td class="center bold"><%= safeLoanTerm %></td>
+        </tr>
+        <tr>
+          <td class="center">a)</td>
+          <td>No. of installments for payment of principal, in case of non-equated periodic loans</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="center">b)</td>
+          <td>Type of EPI, Amount of each EPI (in Rupees) and nos. of EPIs (e.g., no. of EMIs in case of monthly installments) (Sl No. 6 of the KFS template &ndash; Part 1)</td>
+          <td class="center bold"><%= safeInstalmentType %><br><%= safeEpiAmount %><br><%= safeNumberOfEpis %></td>
+        </tr>
+        <tr>
+          <td class="center">c)</td>
+          <td>No. of installments for payment of capitalized interest, if any</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="center">d)</td>
+          <td>Commencement of repayments, post sanction (DD-MMM-YYYY, Sl No. 6 of the KFS template &ndash; Part 1)</td>
+          <td class="center bold"><%= safeRepaymentCommence %></td>
+        </tr>
+        <tr>
+          <td class="center">3</td>
+          <td>Interest rate type (fixed or floating or hybrid) (Sl No. 7 of the KFS template &ndash; Part 1)</td>
+          <td class="center bold"><%= safeInterestType %></td>
+        </tr>
+        <tr>
+          <td class="center">4</td>
+          <td>Rate of Interest (Sl No. 7 of the KFS template &ndash; Part 1)</td>
+          <td class="center bold"><%= safeInterestRate %>%</td>
+        </tr>
+        <tr>
+          <td class="center">5</td>
+          <td>Total Interest Amount to be charged during the entire tenor of the loan as per the rate prevailing on sanction date (in Rupees)</td>
+          <td class="center bold"><%= safeTotalInterestAmount %></td>
+        </tr>
+        <tr>
+          <td class="center">6</td>
+          <td>Fee/ Charges payable (in Rupees)</td>
+          <td class="center bold"><%= safeFeeChargesPayable %></td>
+        </tr>
+        <tr>
+          <td class="center">A</td>
+          <td>Payable to the RE (Serial Number 9A of the KFS template-Part 1)</td>
+          <td class="center bold"><%= safePayableToRe %></td>
+        </tr>
+        <tr>
+          <td class="center">B</td>
+          <td>Payable to third-party routed through RE (Sl No.9 B of the KFS template &ndash; Part 1)</td>
+          <td class="center bold"><%= safePayableToThirdParty %></td>
+        </tr>
+        <tr>
+          <td class="center">7</td>
+          <td>Net disbursed amount (1-6) (in Rupees)</td>
+          <td class="center bold"><%= safeNetDisbursedAmount %></td>
+        </tr>
+        <tr>
+          <td class="center">8</td>
+          <td>Total amount to be paid by the borrower (sum of 1 and 5) (in Rupees)</td>
+          <td class="center bold"><%= safeTotalAmountPayable %></td>
+        </tr>
+        <tr>
+          <td class="center">9</td>
+          <td>Annual Percentage Rate- Effective annualized interest rate (in percentage) (Sl No.9 of the KFS template-Part 1)</td>
+          <td class="center bold"><%= safeApr %></td>
+        </tr>
+        <tr>
+          <td class="center">10</td>
+          <td>Schedule of disbursement as per terms and conditions</td>
+          <td class="center"><%= safeScheduleOfDisbursement %></td>
+        </tr>
+        <tr>
+          <td class="center">11</td>
+          <td>Due date of payment of installment and interest</td>
+          <td class="center bold"><%= safeDueDate %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      3. Where such charges cannot be determined prior to sanction, REs may indicate an upper ceiling<br>
+      4. The difference in repayment amount calculated from the total of installments given under the detailed repayment schedule vis-&agrave;-vis the amount mentioned under (8) is due to rounding off the installment amount under the detailed repayment schedule<br>
+      5. Computed on net disbursed amount using IRR approach and reducing balance method
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-page-num">Page 3 | 3</div>
+    </div>
+  </div>
+
+  </div>
+</body>
+</html>

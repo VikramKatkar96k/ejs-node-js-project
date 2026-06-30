@@ -62,6 +62,18 @@ app.get('/sanction_letter_english', async (req, res) => {
 app.get('/sanction_letter_marathi', (req, res) => {
   res.render('sanction_letter_marathi');
 });
+
+app.get('/kfs_english', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'kfs_english.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const kfsData = JSON.parse(rawData);
+    res.render('kfs_english', kfsData);
+  } catch (error) {
+    console.error('Failed to load KFS JSON:', error);
+    res.status(500).send('Unable to load Key Facts Statement.');
+  }
+});
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
