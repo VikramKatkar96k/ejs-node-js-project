@@ -63,6 +63,18 @@ app.get('/sanction_letter_marathi', (req, res) => {
   res.render('sanction_letter_marathi');
 });
 
+app.get('/agreement_marathi', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'agreement_marathi.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const agreementData = JSON.parse(rawData);
+    res.render('agreement_marathi', agreementData);
+  } catch (error) {
+    console.error('Failed to load agreement JSON:', error);
+    res.status(500).send('Unable to load agreement.');
+  }
+});
+
 app.get('/kfs_english', async (req, res) => {
   try {
     const dataPath = path.join(__dirname, 'json', 'kfs_english.json');
