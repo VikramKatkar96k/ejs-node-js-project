@@ -16,7 +16,7 @@
       width: 100%;
       height: 100%;
       background-color: #ffffff;
-      font-family: 'Nirmala UI', 'Mangal', Arial, sans-serif;
+      font-family: 'Mangal', 'Nirmala UI', 'Kokila', Arial, sans-serif;
       -webkit-print-color-adjust: exact;
     }
 
@@ -192,6 +192,11 @@
   const safeInsuranceInstalment = v(typeof insuranceInstalment !== 'undefined' ? insuranceInstalment : undefined, 'भारतीय रुपये XXXXX /- (रुपये XXXXXXXXX) (वस्तू आणि सेवा करासह)');
   const safeDisputeResolutionPlace = v(typeof disputeResolutionPlace !== 'undefined' ? disputeResolutionPlace : undefined, 'दिल्लीचे अनन्य अधिकारक्षेत्र.');
   const safeLoanAccountNo = v(typeof loanAccountNo !== 'undefined' ? loanAccountNo : undefined, '________________');
+  const safeProcessingCharge = v(typeof processingCharge !== 'undefined' ? processingCharge : undefined, '१.५');
+  const safeCtdCharge = v(typeof ctdCharge !== 'undefined' ? ctdCharge : undefined, '________');
+  const safeInsuranceCharge = v(typeof insuranceCharge !== 'undefined' ? insuranceCharge : undefined, '________');
+  const safeNetAmount = v(typeof netAmount !== 'undefined' ? netAmount : undefined, '________');
+  const safeLoanAmountWords = v(typeof loanAmountWords !== 'undefined' ? loanAmountWords : undefined, '________________');
 %>
 
 <!-- ================= PAGE 1 ================= -->
@@ -335,11 +340,6 @@
 
   <p class="clause">७.२. कर्जदार हे मान्य करतो की कसुरीचे शुल्क भरल्याने कर्जदाराला वित्त दस्तऐवजांअंतर्गत असलेल्या इतर कोणत्याही दायित्वांतून मुक्ती मिळणार नाही, ज्यामध्ये वेळेवर देयके देणे आणि या करारांतर्गत किंवा इतर कोणत्याही वित्त दस्तऐवजांतर्गत कर्जदात्याला देय असलेल्या इतर रकमेची परतफेड करणे समाविष्ट आहे, किंवा त्यामुळे वित्त दस्तऐवजांअंतर्गत असलेल्या इतर कोणत्याही अधिकारांवर परिणाम होणार नाही. शंका दूर करण्यासाठी, हे स्पष्ट केले जाते की कसुरीचे शुल्क भरणे हे कर्जदात्याला वित्त दस्तऐवजांअंतर्गत असलेल्या इतर अधिकारांव्यतिरिक्त आहे आणि कर्जदाता या करारांतर्गत, वित्त दस्तऐवजांअंतर्गत आणि लागू कायद्यांतर्गत आपले सर्व अधिकार राखून ठेवतो.</p>
 
-  <div class="page-footer"><div class="footer-page-num">4</div></div>
-</div>
-
-<!-- ================= PAGE 5 ================= -->
-<div class="page">
   <div class="section-heading">८. मुद्रांक शुल्क</div>
 
   <p class="clause">कर्जदार त्वरित, आणि कोणत्याही परिस्थितीत कर्जदात्याने मागणी केल्यावर १० (दहा) कामकाजाच्या दिवसांच्या आत, या कराराच्या किंवा कोणत्याही वित्त दस्तऐवजाच्या संदर्भात देय असलेले सर्व मुद्रांक शुल्क, नोंदणी आणि इतर तत्सम रकमांचा शुल्क, या कर्जदाराकडून या कलमाचे उल्लंघन झाल्यामुळे उद्भवणाऱ्या किंवा त्याच्याशी संबंधित कोणत्याही दाव्यासाठी, दंडासाठी, मागण्यांसाठी, कृतीसाठी किंवा खटल्यासाठी कर्जदात्याला लागणारा कोणताही नुकसान भरून काढेल. कर्जदार हे समजते आणि हे मान्य करतो की या करारावर आणि इतर वित्त दस्तऐवजांवर लागू कायद्यांतर्गत आकारलेले कोणतेही देय होऊ शकणारे मुद्रांक शुल्क यामध्ये समाविष्ट आहे, ज्यामध्ये कर्जदात्याव्यतिरिक्त इतर व्यक्ती वित्त दस्तऐवजांमध्ये पक्षकार बनल्यामुळे लागू होणाऱ्या शुल्काचाही समावेश आहे.</p>
@@ -348,6 +348,11 @@
 
   <p class="clause">९.१. कर्जदात्याकडून वितरीत केलेली रक्कम प्राप्त झाल्याच्या तारखेपासून १० दिवसांच्या कालावधीसाठी ("<b>विचार करण्याचा कालावधी</b>") कोणताही दंड न भरता मुद्दल आणि प्रमाणित वार्षिक दर भरून कर्जदार कर्ज सुविधा रद्द करण्यास पात्र असेल, जो कर्जदार विचार करण्याचा कालावधी संपल्यानंतरही कर्ज चालू ठेवतो तो या कराराच्या अटी व शर्तींना बांधील राहील. या कराराच्या उद्देशासाठी "प्रमाणित वार्षिक दर" म्हणजे कर्जदाराला आकारला जाणारा प्रभावी वार्षिक दर जो सर्वसमावेशक खर्च आणि नफा असेल, ज्यामध्ये निधीचा खर्च, पत आणि परिचालन खर्च, प्रक्रिया शुल्क, पडताळणी शुल्क, देखभाल शुल्क इत्यादींचा समावेश असेल आणि त्यामध्ये कोणतेही दंडात्मक शुल्क, विलंबित पेमेंट शुल्क इत्यादींचा समावेश नसेल.</p>
 
+  <div class="page-footer"><div class="footer-page-num">4</div></div>
+</div>
+
+<!-- ================= PAGE 5 ================= -->
+<div class="page">
   <p class="clause">९.२. या करारात किंवा इतर कोणत्याही वित्त दस्तऐवजात काहीही नमूद असले तरीही, कर्जदार सहमत आहे आणि पुष्टी करतो की कर्जदाराने थकीत दायित्वांची परतफेड करण्याच्या बंधनाला बाधा न आणता, अंतिम तडजोडीच्या तारखेपर्यंत कोणत्याही वेळी लागू कायद्याचा कर्ज सुविधा मागे घेण्याचा अधिकार कर्जदाता राखून ठेवतो. असे कोणतेही रद्दीकरण किंवा माघार घेतल्याने कर्जदाराला कोणत्याही दायित्वातून मुक्ती मिळणार नाही.</p>
 
   <div class="section-heading">१०. सादरीकरण आणि हमी</div>
@@ -377,7 +382,7 @@
 
 <!-- ================= PAGE 6 ================= -->
 <div class="page">
-  <p class="clause">चुकीची सूचना.</p>
+  <p class="clause">फसव्या सूचना.</p>
 
   <p class="clause">११.११. या कलमांतर्गत समाविष्ट असलेल्या नुकसानभरपाईची अंमलबजावणी करण्यासाठी आवश्यक असलेल्या सर्व रकमा आणि या कलमांतर्गत कर्जदाराने देय असलेल्या सर्व रकमा कर्ज सुविधेचा भाग बनतील. कर्जदात्याच्या या कलमांतर्गत कोणत्याही रकमेच्या दाव्याची पावती मिळाल्यावर, कर्जदार त्वरित मागणी केल्यावर आणि कर्जदात्याच्या मागणीपासून ३ (तीन) कामकाजाच्या दिवसांच्या आत, या कलमांतर्गत देय असलेली कोणतीही रक्कम कर्जदात्याला देईल.</p>
 
@@ -779,6 +784,14 @@
               <td style="border: 1px solid #000; padding: 4px 6px;">XXX</td>
               <td style="border: 1px solid #000; padding: 4px 6px;"><%= safePrepaymentLockIn %></td>
             </tr>
+            <tr>
+              <td style="border: 1px solid #000; padding: 4px 6px; height: 22px;">&nbsp;</td>
+              <td style="border: 1px solid #000; padding: 4px 6px; height: 22px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #000; padding: 4px 6px; height: 22px;">&nbsp;</td>
+              <td style="border: 1px solid #000; padding: 4px 6px; height: 22px;">&nbsp;</td>
+            </tr>
           </table>
         </td>
       </tr>
@@ -881,10 +894,14 @@
         </td>
       </tr>
       <tr>
+        <td class="sr">&nbsp;</td>
+        <td class="label">&nbsp;</td>
+        <td><b>यांच्या माहितीसाठी:</b></td>
+      </tr>
+      <tr>
         <td class="sr">३०</td>
         <td class="label">कर्जदात्याला द्यावयाच्या नोटिसा</td>
         <td>
-          <b>यांच्या माहितीसाठी:</b><br>
           पत्ता: सॅटिन फिनसर्व्ह लिमिटेड, चौथा मजला, 'बी' विंग, प्लॉट क्र. ४९२, उद्योग विहार, फेज - ३ गुरुग्राम, हरियाणा - १२२०१६<br>
           फोन: +९१- १८००-५७२-११०२<br>
           ईमेल: info@satinfinserv.com
@@ -935,6 +952,131 @@
   </div>
 
   <div class="page-footer"><div class="footer-page-num">20</div></div>
+</div>
+
+<!-- ================= PAGE 21 — कर्ज वितरण विनंती अर्ज ================= -->
+<div class="page">
+  <div class="doc-title" style="text-decoration: underline;">कर्ज वितरण विनंती अर्ज</div>
+
+  <p>दिनांक: <span class="fill-value"><%= safeAgreementDate %></span></p>
+
+  <p style="margin-bottom: 0; line-height: 1.5;">
+    सॅटिन फिनसर्व्ह लिमिटेड चौथा मजला,<br>
+    'बी' विंग, प्लॉट क्र. ४९२,<br>
+    उद्योग विहार, फेज - ३,<br>
+    गुरुग्राम, हरियाणा – १२२०१६
+  </p>
+
+  <p style="margin-top: 14px;">महोदय,</p>
+  <p>हे मेसर्स <b>सॅटिन फिनसर्व्ह लिमिटेड</b> मधील माझ्या <span class="fill-value"><%= safeLoanAccountNo %></span> या कर्ज खाते क्रमांकाच्या संदर्भात आहे.</p>
+
+  <p>मला/आम्हाला व्यवसाय कर्जापोटी एकूण रु. <span class="fill-value"><%= safeLoanAmount %></span>/- चे कर्ज मंजूर करण्यात आले आहे.</p>
+
+  <table class="schedule-table">
+    <tbody>
+      <tr>
+        <td class="label" style="width: 55%;">मंजूर कर्जाची रक्कम (रु.)</td>
+        <td><span class="fill-value"><%= safeLoanAmount %></span></td>
+      </tr>
+      <tr>
+        <td class="label">कर्जाची रक्कम (रु.)</td>
+        <td><span class="fill-value"><%= safeLoanAmount %></span></td>
+      </tr>
+      <tr>
+        <td class="label">वस्तू आणि सेवा करासह प्रक्रिया शुल्क कर्जाच्या रकमेच्या <%= safeProcessingCharge %>%</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="label">वस्तू आणि सेवा करासह ग्राहक पडताळणी शुल्क कर्जाच्या रकमेच्या <%= safeCtdCharge %>%</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="label">वस्तू आणि सेवा करासह दस्तऐवजीकरण शुल्क</td>
+        <td><%= safeDocumentationCharge %></td>
+      </tr>
+      <tr>
+        <td class="label">विमा शुल्क</td>
+        <td><%= safeInsuranceCharge %></td>
+      </tr>
+      <tr>
+        <td class="label">हप्त्यापूर्वीचे व्याज</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td class="label">जमा करावयाची निव्वळ रक्कम (रु.)</td>
+        <td><%= safeNetAmount %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>विनंती आहे की खालील तपशिलानुसार कर्ज वितरण करावे:</p>
+
+  <table class="schedule-table">
+    <tbody>
+      <tr>
+        <td class="label" style="width: 35%;">धनादेश / एनईएफटी</td>
+        <td>एनईएफटी</td>
+      </tr>
+      <tr>
+        <td class="label">लाभार्थी</td>
+        <td><span class="fill-value"><%= safeBorrowerName %></span></td>
+      </tr>
+      <tr>
+        <td class="label">रक्कम</td>
+        <td>रु. <%= safeLoanAmount %>/-</td>
+      </tr>
+      <tr>
+        <td class="label">बँकेचे नाव</td>
+        <td><span class="fill-value"><%= safeLoanRepaymentBankName %></span></td>
+      </tr>
+      <tr>
+        <td class="label">बँक खाते क्र.</td>
+        <td><span class="fill-value"><%= safeRepaymentBankAccountNo %></span></td>
+      </tr>
+      <tr>
+        <td class="label">बँकेचा आयएफएससी कोड</td>
+        <td><span class="fill-value"><%= safeDisbursementIfsc %></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>या वितरणासह, वर नमूद केलेल्या कर्ज खात्यातून काढलेली एकूण रक्कम रु. <span class="fill-value"><%= safeLoanAmount %></span>/- इतकी होईल, जी अंतिम कर्जाची रक्कम असेल.</p>
+
+  <div style="margin-top: 24px;">
+    <p style="margin-bottom: 4px;">आपला/आपली नम्र,</p>
+    <p style="margin-bottom: 44px;"><b>श्री./श्रीमती <%= safeBorrowerName %></b></p>
+    <p>नाव - <span class="fill-value"><%= safeBorrowerName %></span></p>
+  </div>
+
+  <div class="page-footer"><div class="footer-page-num">Page 1 of 1</div></div>
+</div>
+
+<!-- ================= PAGE 22 — मागणी वचनचिठ्ठी ================= -->
+<div class="page">
+  <div class="doc-title" style="text-decoration: underline;">मागणी वचनचिठ्ठी</div>
+
+  <div style="width: 90px; height: 110px; border: 1px solid #000; margin: 12px auto 22px auto; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 8pt; line-height: 1.3;">Revenue<br>Stamp</div>
+
+  <div style="display: flex; justify-content: space-between; margin-bottom: 18px;">
+    <span>भारतीय रुपये <span class="fill-value"><%= safeLoanAmount %></span></span>
+    <span>ठिकाण: <%= safeAgreementPlace %></span>
+  </div>
+
+  <p>मागणी केल्यावर मी, <span class="fill-value"><%= safeBorrowerName %></span>, एक भारतीय रहिवासी, राहणार <span class="fill-value"><%= safeBorrowerAddress %></span> ("<b>कर्जदार</b>"), प्राप्त झालेल्या मूल्याच्या मोबदल्यात, एसएफएल (कायदेशीर संस्थेचे नाव - सॅटिन फिनसर्व्ह लिमिटेड), भारताच्या कायद्यांतर्गत स्थापन झालेली कंपनी जिचे नोंदणीकृत कार्यालय चौथा मजला, 'बी' विंग, प्लॉट क्र. ४९२, उद्योग विहार, फेज - ३ गुरुग्राम, हरियाणा - १२२०१६ येथे आहे (ज्यामध्ये "<b>कर्जदाता</b>", त्याचे वारसदार आणि अभिहस्तांकित यांचा समावेश आहे), यांना भारतीय रुपये <span class="fill-value"><%= safeLoanAmount %></span>/- (भारतीय रुपये <span class="fill-value"><%= safeLoanAmountWords %></span> केवळ) सोबत आजच्या तारखेपासून वार्षिक <span class="fill-value"><%= safeInterestRate %></span> दराने व्याज देण्याचे वचन देतो (सुविधा कराराच्या अटींनुसार, ज्यावर अंतिम विद्युतीय स्वाक्षरी प्रमाणपत्र लावल्याची तारीख अंमलबजावणीची तारीख असेल, आणि जे [मासिक/त्रैमासिक/वार्षिक] अंतराने देय असेल).</p>
+
+  <p>ही मागणी वचनचिठ्ठी सुविधेअंतर्गत आता किंवा भविष्यात न भरलेल्या अंतिम शिल्लक रकमेच्या आणि/किंवा सर्व रकमांच्या परतफेडीसाठी अंमलबजावणीयोग्य असलेली तुमच्याप्रती एक निरंतर सुरक्षा म्हणून कार्य करेल, ज्यामध्ये सर्व व्याज, कसुरीचे शुल्क, खर्च आणि सुविधेच्या संदर्भात किंवा अंतर्गत देय होणारे प्रभार किंवा भविष्यात तुमच्याद्वारे आम्हाला दिले जाणारे प्रभार समाविष्ट आहेत आणि सुविधेच्या संबंधात वेळोवेळी केलेल्या प्रदानानंतरही किंवा सुविधेअंतर्गत देय असलेली रक्कम वेळोवेळी कमी किंवा संपुष्टात आल्यावरही आम्ही या मागणी वचनचिठ्ठी अंतर्गत जबाबदार राहू.</p>
+
+  <p>याची साक्ष म्हणून, ही मागणी वचनचिठ्ठी कर्जदाराद्वारे खाली नमूद केलेल्या दिवशी आणि वर्षी स्वाक्षरी करून वितरित केली गेली आहे.</p>
+
+  <div style="margin-top: 44px;">
+    <p style="margin-bottom: 4px;"><b>यांच्याद्वारे स्वाक्षरीकृत</b></p>
+    <p style="margin-bottom: 4px;">श्री./श्रीमती <span class="fill-value"><%= safeBorrowerName %></span></p>
+    <p style="margin-bottom: 44px;">(कर्जदार)</p>
+    <div class="sign-line" style="margin-bottom: 6px;">&nbsp;</div>
+    <p>नाव - <span class="fill-value"><%= safeBorrowerName %></span></p>
+  </div>
+
+  <div class="page-footer"><div class="footer-page-num">Page 2 of 1</div></div>
 </div>
 
 </body>
