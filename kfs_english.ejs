@@ -182,17 +182,17 @@
     // Part 1 - identity / loan
     const safeLoanProposalNo       = typeof loanProposalNo !== 'undefined' ? loanProposalNo : '';
     const safeTypeOfLoan           = typeof typeOfLoan !== 'undefined' ? typeOfLoan : '';
-    const safeSanctionedLoanAmount = typeof sanctionedLoanAmount !== 'undefined' ? sanctionedLoanAmount : '__________';
+    const safeSanctionedLoanAmount = typeof sanctionedLoanAmount !== 'undefined' ? sanctionedLoanAmount : '174000';
     const safeProductName          = typeof productName !== 'undefined' ? productName : 'Pink EV Rickshaw';
-    const safeCustomerName         = typeof customerName !== 'undefined' ? customerName : '';
+    const safeCustomerName         = typeof customerName !== 'undefined' ? customerName : 'PRIYANKA ASHOK PARDESHI';
     const safeDisbursalSchedule    = typeof disbursalSchedule !== 'undefined' ? disbursalSchedule : '100 % upfront';
     const safeLoanTerm             = typeof loanTerm !== 'undefined' ? loanTerm : '60 Months';
 
     // Part 1 - instalment
     const safeInstalmentType       = typeof instalmentType !== 'undefined' ? instalmentType : 'Monthly';
     const safeNumberOfEpis         = typeof numberOfEpis !== 'undefined' ? numberOfEpis : '60';
-    const safeEpiAmount            = typeof epiAmount !== 'undefined' ? epiAmount : '__________';
-    const safeRepaymentCommence    = typeof repaymentCommence !== 'undefined' ? repaymentCommence : '__________';
+    const safeEpiAmount            = typeof epiAmount !== 'undefined' ? epiAmount : '5006';
+    const safeRepaymentCommence    = typeof repaymentCommence !== 'undefined' ? repaymentCommence : '05-AUG-2026';
 
     // Part 1 - interest (split into rate + type)
     const safeInterestRate         = typeof interestRate !== 'undefined' ? interestRate : '24';
@@ -203,11 +203,11 @@
 
     // Part 1 - fee/charges rows (array of {no,label,reType,reAmount,tpType,tpAmount})
     const safeFees = (typeof fees !== 'undefined' && Array.isArray(fees) && fees.length) ? fees : [
-      { no: '(i)',   label: 'Processing Fees',   reType: '', reAmount: '', tpType: '', tpAmount: '' },
+      { no: '(i)',   label: 'Processing Fees',   reType: '3080', reAmount: '', tpType: '', tpAmount: '' },
       { no: '(ii)',  label: 'Insurance Charges', reType: '', reAmount: '', tpType: '', tpAmount: '' },
       { no: '(iii)', label: 'Commitment Fees',   reType: '', reAmount: '', tpType: '', tpAmount: '' },
-      { no: '(iv)',  label: 'Document Charge',   reType: '', reAmount: '', tpType: '', tpAmount: '' },
-      { no: '(v)',   label: 'CERSAI Charge',     reType: '', reAmount: '', tpType: '', tpAmount: '' }
+      { no: '(iv)',  label: 'Document Charge',   reType: '500', reAmount: '', tpType: '', tpAmount: '' },
+      { no: '(v)',   label: 'CERSAI Charge',     reType: '59', reAmount: '', tpType: '', tpAmount: '' }
     ];
 
     const safeApr                  = typeof apr !== 'undefined' ? apr : '';
@@ -232,12 +232,12 @@
     const safeValidityPeriod       = typeof validityPeriod !== 'undefined' ? validityPeriod : '5 Days';
 
     // Annex B - computation of APR
-    const safeTotalInterestAmount  = typeof totalInterestAmount !== 'undefined' ? totalInterestAmount : '__________';
-    const safeFeeChargesPayable    = typeof feeChargesPayable !== 'undefined' ? feeChargesPayable : '__________';
-    const safePayableToRe          = typeof payableToRe !== 'undefined' ? payableToRe : '__________';
+    const safeTotalInterestAmount  = typeof totalInterestAmount !== 'undefined' ? totalInterestAmount : '126360';
+    const safeFeeChargesPayable    = typeof feeChargesPayable !== 'undefined' ? feeChargesPayable : '3639';
+    const safePayableToRe          = typeof payableToRe !== 'undefined' ? payableToRe : '3639';
     const safePayableToThirdParty  = typeof payableToThirdParty !== 'undefined' ? payableToThirdParty : '-';
-    const safeNetDisbursedAmount   = typeof netDisbursedAmount !== 'undefined' ? netDisbursedAmount : '__________';
-    const safeTotalAmountPayable   = typeof totalAmountPayable !== 'undefined' ? totalAmountPayable : '__________';
+    const safeNetDisbursedAmount   = typeof netDisbursedAmount !== 'undefined' ? netDisbursedAmount : '170361';
+    const safeTotalAmountPayable   = typeof totalAmountPayable !== 'undefined' ? totalAmountPayable : '300360';
     const safeScheduleOfDisbursement = typeof scheduleOfDisbursement !== 'undefined' ? scheduleOfDisbursement : '';
     const safeDueDate              = typeof dueDate !== 'undefined' ? dueDate : '5th of Every Month';
 
@@ -407,7 +407,8 @@
         </tr>
         <tr>
           <td class="sr">11</td>
-          <td colspan="5">Details of Contingent Charges (in INR or %, as applicable)</td>
+          <td colspan="4">Details of Contingent Charges (in INR or %, as applicable)</td>
+          <td colspan="1"></td>
         </tr>
       </tbody>
     </table>
