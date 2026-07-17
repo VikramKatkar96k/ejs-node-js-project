@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Agreement - Satin Finserv Limited</title>
+  <style>
+    /* A4 Dimensions and Page breaks for PDF engines */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 18mm 16mm 18mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .stamp-ref {
+      text-align: right;
+      font-size: 8.5pt;
+      margin-bottom: 26mm;
+    }
+
+    .doc-title {
+      text-align: center;
+      font-size: 12pt;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .title-rule {
+      border: 0;
+      border-top: 1px solid #000;
+      margin: 0 0 18px 0;
+    }
+
+    .sub-heading {
+      font-size: 10.5pt;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 10.5pt;
+      line-height: 1.5;
+      text-align: justify;
+      margin: 0 0 12px 0;
+    }
+
+    .sign-block {
+      margin-top: 30px;
+    }
+
+    .sign-block p {
+      text-align: left;
+      margin-bottom: 4px;
+    }
+
+    .sign-line {
+      border-top: 1px solid #000;
+      width: 220px;
+      margin-top: 40px;
+      margin-bottom: 6px;
+    }
+
+    .sign-line.wide {
+      width: 300px;
+    }
+
+    .schedule-title {
+      text-align: center;
+      font-size: 12pt;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .schedule-subtitle {
+      text-align: center;
+      font-size: 11pt;
+      font-weight: bold;
+      margin-bottom: 26px;
+    }
+
+    .dpn-amount {
+      font-size: 10.5pt;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .dpn-body p {
+      text-indent: 24px;
+    }
+
+    /* Page Footer */
+    .page-footer {
+      position: absolute;
+      bottom: 12mm;
+      left: 18mm;
+      right: 18mm;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      box-sizing: border-box;
+    }
+
+    .footer-page-num {
+      font-size: 9pt;
+    }
+  </style>
+</head>
+<body>
+<%
+  // Safe fallbacks for all variable fields
+  const v = (name, fallback) => (typeof name !== 'undefined' && name !== null && name !== '') ? name : fallback;
+  const safeStampRefNo = v(typeof stampRefNo !== 'undefined' ? stampRefNo : undefined, '________________');
+  const safeBorrowerName = v(typeof borrowerName !== 'undefined' ? borrowerName : undefined, '________________');
+  const safeBorrowerAddress = v(typeof borrowerAddress !== 'undefined' ? borrowerAddress : undefined, '________________');
+  const safeCoApplicantName = v(typeof coApplicantName !== 'undefined' ? coApplicantName : undefined, '________________');
+  const safeLenderName = v(typeof lenderName !== 'undefined' ? lenderName : undefined, 'Satin Finserv Limited');
+  const safeLenderAddress = v(typeof lenderAddress !== 'undefined' ? lenderAddress : undefined, "4th Floor, 'B' Wing, Plot No. 492, Udyog Vihar, Phase -III Gurugram, Haryana - 122016");
+  const safeLenderSignatoryName = v(typeof lenderSignatoryName !== 'undefined' ? lenderSignatoryName : undefined, '________________');
+  const safeLenderSignatoryDesignation = v(typeof lenderSignatoryDesignation !== 'undefined' ? lenderSignatoryDesignation : undefined, '________________');
+  const safeDpnAmount = v(typeof dpnAmount !== 'undefined' ? dpnAmount : undefined, 'XXXXXXX');
+  const safeDpnAmountWords = v(typeof dpnAmountWords !== 'undefined' ? dpnAmountWords : undefined, 'XXXXXXXXX Only');
+  const safeInterestRate = v(typeof interestRate !== 'undefined' ? interestRate : undefined, '________');
+  const safeFacilityAgreementDate = v(typeof facilityAgreementDate !== 'undefined' ? facilityAgreementDate : undefined, '________________');
+  const safeInterestRests = v(typeof interestRests !== 'undefined' ? interestRests : undefined, '[monthly/quarterly/annual]');
+  const safeSignaturePageNo = v(typeof signaturePageNo !== 'undefined' ? signaturePageNo : undefined, '21');
+  const safeDpnPageNo = v(typeof dpnPageNo !== 'undefined' ? dpnPageNo : undefined, '22');
+%>
+
+<!-- ================= PAGE 21 — SIGNATURE PAGE ================= -->
+<div class="page">
+  <div class="stamp-ref">Stamp Ref No: <%= safeStampRefNo %></div>
+
+  <div class="doc-title">SIGNATURE PAGE</div>
+  <hr class="title-rule">
+
+  <p>IN WITNESS WHEREOF the Parties hereto have caused these presents to be executed in the manner hereinabove appearing:</p>
+
+  <div class="sub-heading">Acknowledgment of Dual Capacity</div>
+  <p>The undersigned individuals, namely <b><%= safeCoApplicantName %></b>, hereby acknowledge and agree that they are executing this Agreement in their individual capacities as <b>Co-Applicants</b> to the loan facility extended by <b><%= safeLenderName %></b> to <b><%= safeBorrowerName %>.</b></p>
+
+  <p>The obligations undertaken herein shall be binding upon each of them in both capacities, and the execution of this Agreement shall constitute valid and enforceable commitments as Co-Applicants and as Guarantors, without requiring separate instruments for each role.</p>
+
+  <div class="sign-block">
+    <p><b>SIGNED AND DELIVERED by</b></p>
+    <p><b>The within named Borrower</b></p>
+    <div class="sign-line"></div>
+    <p><b>Name - <%= safeBorrowerName %></b></p>
+  </div>
+
+  <div class="sign-block">
+    <p><b>SIGNED AND DELIVERED by</b></p>
+    <div class="sign-line"></div>
+    <p><b>Name - <%= safeCoApplicantName %></b></p>
+  </div>
+
+  <div class="sign-block">
+    <p><b>SIGNED AND DELIVERED by</b></p>
+    <p><b>The within named Lender SFL</b></p>
+    <p><b>((<%= safeLenderName %>)</b></p>
+    <p><b>By the hands of its authorized signatory</b></p>
+    <div class="sign-line wide"></div>
+    <p><b>Name &ndash;<%= safeLenderSignatoryName %></b></p>
+    <p><b>Designation &ndash; <%= safeLenderSignatoryDesignation %></b></p>
+  </div>
+
+  <div class="page-footer"><div class="footer-page-num"><%= safeSignaturePageNo %></div></div>
+</div>
+
+<!-- ================= PAGE 22 — SCHEDULE 2, DEMAND PROMISSORY NOTE ================= -->
+<div class="page">
+  <div class="stamp-ref">Stamp Ref No: <%= safeStampRefNo %></div>
+
+  <div class="schedule-title">SCHEDULE 2</div>
+  <div class="schedule-subtitle">DEMAND PROMISSORY NOTE</div>
+
+  <div class="dpn-amount">Rs. <%= safeDpnAmount %>/-</div>
+
+  <div class="dpn-body">
+    <p>ON DEMAND We, <%= safeBorrowerName %>, a company incorporated under the laws of India, and having our registered office at <%= safeBorrowerAddress %>. (the "Borrower"), promise to pay to SFL(Legal Entity name &ndash; <%= safeLenderName %>), a company incorporated under the laws of India having its registered office at <%= safeLenderAddress %> (the "Lender" including, its successors and assigns), the sum of INR <%= safeDpnAmount %>/- (Indian Rupees <%= safeDpnAmountWords %>) together with interest from the date hereof, at the rate of <%= safeInterestRate %> per annum (pursuant to the terms of the facility agreement dated <%= safeFacilityAgreementDate %>, payable with <%= safeInterestRests %> rests, for value received.</p>
+
+    <p>The DPN shall operate as continuing security to you to be enforceable for the repayment of the ultimate balance and/or all sums remaining unpaid under the Facility now or hereafter, including all interest, Default Charges, costs and charged that become payable in respect of or under the Facility or which may in future be advanced to us by you and we will remain liable under the DPN notwithstanding payment made in connection with the Facility from time to time or the amounts due under the Facility being reduced or extinguished from time to time</p>
+
+    <p>In witness whereof, this demand promissory note has been signed and delivered by the Borrower on the day and the year hereinafter mentioned.</p>
+  </div>
+
+  <div class="sign-block" style="margin-top: 44px;">
+    <p><b>For and on behalf of</b></p>
+    <p style="margin-bottom: 30px;"><b><%= safeBorrowerName %></b></p>
+    <p>(Authorized Signatory)</p>
+  </div>
+
+  <div class="page-footer"><div class="footer-page-num"><%= safeDpnPageNo %></div></div>
+</div>
+
+</body>
+</html>
