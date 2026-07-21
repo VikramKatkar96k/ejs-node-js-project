@@ -89,6 +89,13 @@
       width: 300px;
     }
 
+    .sign-img {
+      height: 70px;
+      width: auto;
+      display: block;
+      margin-bottom: 4px;
+    }
+
     .schedule-title {
       text-align: center;
       font-size: 12pt;
@@ -151,7 +158,6 @@
   const safeDpnPageNo = v(typeof dpnPageNo !== 'undefined' ? dpnPageNo : undefined, '22');
 %>
 
-<!-- ================= PAGE 21 — SIGNATURE PAGE ================= -->
 <div class="page">
   <div class="stamp-ref">Stamp Ref No: <%= safeStampRefNo %></div>
 
@@ -166,20 +172,18 @@
   <p>The obligations undertaken herein shall be binding upon each of them in both capacities, and the execution of this Agreement shall constitute valid and enforceable commitments as Co-Applicants and as Guarantors, without requiring separate instruments for each role.</p>
 
   <div class="sign-block">
-    <p><b>SIGNED AND DELIVERED by</b></p>
     <p><b>The within named Borrower</b></p>
     <div class="sign-line"></div>
     <p><b>Name - <%= safeBorrowerName %></b></p>
   </div>
 
   <div class="sign-block">
-    <p><b>SIGNED AND DELIVERED by</b></p>
     <div class="sign-line"></div>
     <p><b>Name - <%= safeCoApplicantName %></b></p>
   </div>
 
   <div class="sign-block">
-    <p><b>SIGNED AND DELIVERED by</b></p>
+     <img class="sign-img" src="/assets/sign.png" alt="Signature">
     <p><b>The within named Lender SFL</b></p>
     <p><b>((<%= safeLenderName %>)</b></p>
     <p><b>By the hands of its authorized signatory</b></p>
@@ -191,7 +195,6 @@
   <div class="page-footer"><div class="footer-page-num"><%= safeSignaturePageNo %></div></div>
 </div>
 
-<!-- ================= PAGE 22 — SCHEDULE 2, DEMAND PROMISSORY NOTE ================= -->
 <div class="page">
   <div class="stamp-ref">Stamp Ref No: <%= safeStampRefNo %></div>
 
@@ -210,7 +213,8 @@
 
   <div class="sign-block" style="margin-top: 44px;">
     <p><b>For and on behalf of</b></p>
-    <p style="margin-bottom: 30px;"><b><%= safeBorrowerName %></b></p>
+    <p style="margin-bottom: 8px;"><b><%= safeBorrowerName %></b></p>
+    <img class="sign-img" src="/assets/sign.png" alt="Signature">
     <p>(Authorized Signatory)</p>
   </div>
 
