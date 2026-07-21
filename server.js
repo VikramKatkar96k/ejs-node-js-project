@@ -63,6 +63,18 @@ app.get('/sanction_letter_marathi', (req, res) => {
   res.render('sanction_letter_marathi');
 });
 
+app.get('/loan_application_marathi', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'loan_application_marathi.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const data = JSON.parse(rawData);
+    res.render('loan_application_marathi', data);
+  } catch (error) {
+    console.error('Failed to load loan application JSON:', error);
+    res.status(500).send('Unable to load loan application form.');
+  }
+});
+
 app.get('/agreement_marathi', async (req, res) => {
   try {
     const dataPath = path.join(__dirname, 'json', 'agreement_marathi.json');

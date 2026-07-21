@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>कर्ज अर्ज फॉर्म - Satin Finserv Limited</title>
+  <style>
+    @page { size: A4; margin: 0; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background-color: #ffffff;
+      font-family: 'Nirmala UI', 'Mangal', 'Kokila', Arial, sans-serif;
+      color: #000;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 14mm 16mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      margin: 0 auto;
+    }
+    .page:last-child { page-break-after: avoid; }
+
+    /* Header */
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .app-header .logo { height: 46px; width: auto; }
+    .app-title {
+      font-size: 15pt;
+      font-weight: bold;
+      text-align: center;
+      flex: 1 1 auto;
+    }
+    .app-date { font-size: 11pt; white-space: nowrap; }
+
+    /* Branch details table (top right) */
+    .branch-table {
+      border-collapse: collapse;
+      width: 58%;
+      margin: 4px 0 10px auto;
+      font-size: 10pt;
+    }
+    .branch-table td {
+      border: 1px solid #000;
+      padding: 3px 6px;
+      height: 16px;
+    }
+    .branch-table td.k { width: 42%; }
+
+    /* Section headings */
+    .sec-heading {
+      font-size: 11pt;
+      font-weight: bold;
+      text-decoration: underline;
+      margin: 14px 0 8px 0;
+    }
+    .sub-label { margin: 10px 0 2px 0; }
+
+    /* Rows and fill-in lines */
+    .row {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      flex-wrap: nowrap;
+      margin: 9px 0;
+      font-size: 10.5pt;
+      line-height: 1.3;
+    }
+    .lbl { white-space: nowrap; }
+    .line {
+      flex: 1 1 auto;
+      min-width: 0;
+      border-bottom: 1px solid #000;
+      min-height: 1.15em;
+      padding: 0 3px;
+      font-weight: bold;
+      word-break: break-word;
+    }
+
+    /* Checkbox */
+    .cb {
+      position: relative;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 1px solid #000;
+      vertical-align: middle;
+      margin: 0 4px 2px 6px;
+    }
+    .cb.on::after {
+      content: '\2713';
+      position: absolute;
+      left: -1px;
+      top: -6px;
+      width: 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .cb-lbl { white-space: nowrap; }
+
+    /* Three-column name row */
+    .name-col { flex: 1 1 0; text-align: center; }
+    .name-col .line { display: block; min-height: 1.15em; text-align: center; }
+    .name-col .cap { font-size: 9pt; }
+
+    /* Reference details table */
+    .ref-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 12px;
+      font-size: 10pt;
+    }
+    .ref-table td { border: 1px solid #000; padding: 6px 8px; vertical-align: top; }
+    .ref-head {
+      background: #a9d5cf;
+      font-weight: bold;
+      font-size: 10.5pt;
+    }
+    .ref-sub { font-weight: bold; }
+    .ref-field { margin: 8px 0; }
+    .ref-field .u {
+      display: inline-block;
+      border-bottom: 1px solid #000;
+      min-width: 160px;
+      font-weight: bold;
+      padding: 0 3px;
+    }
+    .ref-field .u.long { min-width: 74%; }
+
+    /* Purple section banner */
+    .banner {
+      background: #9b1fc1;
+      color: #ffffff;
+      text-align: center;
+      font-weight: bold;
+      font-size: 11.5pt;
+      padding: 6px 0;
+      margin: 16px 0 10px 0;
+    }
+
+    /* Summary box */
+    .box {
+      border: 1px solid #000;
+      padding: 10px 12px;
+    }
+
+    /* Intro paragraph box */
+    .intro-box {
+      border: 1px solid #999;
+      padding: 10px 12px;
+      font-size: 10.5pt;
+      line-height: 1.5;
+      text-align: justify;
+    }
+    .intro-box .u {
+      display: inline-block;
+      border-bottom: 1px solid #000;
+      min-width: 320px;
+      font-weight: bold;
+      padding: 0 3px;
+    }
+
+    p { font-size: 10.5pt; line-height: 1.5; text-align: justify; margin: 8px 0; }
+
+    /* Fee schedule table */
+    .fee-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 10pt;
+      margin: 4px 0 12px 0;
+    }
+    .fee-table td { border: 1px solid #000; padding: 5px 8px; vertical-align: top; }
+    .fee-table td.amt { width: 30%; }
+
+    .points p { margin: 5px 0; }
+
+    /* Compact typography for the dense charges/declaration pages */
+    .compact p { font-size: 9pt; line-height: 1.34; margin: 5px 0; }
+    .compact .banner { font-size: 11pt; padding: 4px 0; margin: 10px 0 7px 0; }
+    .compact .intro-box { padding: 7px 10px; font-size: 9.5pt; line-height: 1.4; }
+    .compact .fee-table { font-size: 8.5pt; margin: 3px 0 9px 0; }
+    .compact .fee-table td { padding: 3px 7px; }
+    .compact .sec-heading { margin: 9px 0 5px 0; }
+    .compact .points p { margin: 4px 0; }
+
+    /* Registered office footer */
+    .reg-office {
+      border-top: 2px dashed #000;
+      padding-top: 6px;
+      margin-top: 14px;
+      font-size: 9.5pt;
+      line-height: 1.5;
+    }
+    .credit-note { font-size: 10pt; margin: 12px 0 6px 4px; }
+
+    /* ---- Consent letter (page 6) ---- */
+    .sheet-logo { text-align: right; margin-bottom: 4px; }
+    .sheet-logo img { height: 42px; width: auto; }
+    .center-title { text-align: center; font-weight: bold; font-size: 13pt; text-decoration: underline; margin: 2px 0 18px 0; }
+    .consent-row { margin: 8px 0; font-size: 10.5pt; }
+    .consent-row .u { display: inline-block; border-bottom: 1px solid #000; min-width: 210px; font-weight: bold; padding: 0 3px; }
+    .consent-intro { font-weight: bold; font-size: 10.5pt; margin: 10px 0 7px 0; }
+    .consent-list p { font-size: 9pt; line-height: 1.3; text-align: justify; margin: 4px 0; }
+    .doc-list { margin: 3px 0 3px 22px; font-size: 10pt; line-height: 1.45; }
+    .sign3 { display: flex; justify-content: space-between; margin-top: 18px; text-align: center; font-size: 10pt; }
+    .sign3 .col { width: 30%; }
+    .sign3 .sig-cap { margin-bottom: 26px; }
+    .sign3 .sig-line { border-top: 1px solid #000; padding-top: 4px; font-weight: bold; }
+    .sfl-footer { text-align: center; font-size: 9pt; line-height: 1.5; margin-top: 12px; }
+    .sfl-footer .co { font-weight: bold; font-size: 10.5pt; }
+
+    /* ---- Sanction letter / KFS (pages 7-9) ---- */
+    .san-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .san-title { font-weight: bold; font-size: 12pt; line-height: 1.4; }
+    .san-logo img { height: 40px; width: auto; }
+    .san-field { font-size: 10pt; margin: 6px 0; }
+    .san-field .u { display: inline-block; border-bottom: 1px solid #000; min-width: 200px; font-weight: bold; padding: 0 3px; }
+    .san-para { font-size: 9.6pt; line-height: 1.45; text-align: justify; margin: 8px 0; }
+    .san-h { font-weight: bold; font-size: 11pt; text-decoration: underline; margin: 10px 0 6px 0; }
+    .san-sub { font-weight: bold; font-size: 10.5pt; margin: 6px 0; }
+    .kfs-table { border-collapse: collapse; width: 100%; font-size: 9.2pt; margin: 6px 0; }
+    .kfs-table td { border: 1px solid #000; padding: 4px 7px; vertical-align: top; }
+    .kfs-table td.sr { width: 6%; text-align: center; }
+    .kfs-table td.val { width: 44%; }
+    .kfs-shade td { background: #d2d2d2; font-weight: bold; }
+    .san-list p { font-size: 9.3pt; line-height: 1.4; text-align: justify; margin: 6px 0; }
+    .san-bullets { margin: 4px 0 4px 26px; }
+    .san-bullets li { font-size: 9.3pt; line-height: 1.4; margin: 6px 0; }
+    .san-footer { position: absolute; bottom: 12mm; left: 16mm; right: 16mm; box-sizing: border-box; }
+    .san-footer .pg { text-align: right; font-size: 9.5pt; color: #666; margin-bottom: 6px; }
+    .san-footer .borrowers { display: flex; justify-content: space-between; font-size: 9.5pt; }
+    .san-sign-block { font-size: 10pt; line-height: 1.7; margin-top: 6px; }
+  </style>
+</head>
+<body>
+<%
+  // ---- Data (from JSON) with safe fallbacks ----
+  const branch      = locals.branch      || {};
+  const applicant   = locals.applicant   || {};
+  const coApplicant = locals.coApplicant || {};
+  const bank        = locals.bank        || {};
+  const asset       = locals.asset       || {};
+  const references  = locals.references  || [{}, {}];
+  const summary     = locals.summary     || {};
+  const ref0 = references[0] || {};
+  const ref1 = references[1] || {};
+
+  const fullName = (d) => [d.firstName, d.middleName, d.lastName].filter(Boolean).join(' ');
+  const applicantName = (locals.intro && locals.intro.applicantName) || fullName(applicant);
+
+  // ---- HTML helpers ----
+  const val  = (v) => (v == null ? '' : String(v));
+  const line = (v, style) => '<span class="line"' + (style ? ' style="' + style + '"' : '') + '>' + val(v) + '</span>';
+  const cb   = (on) => '<span class="cb' + (on ? ' on' : '') + '"></span>';
+  const opt  = (sel, match, label) => cb(val(sel) === match) + '<span class="cb-lbl">' + label + '</span>';
+
+  // Repeated identity block (applicant / co-applicant)
+  function idBlock(d) {
+    const r = d || {};
+    return `
+    <div class="row"><span class="lbl">पदवी :</span> ${opt(r.title,'श्रीमती','श्रीमती')} ${opt(r.title,'कुमारी','कुमारी')} ${opt(r.title,'श्री','श्री')}</div>
+    <div class="row"><span class="lbl">नाव:</span>
+      <div class="name-col">${line(r.firstName)}<span class="cap">पहिले नाव</span></div>
+      <div class="name-col">${line(r.middleName)}<span class="cap">मधले नाव</span></div>
+      <div class="name-col">${line(r.lastName)}<span class="cap">आडनाव</span></div>
+    </div>
+    <div class="row"><span class="lbl">लिंग:</span> ${opt(r.gender,'पुरुष','पुरुष')} ${opt(r.gender,'स्त्री','स्त्री')} ${opt(r.gender,'इतर','इतर')}</div>
+    <div class="row"><span class="lbl">आईचे पूर्ण नाव:</span> ${line(r.motherName)}</div>
+    <div class="row"><span class="lbl">वडिलांचे पूर्ण नाव:</span> ${line(r.fatherName)}</div>
+    <div class="row"><span class="lbl">पती/पत्नीचे पूर्ण नाव:</span> ${line(r.spouseName)}</div>
+    <div class="row"><span class="lbl">कर्जदाराशी नाते:</span> ${line(r.relation)}</div>
+    <div class="row"><span class="lbl">जन्मतारीख:</span> ${line(r.dob,'flex:0 0 150px')} <span class="lbl">वय:</span> ${line(r.age,'flex:0 0 80px')} <span class="lbl">(वर्षांमध्ये)</span> <span class="lbl">मोबाईल:</span> ${line(r.mobile)}</div>
+    <div class="row"><span class="lbl">वैवाहिक स्थिती:</span> ${opt(r.maritalStatus,'विवाहित','विवाहित')} ${opt(r.maritalStatus,'अविवाहित','अविवाहित')} <span class="lbl" style="margin-left:14px">अवलंबितांची संख्या:</span> ${line(r.dependents)}</div>
+    <div class="row"><span class="lbl">शैक्षणिक पात्रता:</span> ${opt(r.education,'पदवीपूर्व','पदवीपूर्व')} ${opt(r.education,'पदवीधर','पदवीधर')} ${opt(r.education,'पदव्युत्तर','पदव्युत्तर')} ${opt(r.education,'इतर','इतर')} ${line(r.educationOther)}</div>
+    <div class="row"><span class="lbl">पॅन कार्ड क्रमांक:</span> ${line(r.pan)} <span class="lbl">ड्रायव्हिंग लायसन्स क्र.</span> ${line(r.drivingLicense)} <span class="lbl">मतदार ओळखपत्र:</span> ${line(r.voterId)}</div>
+    <div class="row"><span class="lbl">भारताचे नागरिक:</span> ${opt(r.indianCitizen,'होय','होय')} ${opt(r.indianCitizen,'नाही','नाही')} <span class="lbl" style="margin-left:12px">धर्म:</span> ${line(r.religion,'flex:0 0 120px')} <span class="lbl">जात:</span> ${opt(r.caste,'खुला','खुला')} ${opt(r.caste,'एसटी/एससी','एसटी/एससी')} ${cb(val(r.caste)==='इतर')}</div>
+    `;
+  }
+
+  const ownerRow  = (sel) => `<div class="row"><span class="lbl" style="margin-right:14px">मालकी स्थिती</span> ${opt(sel,'स्वतःचे','स्वतःचे')} ${opt(sel,'पालकांचे','पालकांचे')} ${opt(sel,'नातेवाईकांचे','नातेवाईकांचे')} ${opt(sel,'भाड्याचे','भाड्याचे')}</div>`;
+  const streetRow = (prefix, v) => `<div class="row"><span class="lbl">${prefix}रस्त्याचे नाव/पोस्ट ऑफिस आणि पोलीस स्टेशन:</span> ${line(v)}</div>`;
+  const addrLine  = (n, v) => `<div class="row"><span class="lbl">पत्ता ओळ ${n}:</span> ${line(v)}</div>`;
+  const cityRow   = (a) => `<div class="row"><span class="lbl">शहर:</span> ${line((a||{}).city)} <span class="lbl">जिल्हा:</span> ${line((a||{}).district)} <span class="lbl">राज्य:</span> ${line((a||{}).state)}</div>`;
+  const countryRow= (a) => `<div class="row"><span class="lbl">देश:</span> ${line((a||{}).country)} <span class="lbl">जवळची खूण:</span> ${line((a||{}).landmark)}</div>`;
+  const pinRow    = (a) => `<div class="row"><span class="lbl">पिनकोड:</span> ${line((a||{}).pincode)} <span class="lbl">फोन:</span> ${line((a||{}).phone)}</div>`;
+
+  const aRes = applicant.residential   || {};
+  const aPer = applicant.permanent     || {};
+  const cRes = coApplicant.residential || {};
+  const cPer = coApplicant.permanent   || {};
+
+  function refCell(r) {
+    const x = r || {};
+    return `
+      <div class="ref-field">नाव <span class="u long">${val(x.name)}</span></div>
+      <div class="ref-field">पत्ता <span class="u long">${val(x.address)}</span><br><br><span class="u long"></span> पिन <span class="u">${val(x.pin)}</span></div>
+      <div class="ref-field">व्यवसाय <span class="u long">${val(x.occupation)}</span></div>
+      <div class="ref-field">दूरध्वनी क्र. <span class="u long">${val(x.phone)}</span></div>
+      <div class="ref-field">मोबाईल क्र. <span class="u long">${val(x.mobile)}</span></div>
+    `;
+  }
+
+  // ---- Consent + Sanction data ----
+  const sanction  = locals.sanction || {};
+  const sanDate   = sanction.letterDate || {};
+  const applName  = fullName(applicant);
+  const coName    = fullName(coApplicant);
+  const co2       = locals.coApplicant2 || {};
+  const co2Name   = fullName(co2);
+  const money = (v) => (v == null || v === '') ? '__________' : val(v);
+%>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page">
+  <div class="app-header">
+    <img class="logo" src="/assets/SFL-logo.png" alt="Satin Finserv Limited">
+    <div class="app-title">कर्ज अर्ज फॉर्म</div>
+    <div class="app-date">दिनांक: <%= branch.dateDay || '__' %> / <%= branch.dateMonth || '____' %> / 20<%= branch.dateYear || '__' %></div>
+  </div>
+
+  <table class="branch-table">
+    <tr><td class="k">शाखेचे नाव</td><td><%= branch.branchName || '' %></td></tr>
+    <tr><td class="k">शाखा कोड</td><td><%= branch.branchCode || '' %></td></tr>
+    <tr><td class="k">स्त्रोत</td><td><%= branch.source || 'थेट / डीएसए / डीलर' %></td></tr>
+    <tr><td class="k">आरएमचे नाव</td><td><%= branch.rmName || '' %></td></tr>
+    <tr><td class="k">आरएम कोड</td><td><%= branch.rmCode || '' %></td></tr>
+    <tr><td class="k">उत्पादन प्रकार</td><td><%= branch.productType || 'ईव्ही पिंक रिक्षा' %></td></tr>
+  </table>
+
+  <div class="sec-heading">अर्जदाराचे वैयक्तिक तपशील</div>
+  <%- idBlock(applicant) %>
+
+  <div class="sub-label">रहिवासी पत्ता:</div>
+  <%- ownerRow(aRes.ownership) %>
+  <%- streetRow('', aRes.street) %>
+  <%- addrLine(1, aRes.line1) %>
+  <%- addrLine(2, aRes.line2) %>
+  <%- cityRow(aRes) %>
+  <%- countryRow(aRes) %>
+  <%- pinRow(aRes) %>
+
+  <div class="sub-label">कायमचा पत्ता:</div>
+  <%- ownerRow(aPer.ownership) %>
+  <%- streetRow('कायमचा पत्ता: ', aPer.street) %>
+  <%- addrLine(1, aPer.line1) %>
+  <%- addrLine(2, aPer.line2) %>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+  <%- cityRow(aPer) %>
+  <%- countryRow(aPer) %>
+  <%- pinRow(aPer) %>
+
+  <div class="sec-heading">बँक तपशील</div>
+  <div class="row"><span class="lbl">बँकेचे नाव:</span> <%- line(bank.name) %></div>
+  <div class="row"><span class="lbl">बँकेच्या शाखेचा पत्ता:</span> <%- line(bank.branchAddress) %></div>
+  <div class="row"><span class="lbl">खाते क्रमांक:</span> <%- line(bank.accountNumber) %></div>
+  <div class="row"><span class="lbl">खात्याचा प्रकार:</span> <%- line(bank.accountType) %></div>
+  <div class="row"><span class="lbl">सध्याच्या बँकेतील खात्याचा कालावधी:</span> <%- line(bank.duration) %></div>
+
+  <div class="sec-heading">मालमत्ता तपशील</div>
+  <div class="row"><span class="lbl">ब्रँड:</span> <%- line(asset.brand) %> <span class="lbl" style="font-weight:bold">निर्माता/पुरवठादार:</span> <%- line(asset.manufacturer) %></div>
+  <div class="row"><span class="lbl">मॉडेल:</span> <%- line(asset.model) %> <span class="lbl">मॉडेल क्रमांक:</span> <%- line(asset.modelNumber) %></div>
+  <div class="row"><span class="lbl">नोंदणीचे राज्य:</span> <%- line(asset.regState) %> <span class="lbl">नोंदणीचे शहर:</span> <%- line(asset.regCity) %></div>
+  <div class="row"><span class="lbl">भरलेले मार्जिन मनी:</span> <%- line(asset.marginMoney) %> <span class="lbl">कर्जाची रक्कम:</span> <%- line(asset.loanAmount) %></div>
+  <div class="row"><span class="lbl">कर्जाची मुदत (महिन्यांमध्ये)</span> <%- cb(String(asset.loanTenure)==='12') %> 12 <%- cb(String(asset.loanTenure)==='24') %> 24 <%- cb(String(asset.loanTenure)==='36') %> 36 <%- cb(String(asset.loanTenure)==='48') %> 48 <%- cb(String(asset.loanTenure)==='60') %> 60</div>
+
+  <div class="sec-heading">सह-अर्जदार १ वैयक्तिक तपशील</div>
+  <%- idBlock(coApplicant) %>
+
+  <div class="sub-label">रहिवासी पत्ता:</div>
+  <%- ownerRow(cRes.ownership) %>
+  <%- streetRow('', cRes.street) %>
+  <%- addrLine(1, cRes.line1) %>
+  <%- addrLine(2, cRes.line2) %>
+  <%- cityRow(cRes) %>
+</div>
+
+<!-- ============ PAGE 3 ============ -->
+<div class="page">
+  <%- countryRow(cRes) %>
+  <%- pinRow(cRes) %>
+
+  <div class="sub-label">कायमचा पत्ता:</div>
+  <%- ownerRow(cPer.ownership) %>
+  <%- streetRow('कायमचा पत्ता: ', cPer.street) %>
+  <%- addrLine(1, cPer.line1) %>
+  <%- addrLine(2, cPer.line2) %>
+  <%- cityRow(cPer) %>
+  <%- countryRow(cPer) %>
+  <%- pinRow(cPer) %>
+
+  <table class="ref-table">
+    <tr><td class="ref-head" colspan="2">संदर्भाचे तपशील</td></tr>
+    <tr><td class="ref-sub" style="width:50%">संदर्भ १</td><td class="ref-sub" style="width:50%">संदर्भ २</td></tr>
+    <tr>
+      <td><%- refCell(ref0) %></td>
+      <td><%- refCell(ref1) %></td>
+    </tr>
+  </table>
+
+  <div class="banner">अर्जाचा सारांश</div>
+  <div class="box">
+    <div class="row"><span class="lbl">मागणी केलेली रक्कम (INR):</span> <%- line(summary.requestedAmount) %></div>
+    <div class="row"><span class="lbl">मागणी केलेली मुदत (महिने):</span> <%- line(summary.requestedTenure) %></div>
+    <div class="row"><span class="lbl">व्याजदर (%):</span> <%- line(summary.interestRate) %></div>
+    <div class="row"><span class="lbl">कर्जाचा उद्देश:</span> <%- line(summary.loanPurpose) %></div>
+  </div>
+
+  <div class="credit-note">तुम्ही SFL ला CIBIL/इतर क्रेडिट ब्युरोमधून तुमचा क्रेडिट इतिहास (credit history) काढण्याची परवानगी देता.</div>
+
+  <div class="reg-office">
+    <b>नोंदणीकृत कार्यालय (Registered Office):</b> प्लॉट क्र. ४९२, चौथा मजला, बी विंग, उद्योग विहार, फेज-३, गुरुग्राम हरियाणा-१२२०१६.<br>
+    <b>ईमेल (Email):</b> info@satinfinserv.com, <b>वेबसाईट (Website):</b> www.satinfinserv.com
+  </div>
+</div>
+
+<!-- ============ PAGE 4 ============ -->
+<div class="page compact">
+  <div class="intro-box">
+    <span class="u"><%= applicantName %></span> यांच्याकडून व्यवसायासाठी कर्ज मिळविण्याचा अर्ज प्राप्त झाला. कर्जदाराच्या पतपात्रतेचे मूल्यमापन करण्याच्या उद्देशाने कंपनीला आवश्यक असलेली कोणतीही अतिरिक्त माहिती कर्जदाराने प्रदान करण्याच्या अधीन राहून, सर्व आवश्यक कागदपत्रांसह अर्ज प्राप्त झाल्यानंतर संबंधित SFL शाखेकडून ७ कामकाजाच्या दिवसांत अर्जाची स्थिती कळवली जाईल.
+  </div>
+
+  <div class="banner">शुल्क आणि फीचे विवरण</div>
+  <p>अर्जाचे शुल्क आणि फीची यादी खाली दिली आहे. खालील दरपत्रक सर्वसमावेशक नाही, आणि ते सध्या प्रचलित आहेत आणि सॅटिन फिनसर्व्ह लिमिटेडच्या संपूर्ण अधिकारात वेळोवेळी बदलले जाऊ शकतात आणि असे शुल्क आणि फी अंतिम आणि आमच्यावर बंधनकारक असतील.</p>
+
+  <div class="banner">शुल्काचे विवरण</div>
+  <table class="fee-table">
+    <tr><td>१. स्वागत पत्र आणि कर्ज परतफेडीचे वेळापत्रक ची प्रत</td><td class="amt">शून्य</td></tr>
+    <tr><td>२. खाते उतारा, डुप्लिकेट NOC किंवा कागदपत्रांची यादी</td><td class="amt">३०० रुपये + लागू कर</td></tr>
+    <tr><td>३. बँक बदलण्याचे शुल्क</td><td class="amt">५०० रुपये + लागू कर</td></tr>
+    <tr><td>४. थकीत रकमेवर दंडात्मक शुल्क</td><td class="amt">२% प्रति महिना</td></tr>
+    <tr><td>५. ईएमआय बाऊन्स शुल्क</td><td class="amt">५०० रुपये + लागू कर</td></tr>
+    <tr><td>६. कर्ज रद्द करण्याचे शुल्क</td><td class="amt">२५०० रुपये + लागू कर</td></tr>
+    <tr><td>७. प्रक्रिया शुल्क (मंजूर झालेल्या कर्जाच्या रकमेवर लागू)</td><td class="amt">१.५% + लागू कर</td></tr>
+    <tr><td>८. अंश-पूर्वपरतफेड शुल्क (थकीत मुद्दलावर लागू)</td><td class="amt">२% + लागू कर</td></tr>
+    <tr><td>९. मुदतपूर्व कर्जफेडीचे शुल्क (थकीत मुद्दलावर लागू)</td><td class="amt">२% + लागू कर</td></tr>
+    <tr><td>१०. CERSAI शुल्क - ५ लाखांपर्यंत</td><td class="amt">५० रुपये + जीएसटी</td></tr>
+    <tr><td>११. देऊ केलेला व्याजदर मासिक घटत्या आधारावर</td><td class="amt">२४%</td></tr>
+  </table>
+
+  <div class="sec-heading" style="text-decoration:none;font-size:11.5pt">मुदतपूर्व कर्जफेड आणि अंश-पूर्वपरतफेड</div>
+  <div class="points">
+    <p>अ) ग्राहक ६ समान मासिक हप्ते (EMI) भरल्यानंतरच कोणत्याही वेळी मुदतपूर्व कर्जफेड किंवा कर्जाची अंश-पूर्वपरतफेड निवडू शकतो.</p>
+    <p>ब) अंश-पूर्वपरतफेड वर्षातून फक्त एकदाच अनुमत आहे. किमान अंश-परतफेडीची रक्कम ईएमआय रकमेच्या किमान दुप्पट असावी.</p>
+    <p>क) अंश-पूर्वपरतफेड केल्यावर ग्राहकाला मूळ मुदत (tenor) ठेवण्याचा पर्याय असेल. मूळ मुदतीपेक्षा जास्त मुदत वाढवण्याची परवानगी नाही.</p>
+    <p>ड) मुदतपूर्व कर्जफेड आणि अंश-पूर्वपरतफेडीसाठी सर्व विनंत्या ३० दिवसांच्या सूचनेसह (notice) लेखी करणे आवश्यक आहे.</p>
+  </div>
+
+  <p><b>घोषणापत्रः</b></p>
+  <p>या दस्तऐवजातील मजकूर सॅटिन फिनसर्व्ह लिमिटेडच्या प्रतिनिधींनी आम्हाला स्पष्टपणे समजावून सांगितला आहे. आम्हाला तो समजला आहे आणि आम्ही त्याचे पालन करण्याची पुष्टी करतो.</p>
+
+  <div class="banner">घोषणापत्र</div>
+  <p>मी/आम्ही सहमत आहोत की, भारतीय रिझर्व्ह बँकेने वेळोवेळी निर्दिष्ट केलेल्या किंवा आवश्यक असलेल्या पद्धतीने परवानगी दिल्यास आणि मंजूर केल्यासच सॅटिन फिनसर्व्ह लिमिटेड येथे नमूद केलेल्या क्रेडिट सुविधा प्रदान करू शकते. मला/आम्हाला समजते आणि मी/आम्ही सहमत आहोत की सॅटिन फिनसर्व्ह लिमिटेड कोणतीही कारणे न देता (लागू कायद्यानुसार आवश्यक असल्याशिवाय) अर्ज नाकारण्याचा अधिकार राखून ठेवते, आणि सॅटिन फिनसर्व्ह लिमिटेड अशा नकारासाठी किंवा मला/आम्हाला अशा नकाराबद्दल कळविण्यात झालेल्या कोणत्याही विलंबासाठी आणि कोणत्याही खर्चासाठी, नुकसानीसाठी, हानीसाठी, किंवा अशा नकारामुळे झालेल्या इतर कोणत्याही परिणामांसाठी, किंवा आमचा अर्ज नाकारल्याबद्दल मला/आम्हाला कळविण्यात झालेल्या कोणत्याही विलंबासाठी कोणत्याही प्रकारे जबाबदार राहणार नाही.</p>
+  <p>मला/आम्हाला समजते आणि मी/आम्ही सहमत आहोत की सॅटिन फिनसर्व्ह लिमिटेड आणि/किंवा त्यांच्या समूह कंपन्या या अर्जासोबत सादर केलेली छायाचित्रे आणि कागदपत्रे स्वतःकडे ठेवण्याचा अधिकार राखून ठेवतात आणि ती कर्जदाराला/कर्जदारांना परत करणार नाहीत. सॅटिन फिनसर्व्ह लिमिटेड आणि/किंवा त्यांच्या समूह कंपन्यांनी आणि/किंवा त्यांच्या एजंट्सनी मला विविध उत्पादने, ऑफर्स आणि सेवांची माहिती कोणत्याही माध्यमातून (टेलिफोन कॉल/एसएमएस/ईमेल/पत्रे इत्यादींसह) देण्यास माझी/आमची कोणतीही हरकत नाही आणि मी/आम्ही सॅटिन फिनसर्व्ह लिमिटेड आणि/किंवा त्यांच्या समूह कंपन्यांना आणि/किंवा त्यांच्या एजंट्सना वरील उद्देशासाठी अधिकृत करतो. मी पुष्टी करतो की "भारतीय दूरसंचार नियामक प्राधिकरण" द्वारे निर्धारित केलेल्या "नॅशनल डू नॉट कॉल रजिस्ट्री"मध्ये संदर्भित अवांछित संवादासंबंधीचे कायदे अशा माहितीसाठी/संवादासाठी लागू होणार नाहीत. मला समजते की हे कर्ज सॅटिन फिनसर्व्ह लिमिटेडच्या संपूर्ण विवेकबुद्धीनुसार दिले जाईल.</p>
+  <p>मी/आम्ही पुष्टी करतो की सॅटिन फिनसर्व्ह लिमिटेडला वर दिलेली सर्व माहिती खरी आहे आणि आमच्यापैकी कोणीही कोणतीही महत्त्वाची माहिती दडवून ठेवलेली नाही किंवा लपवलेली नाही. मी पुष्टी करतो की कर्जाचा वापर केवळ नमूद केलेल्या उद्देशासाठीच केला जाईल आणि सट्टेबाजीच्या/समाजविघातक/बेकायदेशीर उद्देशांसाठी केला जाणार नाही. मी पुढे प्रमाणित करतो की मी भारताचा नागरिक आहे. माझ्या निवासी स्थितीत कोणताही बदल झाल्यास सॅटिन फिनसर्व्ह लिमिटेडला</p>
+</div>
+
+<!-- ============ PAGE 5 ============ -->
+<div class="page compact">
+  <p>कळवण्याची मी हमी देतो. कर्जाच्या परतफेडीसाठी पोस्ट-डेटेड चेक/ईसीएस (ECS) मँडेट/नॅच (NACH) मँडेट/यूपीआय (UPI) मँडेट देण्यास मी सहमत आहे, आणि चेक/ईसीएस मँडेट/नॅच मँडेट/यूपीआय मँडेट न वटणे (अनादर होणे) हा कायद्यानुसार फौजदारी गुन्हा आहे याची मला पूर्ण जाणीव आहे. माझ्या क्रेडिट इतिहासाबाबत (credit history) इतर कोणत्याही वित्तीय कंपनी / बँक / नोंदणीकृत क्रेडिट ब्युरोमध्ये कोणतीही चौकशी करण्यासाठी मी सॅटिन फिनसर्व्ह लिमिटेडला अधिकृत करतो, तसेच क्रेडिट मूल्यांकनाच्या उद्देशाने / कोणत्याही कारणासाठी माहिती सामायिक करण्यासाठी माझ्या क्रेडिट इतिहासाचे तपशील कोणत्याही वित्तीय कंपनी / बँक / नोंदणीकृत क्रेडिट ब्युरोला प्रदान करण्यासाठी मी सॅटिन फिनसर्व्ह लिमिटेडला अधिकृत करतो</p>
+</div>
+
+<!-- ============ PAGE 6 : CONSENT LETTER (संमती पत्र) ============ -->
+<div class="page">
+  <div class="sheet-logo"><img src="/assets/SFL-logo.png" alt="Satin Finserv Limited"></div>
+  <div class="center-title">संमती पत्र</div>
+
+  <div class="consent-row">अर्जदाराचे नाव <span class="u"><%= applName %></span> &nbsp;&nbsp; पॅन क्र. <span class="u"><%= applicant.pan || '' %></span></div>
+  <div class="consent-row">सह-अर्जदार १ <span class="u"><%= coName %></span> &nbsp;&nbsp; पॅन क्र. <span class="u"><%= coApplicant.pan || '' %></span></div>
+  <div class="consent-row">सह-अर्जदार २ <span class="u"><%= co2Name %></span> &nbsp;&nbsp; पॅन क्र. <span class="u"><%= co2.pan || '' %></span></div>
+
+  <div class="consent-intro">मी/आम्ही संमती देतो, समजून घेतो, मान्य करतो, हमी देतो, सहमत आहोत आणि अशी घोषणा करतो की:</div>
+
+  <div class="consent-list">
+    <p>१. माझ्याद्वारे/आमच्याद्वारे प्रदान केलेली सर्व माहिती आणि कागदपत्रे खरी, अचूक आणि पूर्ण आहेत आणि कोणत्याही चुकीच्या विधानामुळे किंवा माहिती लपवल्यामुळे कर्ज नाकारले जाऊ शकते किंवा रद्द केले जाऊ शकते.</p>
+    <p>२. हे कर्ज सॅटिन फिनसर्व्ह लिमिटेडच्या ("सॅटिन") अंतर्गत क्रेडिट धोरणे आणि लागू आरबीआय (RBI) मार्गदर्शक तत्त्वांच्या अधीन आहे, आणि सॅटिन कोणतेही कारण न देता आपल्या पूर्ण अधिकारानुसार अर्ज मंजूर किंवा नामंजूर करू शकते.</p>
+    <p>३. पॅन/जीएसटी (PAN/GST) डेटाबेस, एमसीए (MCA) रेकॉर्ड, युटिलिटी डेटा, बँक स्टेटमेंट, सरकारी भांडार (repositories), सार्वजनिक स्रोत आणि स्वतंत्र पडताळणी संस्थांसह (परंतु यापुरते मर्यादित नाही) कोणत्याही स्रोतावरून माझे/आमचे तपशील सत्यापित करण्यासाठी, प्रमाणित करण्यासाठी आणि प्राप्त करण्यासाठी सॅटिन अधिकृत आहे.</p>
+    <p>४. सॅटिन कोणत्याही क्रेडिट इन्फॉर्मेशन कंपनीकडून (CIC) माझी/आमची क्रेडिट माहिती प्राप्त करण्यासाठी, आणि कर्ज मंजूर किंवा वितरित न झाल्यास देखील CIC ला माझा/आमचा क्रेडिट डेटा सबमिट करण्यासाठी, अपडेट करण्यासाठी आणि शेअर करण्यासाठी अधिकृत आहे.</p>
+    <p>५. ई-केवायसी (e-KYC) साठी आधार प्रमाणीकरण स्वेच्छेने प्रदान केले जात आहे, आणि आधार ओटीपी (OTP) सबमिट करणे हे माझी/आमची इलेक्ट्रॉनिक स्वाक्षरी आणि या कर्ज अर्जाची स्वीकृती मानली जाईल.</p>
+    <p>६. डिजिटल पर्सनल डेटा प्रोटेक्शन ऑक्ट, २०२३ आणि इतर लागू कायद्यांनुसार सॅटिन क्रेडिट मूल्यांकन, मंजुरी, देखरेख, सेवा, वसुली, फसवणूक तपासणी आणि नियामक अनुपालनासाठी माझा/आमचा वैयक्तिक डेटा, केवायसी (KYC) माहिती, आर्थिक माहिती आणि आधार ई-केवायसी (e-KYC) डेटा संकलित, प्रक्रिया, संचयित, शेअर आणि जतन करू शकते.</p>
+    <p>७. कायदेशीर उद्देशांसाठी आवश्यकतेनुसार माझी/आमची माहिती सॅटिनच्या समूह कंपन्या, सेवा प्रदाते, पडताळणी भागीदार, कर्जदाते, बँका, विमा कंपन्या, संकलन भागीदार (collection partners), नियामक आणि वैधानिक प्राधिकरणांसोबत शेअर केली जाऊ शकते.</p>
+    <p>८. माझा/आमचा मोबाईल नंबर DND/DNC अंतर्गत नोंदणीकृत असला तरीही, सॅटिन माझ्याशी/आमच्याशी फोन कॉल, एसएमएस (SMS), व्हॉट्सअॅप (WhatsApp), ईमेल किंवा इतर कोणत्याही संवादाच्या माध्यमातून संपर्क साधू शकते.</p>
+    <p>९. या अर्जाद्वारे सादर केलेली कागदपत्रे आणि माहिती परत केली जाणार नाही आणि वैधानिक, नियामक किंवा कायदेशीर उद्देशांसाठी सॅटिनकडे ठेवली जाऊ शकते.</p>
+    <p>१०. कर्ज मंजूर झाल्यास, त्याचा वापर केवळ घोषित व्यवसाय उद्देशासाठी केला जाईल आणि कोणत्याही बेकायदेशीर, सट्टेबाजीच्या किंवा प्रतिबंधित क्रियाकलापांसाठी केला जाणार नाही.</p>
+    <p>११. पत्ता, संपर्क तपशील, मालकी संरचना (ownership structure) किंवा या अर्जाशी किंवा कर्जाशी संबंधित कोणत्याही महत्त्वाच्या माहितीत कोणताही बदल झाल्यास सॅटिनला त्वरित कळविले जाईल.</p>
+  </div>
+
+  <p style="font-size:10pt;margin:10px 0 2px 0">मी वर नमूद केलेल्या अटी आणि शर्तींशी सहमत आहे</p>
+  <p style="font-size:10pt;margin:6px 0 0 0">दिलेल्या कागदपत्रांची यादी:</p>
+  <div class="doc-list">१.<br>२.<br>३.<br>४.</div>
+
+  <div class="sign3">
+    <div class="col"><div class="sig-cap">स्वाक्षरी</div><div class="sig-line">अर्जदार</div></div>
+    <div class="col"><div class="sig-cap">स्वाक्षरी</div><div class="sig-line">सह-अर्जदार १</div></div>
+    <div class="col"><div class="sig-cap">स्वाक्षरी</div><div class="sig-line">सह-अर्जदार २</div></div>
+  </div>
+
+  <div class="sfl-footer">
+    <div class="co">सॅटिन फिनसर्व्ह लिमिटेड</div>
+    नोंदणीकृत कार्यालयाचा पत्ता: चौथा मजला, बी विंग, प्लॉट क्र. ४९२ उद्योग विहार, फेज ३ गुरुग्राम हरियाणा १२२०१६<br>
+    सीआयएन (CIN): U65999HR2018PLC099128<br>
+    संपर्क क्रमांक (Contact Number): ०१२४-४७१५४०० ईमेल (Email): info@satinfinserv.com
+  </div>
+</div>
+
+<!-- ============ PAGE 7 : SANCTION LETTER / KFS (Page 2|1) ============ -->
+<div class="page">
+  <div class="san-head">
+    <div class="san-title">पिंक ईव्ही रिक्षा कर्जाचे मंजुरी पत्र<br>सॉटिन फिनसर्व्ह लिमिटेड</div>
+    <div class="san-logo"><img src="/assets/SFL-logo.png" alt="Satin Finserv Limited"></div>
+  </div>
+
+  <div class="san-field" style="text-align:right">दिनांक : <%= sanDate.day || '__' %> / <%= sanDate.month || '__' %> /20<%= sanDate.year || '__' %></div>
+  <div class="san-field">अर्ज फॉर्म क्र. <span class="u"><%= sanction.appFormNo || '' %></span></div>
+  <div class="san-field">अर्जाची तारीख: <span class="u"><%= sanction.appDate || '' %></span></div>
+
+  <div class="san-field" style="margin-top:14px">प्रति,</div>
+  <div class="san-field">नाव: <span class="u"><%= applName %></span></div>
+  <div class="san-field">पत्ता: <span class="u"><%= [aRes.line1, aRes.line2, aRes.city].filter(Boolean).join(', ') %></span></div>
+  <div class="san-field">पिन कोड: <span class="u"><%= aRes.pincode || '' %></span></div>
+  <div class="san-field">मोबाईल क्र.: <span class="u"><%= applicant.mobile || '' %></span></div>
+
+  <div class="san-field" style="margin-top:12px">संदर्भ क्र. <b>SFL</b> / शाखेचे नाव <span class="u"><%= sanction.refBranchName || '' %></span> / <b>LMS</b> कर्ज क्र. <span class="u"><%= sanction.lmsLoanNo || '' %></span></div>
+
+  <div class="san-field" style="margin-top:12px">प्रिय महोदय/महोदया,</div>
+  <p class="san-para">रु. <b><%= money(asset.loanAmount) %></b>/- च्या पिंक ईव्ही रिक्षा कर्जाच्या मयदिच्या मंजुरीसाठी विनंती करणाऱ्या तुमच्या अर्जाच्या संदर्भात. खालील क्रेडिट सुविधांच्या मंजुरीची माहिती देताना आम्हाला आनंद होत आहे, ज्या तुमच्या स्वीकृती आणि खाली दिलेल्या अटी आणि शर्तींच्या पूर्ततेच्या अधीन राहून उपलब्ध आहेत.</p>
+
+  <div class="san-h">मुख्य तथ्य विवरण</div>
+  <div class="san-sub">पिंक ईव्ही रिक्षा कर्ज</div>
+
+  <table class="kfs-table">
+    <tr><td class="sr">१</td><td>कर्जदार/अर्जदार</td><td class="val"><%= applName %></td></tr>
+    <tr><td class="sr">२</td><td>सह-कर्जदार १</td><td class="val"><%= coName %></td></tr>
+    <tr><td class="sr">३</td><td>सह-कर्जदार २</td><td class="val"><%= co2Name %></td></tr>
+    <tr><td class="sr">४</td><td>कर्जाची रक्कम</td><td class="val">रु. <%= money(asset.loanAmount) %></td></tr>
+    <tr><td class="sr">५</td><td>आयुर्विमा वित्त</td><td class="val">रु. <%= money(sanction.lifeInsurance) %></td></tr>
+    <tr><td class="sr">६</td><td>वैद्यकीय विमा वित्त</td><td class="val">रु. <%= money(sanction.medicalInsurance) %></td></tr>
+    <tr><td class="sr">७</td><td>नोंदणीकृत गहाण प्रभार वित्त</td><td class="val">नाही</td></tr>
+    <tr><td class="sr">८</td><td>एकूण वित्त रक्कम</td><td class="val">रु. <%= money(sanction.totalFinance) %></td></tr>
+    <tr><td class="sr">९</td><td>कर्जाची मुदत (महिन्यांमध्ये)</td><td class="val">६० महिने</td></tr>
+    <tr><td class="sr">१०</td><td>वार्षिक व्याजदर</td><td class="val">२४%</td></tr>
+    <tr><td class="sr">११</td><td>कर्जाचा उद्देश/ निधीचा अंतिम वापर</td><td class="val">ईव्ही ऑटो रिक्षा खरेदी करण्यासाठी</td></tr>
+    <tr><td class="sr">१२</td><td>कर्ज सुविधा</td><td class="val">ईव्ही ऑटो रिक्षा</td></tr>
+    <tr><td class="sr">१३</td><td>अर्ज प्रक्रियेवरील शुल्क</td><td class="val">लागू नाही</td></tr>
+    <tr><td class="sr">१४</td><td>प्रक्रिया शुल्क (वस्तू आणि सेवा करासह)</td><td class="val">कर्जाच्या रकमेच्या १.५०% + जीएसटी</td></tr>
+    <tr><td class="sr">१५</td><td>मुद्रांक शुल्क आणि दस्तऐवजीकरण</td><td class="val">रु. <%= money(sanction.stampCharge) %>/-</td></tr>
+    <tr><td class="sr">१६</td><td>CERSAI प्रभार</td><td class="val">रु. ५०/- किंवा रु. १००/- + जीएसटी (रु. ५९)</td></tr>
+    <tr class="kfs-shade"><td class="sr">१७</td><td colspan="2">कर्जाच्या मुदतीदरम्यान</td></tr>
+    <tr><td class="sr">A</td><td>मुदतपूर्व कर्जफेडीवर</td><td class="val">थकीत मुद्दलावर २% + जीएसटी</td></tr>
+    <tr><td class="sr">B</td><td>विलंबित देयकांसाठी दंड</td><td class="val">थकीत ईएमआय वर २% प्रति महिना</td></tr>
+  </table>
+
+  <div class="san-footer">
+    <div class="pg">Page 2|1</div>
+    <div class="borrowers"><span>Borrower</span><span>Co-Borrower1</span><span>Co-Borrower2</span><span>Co-Borrower3</span></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 8 : KFS continued + terms (Page 3|1) ============ -->
+<div class="page">
+  <table class="kfs-table">
+    <tr><td class="sr">१८</td><td>समान मासिक हप्ता (EMI) देय रक्कम (INR मध्ये)</td><td class="val">प्रत्येकी रु. <%= money(sanction.emiAmount) %>/-<br>आणि शेवटचा EMI रु. <%= money(sanction.lastEmi) %>/</td></tr>
+    <tr><td class="sr">१९</td><td>अर्थसहाय्य केलेल्या मालमत्तेचा तपशील</td><td class="val"><%= [asset.brand, asset.model].filter(Boolean).join(' ') %></td></tr>
+    <tr><td class="sr">२२</td><td>इतर तारण (असल्यास)</td><td class="val">लागू नाही</td></tr>
+    <tr class="kfs-shade"><td class="sr">२१</td><td colspan="2">आम्ही अटी आणि शर्तींसह स्वीकारतो</td></tr>
+    <tr><td class="sr">A</td><td>मंजुरी पत्राची वैधता</td><td class="val">मंजुरी पत्राच्या तारखेपासून ३० दिवस</td></tr>
+    <tr><td class="sr">B</td><td>अर्थसहाय्य केलेल्या मालमत्तेचा तपशील</td><td class="val"><%= [asset.brand, asset.model].filter(Boolean).join(' ') %></td></tr>
+    <tr><td class="sr">C</td><td>परतफेडीचे वेळापत्रक</td><td class="val">कर्जाच्या रकमेची परतफेड (३६ महिन्यांत) प्रत्येकी रु. <%= money(sanction.emiAmount) %>/- च्या समान मासिक हप्प्यांमध्ये (EMI) आणि शेवटचा EMI रु. <%= money(sanction.lastEmi) %> मध्ये केली जाईल.<br>सुरुवात तारीख: <%= sanction.repaymentStartDate || '__________' %>.</td></tr>
+  </table>
+
+  <div class="san-h" style="text-decoration:none">इतर अटी आणि शर्ती: -</div>
+  <div class="san-list">
+    <p>१. वितरण OEM च्या चालू खात्यात केले जाईल.</p>
+    <p>२. परतफेडीची तारीख पुढील महिन्याच्या ५ तारखेला निश्चित केली जावी, आणि तुमच्या सोयीसाठी पहिल्या हप्प्यामध्ये उर्वरित दिवसांच्या व्याजाचा समावेश असू शकतो.</p>
+    <p>३. मुदतपूर्व परतफेड शुल्क हे मुदतपूर्व कर्जफेडीच्या दिवशी थकीत असलेल्या मुद्दल रकमेवर मोजले जाईल.</p>
+    <p>४. कर्जाची परतफेड समान मासिक हप्प्यांमध्ये आणि/किंवा मुख्य तथ्य नमूद केलेल्या इतर पद्धतीने केली जाईल. हप्ते दर महिन्याला देय. ईएमआयमध्ये मासिक आधारावर लागू दराने मोजले जाणारे मुद्दल आणि व्याज समाविष्ट असते आणि ते पुढील रुपयामध्ये पूर्णांकित केले जाते.</p>
+    <p>५. प्री ईएमआय व्याज, ज्या दराने ईएमआयची गणना केली गेली आहे त्या दराने, कर्जाच्या संदर्भात वितरणाच्या संबंधित तारखेपासून ते ईएमआय सुरू होण्याच्या तारखेपर्यंत आकारले जाईल.</p>
+    <p>६. सेंट्रल रजिस्ट्री ऑफ सिक्युरिटायझेशन ऑफ अॅसेट रिकन्स्ट्रक्शन अँड सिक्युरिटी इंटरेस्ट ऑफ इंडियाद्वारे आकारले जाणारे न परत करण्यायोग्य शुल्क:</p>
+    <p style="margin-left:18px">a) कर्जदात्याच्या बाजूने तयार केलेल्या सुरक्षेच्या सुधारणा आणि समाधानासाठी शुल्क, लागू असल्यास, लागू कायद्यानुसार आकारले जाईल.</p>
+    <p style="margin-left:18px">b) वर नमूद केलेले CERSAI शुल्क न परत करण्यायोग्य, वैधानिकरित्या नियमन केलेले आणि लागू कायद्यानुसार बदलण्याच्या अधीन आहेत.</p>
+    <p>७. SFL कर्जाच्या मुदतीसाठी जीवन आणि वैद्यकीय विमा कव्हर करेल. मूळ पॉलिसी/कव्हर नोट SFL कडे जमा करावी. पालन न केल्यास, SFL ला तुमच्या कर्ज खात्यातून डेबिट करून आवश्यकतेनुसार विमा कव्हर घेण्याचा अधिकार राखीव आहे, जो शेवटी तुम्हाला भरावा लागेल.</p>
+    <p>८. तारण निर्मितीच्या संदर्भात सुरक्षा दस्तऐवजीकरण आणि औपचारिकता पूर्ण झाल्यानंतरच वितरण केले जाईल.</p>
+    <p>९. कर्जाच्या दस्तऐवजीकरणाच्या अपूर्णतेमुळे आणि मॉर्गेज क्रेडिट अटींच्या संदर्भात औपचारिकता पूर्ण न केल्यामुळे कर्ज वितरणात होणाऱ्या कोणत्याही विलंबासाठी SFL जबाबदार राहणार नाही.</p>
+    <p>१०. <b>मंजुरीच्या अटी खालीलप्रमाणे आहेत: -</b></p>
+  </div>
+  <ul class="san-bullets">
+    <li>SFL च्या बाजूने तारण केले जावे.</li>
+    <li>सर्व अंतर्गत अहवाल सकारात्मक असावेत</li>
+  </ul>
+
+  <div class="san-footer">
+    <div class="pg">Page 3|1</div>
+    <div class="borrowers"><span>Borrower</span><span>Co-Borrower1</span><span>Co-Borrower2</span><span>Co-Borrower3</span></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 9 : SANCTION closing (Page 4|1) ============ -->
+<div class="page">
+  <ul class="san-bullets">
+    <li>परतफेड <%= sanction.refBranchName ? '' : '____' %> बँकेच्या खाते क्रमांक <span style="border-bottom:1px solid #000;padding:0 30px"><%= bank.accountNumber || '' %></span> मधून घेतली जाईल</li>
+    <li>कर्ज वितरणापूर्वी E NACH किंवा M NACH सक्रिय केले जावे</li>
+  </ul>
+
+  <p class="san-para" style="margin-top:24px">आम्ही हे पत्र आमच्या अटी व शर्तींसह दोन प्रतीत पाठवत आहोत. अटी व शर्ती स्वीकारल्याचे प्रतीक म्हणून तुम्ही आणि सह-अर्जदाराने/अर्जदारांनी रीतसर स्वाक्षरी केलेली दुसरी प्रत आम्हाला परत केल्यास आम्हाला आनंद होईल.</p>
+
+  <p class="san-para">तुम्हाला नेहमी आमच्या सर्वोत्तम सेवांची खात्री देत आहोत,</p>
+
+  <div class="san-sign-block">
+    आपला नम्र,<br>
+    <b>सॉटिन फिनसर्व्ह लिमिटेड करिता</b>
+  </div>
+
+  <div class="san-sign-block" style="margin-top:24px"><b>अधिकृत स्वाक्षरीकर्ता</b></div>
+
+  <div class="san-sign-block" style="margin-top:24px">
+    कर्मचाऱ्याचे नाव: <%= sanction.employeeName || '' %><br>
+    कर्मचारी कोड: <%= sanction.employeeCode || '' %><br>
+    पदनाम: <%= sanction.designation || '' %><br>
+    शाखा: <%= sanction.branch || '' %><br>
+    शिक्का आणि स्वाक्षरी.........
+  </div>
+
+  <div class="san-sign-block" style="margin-top:22px">आम्हाला मान्य आहे</div>
+
+  <div class="san-footer">
+    <div class="pg">Page 4|1</div>
+    <div class="borrowers"><span>Borrower</span><span>Co-Borrower1</span><span>Co-Borrower2</span><span>Co-Borrower3</span></div>
+  </div>
+</div>
+
+</body>
+</html>

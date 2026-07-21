@@ -1,0 +1,182 @@
+{
+  "branch": {
+    "branchName": "पुणे शाखा",
+    "branchCode": "SFL-PUN-014",
+    "source": "थेट",
+    "rmName": "राहुल देशमुख",
+    "rmCode": "RM-2207",
+    "productType": "ईव्ही पिंक रिक्षा",
+    "dateDay": "21",
+    "dateMonth": "07",
+    "dateYear": "26"
+  },
+  "applicant": {
+    "title": "श्री",
+    "firstName": "विक्रम",
+    "middleName": "सुनील",
+    "lastName": "काटकर",
+    "gender": "पुरुष",
+    "motherName": "सुनीता सुनील काटकर",
+    "fatherName": "सुनील रामराव काटकर",
+    "spouseName": "प्रिया विक्रम काटकर",
+    "relation": "स्वतः",
+    "dob": "15/08/1990",
+    "age": "35",
+    "mobile": "9822012345",
+    "maritalStatus": "विवाहित",
+    "dependents": "2",
+    "education": "पदवीधर",
+    "educationOther": "",
+    "pan": "ABCPK1234F",
+    "drivingLicense": "MH1220190012345",
+    "voterId": "XYZ1234567",
+    "indianCitizen": "होय",
+    "religion": "हिंदू",
+    "caste": "खुला",
+    "residential": {
+      "ownership": "स्वतःचे",
+      "street": "एफसी रोड, पोस्ट - शिवाजीनगर, पोलीस स्टेशन - शिवाजीनगर",
+      "line1": "फ्लॅट क्र. 402, शांती अपार्टमेंट",
+      "line2": "लॉ कॉलेज रोड जवळ",
+      "city": "पुणे",
+      "district": "पुणे",
+      "state": "महाराष्ट्र",
+      "country": "भारत",
+      "landmark": "फर्ग्युसन कॉलेजजवळ",
+      "pincode": "411004",
+      "phone": "020-25531234"
+    },
+    "permanent": {
+      "ownership": "स्वतःचे",
+      "street": "एफसी रोड, पोस्ट - शिवाजीनगर, पोलीस स्टेशन - शिवाजीनगर",
+      "line1": "फ्लॅट क्र. 402, शांती अपार्टमेंट",
+      "line2": "लॉ कॉलेज रोड जवळ",
+      "city": "पुणे",
+      "district": "पुणे",
+      "state": "महाराष्ट्र",
+      "country": "भारत",
+      "landmark": "फर्ग्युसन कॉलेजजवळ",
+      "pincode": "411004",
+      "phone": "020-25531234"
+    }
+  },
+  "coApplicant": {
+    "title": "श्रीमती",
+    "firstName": "प्रिया",
+    "middleName": "विक्रम",
+    "lastName": "काटकर",
+    "gender": "स्त्री",
+    "motherName": "माधुरी अशोक जोशी",
+    "fatherName": "अशोक विठ्ठल जोशी",
+    "spouseName": "विक्रम सुनील काटकर",
+    "relation": "पत्नी",
+    "dob": "22/05/1992",
+    "age": "33",
+    "mobile": "9822056789",
+    "maritalStatus": "विवाहित",
+    "dependents": "2",
+    "education": "पदव्युत्तर",
+    "educationOther": "",
+    "pan": "ABCPK5678G",
+    "drivingLicense": "MH1220200054321",
+    "voterId": "XYZ7654321",
+    "indianCitizen": "होय",
+    "religion": "हिंदू",
+    "caste": "खुला",
+    "residential": {
+      "ownership": "स्वतःचे",
+      "street": "एफसी रोड, पोस्ट - शिवाजीनगर, पोलीस स्टेशन - शिवाजीनगर",
+      "line1": "फ्लॅट क्र. 402, शांती अपार्टमेंट",
+      "line2": "लॉ कॉलेज रोड जवळ",
+      "city": "पुणे",
+      "district": "पुणे",
+      "state": "महाराष्ट्र",
+      "country": "भारत",
+      "landmark": "फर्ग्युसन कॉलेजजवळ",
+      "pincode": "411004",
+      "phone": "020-25531234"
+    },
+    "permanent": {
+      "ownership": "स्वतःचे",
+      "street": "एफसी रोड, पोस्ट - शिवाजीनगर, पोलीस स्टेशन - शिवाजीनगर",
+      "line1": "फ्लॅट क्र. 402, शांती अपार्टमेंट",
+      "line2": "लॉ कॉलेज रोड जवळ",
+      "city": "पुणे",
+      "district": "पुणे",
+      "state": "महाराष्ट्र",
+      "country": "भारत",
+      "landmark": "फर्ग्युसन कॉलेजजवळ",
+      "pincode": "411004",
+      "phone": "020-25531234"
+    }
+  },
+  "bank": {
+    "name": "स्टेट बँक ऑफ इंडिया",
+    "branchAddress": "शिवाजीनगर शाखा, पुणे - 411005",
+    "accountNumber": "30123456789",
+    "accountType": "बचत खाते",
+    "duration": "5 वर्षे"
+  },
+  "asset": {
+    "brand": "महिंद्रा",
+    "manufacturer": "महिंद्रा इलेक्ट्रिक मोबिलिटी लि.",
+    "model": "ट्रेओ झोर",
+    "modelNumber": "TREO-ZOR-2026",
+    "regState": "महाराष्ट्र",
+    "regCity": "पुणे",
+    "marginMoney": "₹ 25,000",
+    "loanAmount": "₹ 1,50,000",
+    "loanTenure": "36"
+  },
+  "references": [
+    {
+      "name": "संजय पाटील",
+      "address": "305, गोकुळ रेसिडेन्सी, कोथरूड, पुणे",
+      "pin": "411038",
+      "occupation": "व्यापारी",
+      "phone": "020-25436789",
+      "mobile": "9890012345"
+    },
+    {
+      "name": "अनिल कुलकर्णी",
+      "address": "12, सह्याद्री नगर, औंध, पुणे",
+      "pin": "411007",
+      "occupation": "शिक्षक",
+      "phone": "020-25889900",
+      "mobile": "9767001234"
+    }
+  ],
+  "summary": {
+    "requestedAmount": "₹ 1,50,000",
+    "requestedTenure": "36",
+    "interestRate": "24%",
+    "loanPurpose": "ई-रिक्षा खरेदीसाठी (व्यवसाय)"
+  },
+  "intro": {
+    "applicantName": "विक्रम सुनील काटकर"
+  },
+  "coApplicant2": {
+    "firstName": "",
+    "middleName": "",
+    "lastName": "",
+    "pan": ""
+  },
+  "sanction": {
+    "appFormNo": "SFL-PUN-014-00123",
+    "appDate": "15/07/2026",
+    "letterDate": { "day": "21", "month": "07", "year": "26" },
+    "refBranchName": "पुणे शाखा",
+    "lmsLoanNo": "LMS-2026-000123",
+    "lifeInsurance": "5,000",
+    "medicalInsurance": "3,000",
+    "totalFinance": "1,58,000",
+    "stampCharge": "500",
+    "emiAmount": "6,200",
+    "lastEmi": "6,150",
+    "repaymentStartDate": "05/09/2026",
+    "employeeName": "अमोल जाधव",
+    "employeeCode": "EMP-4521",
+    "designation": "शाखा व्यवस्थापक",
+    "branch": "पुणे शाखा"
+  }
+}
