@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>कर्ज अर्ज फॉर्म - सॅटिन फिनसर्व्ह लिमिटेड</title>
+  <style>
+    @page { size: A4; margin: 0; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Nirmala UI', 'Mangal', 'Noto Sans Devanagari', sans-serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 12mm 14mm 14mm 14mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+      font-size: 10pt;
+    }
+    .page:last-child { page-break-after: avoid; }
+
+    .top-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
+    .top-header .logo img { height: 34px; max-width: 150px; object-fit: contain; }
+    .top-header .form-title { font-size: 12pt; font-weight: bold; text-decoration: underline; padding-top: 6px; }
+    .top-header .date { font-size: 10pt; padding-top: 6px; }
+
+    table.branch-table { border-collapse: collapse; width: 55%; margin: 4px 0 4px auto; }
+    table.branch-table td { border: 1px solid #000000; padding: 3px 6px; font-size: 9.5pt; height: 16px; }
+    table.branch-table td.lbl { width: 40%; }
+
+    .section-title { font-size: 10.5pt; font-weight: bold; text-decoration: underline; margin: 14px 0 10px 0; }
+
+    .section-bar { background-color: #7d00b3; color: #fff; text-align: center; font-weight: bold; font-size: 10.5pt; padding: 4px 0; margin: 14px 0 10px 0; }
+    .section-bar.teal { background-color: #9fd8d3; color: #000; text-align: left; padding-left: 8px; }
+
+    .field-row { margin-bottom: 12px; line-height: 1.5; }
+
+    .fill { display: inline-block; border-bottom: 1px solid #000000; min-width: 120px; height: 13px; }
+    .fill.grow { min-width: 300px; }
+    .fill.wide { min-width: 420px; }
+    .fill.xwide { min-width: 540px; }
+    .fill.sm { min-width: 70px; }
+
+    .chk { display: inline-block; width: 12px; height: 12px; border: 1px solid #000000; vertical-align: middle; margin: 0 3px 0 6px; box-sizing: border-box; font-size: 9px; text-align: center; line-height: 11px; }
+
+    .name-cols { display: flex; gap: 20px; margin-top: 2px; }
+    .name-cols .nc { flex: 1; text-align: center; }
+    .name-cols .nc .line { border-bottom: 1px solid #000000; height: 14px; margin-bottom: 2px; }
+    .name-cols .nc .cap { font-size: 8.5pt; }
+
+    table.charges-table { border-collapse: collapse; width: 100%; margin: 6px 0 12px 0; }
+    table.charges-table td { border: 1px solid #000000; padding: 4px 6px; font-size: 9.5pt; }
+    table.charges-table td.amt { width: 34%; }
+
+    table.ref-table { border-collapse: collapse; width: 100%; margin: 4px 0 10px 0; }
+    table.ref-table td { border: 1px solid #000000; padding: 6px 8px; font-size: 9.5pt; vertical-align: top; width: 50%; }
+    table.ref-table td .rline { border-bottom: 1px solid #000000; height: 13px; margin: 3px 0 8px 0; }
+
+    .box-received { border: 1px solid #000000; padding: 8px 10px; font-size: 10pt; line-height: 1.6; text-align: justify; margin-bottom: 6px; }
+    .summary-box { border: 1px solid #000000; padding: 8px 10px; margin-top: 6px; }
+
+    p.para { font-size: 10pt; line-height: 1.55; text-align: justify; margin: 0 0 10px 0; }
+
+    .foot-note { font-size: 9pt; line-height: 1.4; border-top: 1px dashed #000000; margin-top: 12px; padding-top: 6px; text-align: center; }
+    b { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <%
+    const safeDate = typeof applicationDate !== 'undefined' ? applicationDate : '__ / ____ / 20__';
+    const safeProductType = typeof productType !== 'undefined' ? productType : 'ईव्ही पिंक रिक्षा';
+    const safeBranchName = typeof branchName !== 'undefined' ? branchName : '';
+    const safeBranchCode = typeof branchCode !== 'undefined' ? branchCode : '';
+    const safeSource = typeof source !== 'undefined' ? source : 'थेट / डीएसए / डीलर';
+    const safeRmName = typeof rmName !== 'undefined' ? rmName : '';
+    const safeRmCode = typeof rmCode !== 'undefined' ? rmCode : '';
+
+    // ---------- Applicant ----------
+    const safeTitle = typeof title !== 'undefined' ? title : '';
+    const safeFirstName = typeof firstName !== 'undefined' ? firstName : '';
+    const safeMiddleName = typeof middleName !== 'undefined' ? middleName : '';
+    const safeLastName = typeof lastName !== 'undefined' ? lastName : '';
+    const safeGender = typeof gender !== 'undefined' ? gender : '';
+    const safeMotherName = typeof motherName !== 'undefined' ? motherName : '';
+    const safeFatherName = typeof fatherName !== 'undefined' ? fatherName : '';
+    const safeSpouseName = typeof spouseName !== 'undefined' ? spouseName : '';
+    const safeRelationWithBorrower = typeof relationWithBorrower !== 'undefined' ? relationWithBorrower : '';
+    const safeDob = typeof dob !== 'undefined' ? dob : '';
+    const safeAge = typeof age !== 'undefined' ? age : '';
+    const safeMobile = typeof mobile !== 'undefined' ? mobile : '';
+    const safeMaritalStatus = typeof maritalStatus !== 'undefined' ? maritalStatus : '';
+    const safeDependents = typeof dependents !== 'undefined' ? dependents : '';
+    const safeEducation = typeof education !== 'undefined' ? education : '';
+    const safePan = typeof pan !== 'undefined' ? pan : '';
+    const safeDrivingLicense = typeof drivingLicense !== 'undefined' ? drivingLicense : '';
+    const safeVoterId = typeof voterId !== 'undefined' ? voterId : '';
+    const safeCitizen = typeof citizen !== 'undefined' ? citizen : '';
+    const safeReligion = typeof religion !== 'undefined' ? religion : '';
+    const safeCaste = typeof caste !== 'undefined' ? caste : '';
+    const safeResiOwnership = typeof resiOwnership !== 'undefined' ? resiOwnership : '';
+    const safeResiStreet = typeof resiStreet !== 'undefined' ? resiStreet : '';
+    const safeResiLine1 = typeof resiLine1 !== 'undefined' ? resiLine1 : '';
+    const safeResiLine2 = typeof resiLine2 !== 'undefined' ? resiLine2 : '';
+    const safeResiCity = typeof resiCity !== 'undefined' ? resiCity : '';
+    const safeResiDistrict = typeof resiDistrict !== 'undefined' ? resiDistrict : '';
+    const safeResiState = typeof resiState !== 'undefined' ? resiState : '';
+    const safeResiCountry = typeof resiCountry !== 'undefined' ? resiCountry : '';
+    const safeResiLandmark = typeof resiLandmark !== 'undefined' ? resiLandmark : '';
+    const safeResiPincode = typeof resiPincode !== 'undefined' ? resiPincode : '';
+    const safeResiPhone = typeof resiPhone !== 'undefined' ? resiPhone : '';
+    const safePermOwnership = typeof permOwnership !== 'undefined' ? permOwnership : '';
+    const safePermStreet = typeof permStreet !== 'undefined' ? permStreet : '';
+    const safePermLine1 = typeof permLine1 !== 'undefined' ? permLine1 : '';
+    const safePermLine2 = typeof permLine2 !== 'undefined' ? permLine2 : '';
+    const safePermCity = typeof permCity !== 'undefined' ? permCity : '';
+    const safePermDistrict = typeof permDistrict !== 'undefined' ? permDistrict : '';
+    const safePermState = typeof permState !== 'undefined' ? permState : '';
+    const safePermCountry = typeof permCountry !== 'undefined' ? permCountry : '';
+    const safePermLandmark = typeof permLandmark !== 'undefined' ? permLandmark : '';
+    const safePermPincode = typeof permPincode !== 'undefined' ? permPincode : '';
+    const safePermPhone = typeof permPhone !== 'undefined' ? permPhone : '';
+
+    // ---------- Bank ----------
+    const safeBankName = typeof bankName !== 'undefined' ? bankName : '';
+    const safeBankBranchAddress = typeof bankBranchAddress !== 'undefined' ? bankBranchAddress : '';
+    const safeAccountNumber = typeof accountNumber !== 'undefined' ? accountNumber : '';
+    const safeAccountType = typeof accountType !== 'undefined' ? accountType : '';
+    const safeAccountDuration = typeof accountDuration !== 'undefined' ? accountDuration : '';
+
+    // ---------- Asset ----------
+    const safeBrand = typeof brand !== 'undefined' ? brand : '';
+    const safeMakerSupplier = typeof makerSupplier !== 'undefined' ? makerSupplier : '';
+    const safeModel = typeof model !== 'undefined' ? model : '';
+    const safeModelNumber = typeof modelNumber !== 'undefined' ? modelNumber : '';
+    const safeRegState = typeof regState !== 'undefined' ? regState : '';
+    const safeRegCity = typeof regCity !== 'undefined' ? regCity : '';
+    const safeMarginMoney = typeof marginMoney !== 'undefined' ? marginMoney : '';
+    const safeLoanAmount = typeof loanAmount !== 'undefined' ? loanAmount : '';
+    const safeLoanTenor = typeof loanTenor !== 'undefined' ? String(loanTenor) : '';
+
+    // ---------- Co-applicant 1 ----------
+    const safeCo1Title = typeof co1Title !== 'undefined' ? co1Title : '';
+    const safeCo1FirstName = typeof co1FirstName !== 'undefined' ? co1FirstName : '';
+    const safeCo1MiddleName = typeof co1MiddleName !== 'undefined' ? co1MiddleName : '';
+    const safeCo1LastName = typeof co1LastName !== 'undefined' ? co1LastName : '';
+    const safeCo1Gender = typeof co1Gender !== 'undefined' ? co1Gender : '';
+    const safeCo1MotherName = typeof co1MotherName !== 'undefined' ? co1MotherName : '';
+    const safeCo1FatherName = typeof co1FatherName !== 'undefined' ? co1FatherName : '';
+    const safeCo1SpouseName = typeof co1SpouseName !== 'undefined' ? co1SpouseName : '';
+    const safeCo1RelationWithBorrower = typeof co1RelationWithBorrower !== 'undefined' ? co1RelationWithBorrower : '';
+    const safeCo1Dob = typeof co1Dob !== 'undefined' ? co1Dob : '';
+    const safeCo1Age = typeof co1Age !== 'undefined' ? co1Age : '';
+    const safeCo1Mobile = typeof co1Mobile !== 'undefined' ? co1Mobile : '';
+    const safeCo1MaritalStatus = typeof co1MaritalStatus !== 'undefined' ? co1MaritalStatus : '';
+    const safeCo1Dependents = typeof co1Dependents !== 'undefined' ? co1Dependents : '';
+    const safeCo1Education = typeof co1Education !== 'undefined' ? co1Education : '';
+    const safeCo1Pan = typeof co1Pan !== 'undefined' ? co1Pan : '';
+    const safeCo1DrivingLicense = typeof co1DrivingLicense !== 'undefined' ? co1DrivingLicense : '';
+    const safeCo1VoterId = typeof co1VoterId !== 'undefined' ? co1VoterId : '';
+    const safeCo1Citizen = typeof co1Citizen !== 'undefined' ? co1Citizen : '';
+    const safeCo1Religion = typeof co1Religion !== 'undefined' ? co1Religion : '';
+    const safeCo1Caste = typeof co1Caste !== 'undefined' ? co1Caste : '';
+    const safeCo1ResiOwnership = typeof co1ResiOwnership !== 'undefined' ? co1ResiOwnership : '';
+    const safeCo1ResiStreet = typeof co1ResiStreet !== 'undefined' ? co1ResiStreet : '';
+    const safeCo1ResiLine1 = typeof co1ResiLine1 !== 'undefined' ? co1ResiLine1 : '';
+    const safeCo1ResiLine2 = typeof co1ResiLine2 !== 'undefined' ? co1ResiLine2 : '';
+    const safeCo1ResiCity = typeof co1ResiCity !== 'undefined' ? co1ResiCity : '';
+    const safeCo1ResiDistrict = typeof co1ResiDistrict !== 'undefined' ? co1ResiDistrict : '';
+    const safeCo1ResiState = typeof co1ResiState !== 'undefined' ? co1ResiState : '';
+    const safeCo1ResiCountry = typeof co1ResiCountry !== 'undefined' ? co1ResiCountry : '';
+    const safeCo1ResiLandmark = typeof co1ResiLandmark !== 'undefined' ? co1ResiLandmark : '';
+    const safeCo1ResiPincode = typeof co1ResiPincode !== 'undefined' ? co1ResiPincode : '';
+    const safeCo1ResiPhone = typeof co1ResiPhone !== 'undefined' ? co1ResiPhone : '';
+    const safeCo1PermOwnership = typeof co1PermOwnership !== 'undefined' ? co1PermOwnership : '';
+    const safeCo1PermStreet = typeof co1PermStreet !== 'undefined' ? co1PermStreet : '';
+    const safeCo1PermLine1 = typeof co1PermLine1 !== 'undefined' ? co1PermLine1 : '';
+    const safeCo1PermLine2 = typeof co1PermLine2 !== 'undefined' ? co1PermLine2 : '';
+    const safeCo1PermCity = typeof co1PermCity !== 'undefined' ? co1PermCity : '';
+    const safeCo1PermDistrict = typeof co1PermDistrict !== 'undefined' ? co1PermDistrict : '';
+    const safeCo1PermState = typeof co1PermState !== 'undefined' ? co1PermState : '';
+    const safeCo1PermCountry = typeof co1PermCountry !== 'undefined' ? co1PermCountry : '';
+    const safeCo1PermLandmark = typeof co1PermLandmark !== 'undefined' ? co1PermLandmark : '';
+    const safeCo1PermPincode = typeof co1PermPincode !== 'undefined' ? co1PermPincode : '';
+    const safeCo1PermPhone = typeof co1PermPhone !== 'undefined' ? co1PermPhone : '';
+
+    // ---------- References ----------
+    const safeRef1Name = typeof ref1Name !== 'undefined' ? ref1Name : '';
+    const safeRef1Address = typeof ref1Address !== 'undefined' ? ref1Address : '';
+    const safeRef1Pin = typeof ref1Pin !== 'undefined' ? ref1Pin : '';
+    const safeRef1Occupation = typeof ref1Occupation !== 'undefined' ? ref1Occupation : '';
+    const safeRef1Tel = typeof ref1Tel !== 'undefined' ? ref1Tel : '';
+    const safeRef1Mobile = typeof ref1Mobile !== 'undefined' ? ref1Mobile : '';
+    const safeRef2Name = typeof ref2Name !== 'undefined' ? ref2Name : '';
+    const safeRef2Address = typeof ref2Address !== 'undefined' ? ref2Address : '';
+    const safeRef2Pin = typeof ref2Pin !== 'undefined' ? ref2Pin : '';
+    const safeRef2Occupation = typeof ref2Occupation !== 'undefined' ? ref2Occupation : '';
+    const safeRef2Tel = typeof ref2Tel !== 'undefined' ? ref2Tel : '';
+    const safeRef2Mobile = typeof ref2Mobile !== 'undefined' ? ref2Mobile : '';
+
+    // ---------- Summary / Page 4 ----------
+    const safeAppliedAmount = typeof appliedAmount !== 'undefined' ? appliedAmount : '';
+    const safeTenorApplied = typeof tenorApplied !== 'undefined' ? tenorApplied : '';
+    const safeRoi = typeof roi !== 'undefined' ? roi : '';
+    const safePurpose = typeof purpose !== 'undefined' ? purpose : '';
+    const safeReceivedFrom = typeof receivedFrom !== 'undefined' ? receivedFrom : '';
+  %>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="top-header">
+      <div class="logo"><img src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo"></div>
+      <div class="form-title">कर्ज अर्ज फॉर्म</div>
+      <div class="date">दिनांक: <%= safeDate %></div>
+    </div>
+
+    <table class="branch-table">
+      <tr><td class="lbl">शाखेचे नाव</td><td><%= safeBranchName %></td></tr>
+      <tr><td class="lbl">शाखा कोड</td><td><%= safeBranchCode %></td></tr>
+      <tr><td class="lbl">स्रोत</td><td><%= safeSource %></td></tr>
+      <tr><td class="lbl">आरएमचे नाव</td><td><%= safeRmName %></td></tr>
+      <tr><td class="lbl">आरएम कोड</td><td><%= safeRmCode %></td></tr>
+      <tr><td class="lbl">उत्पादन प्रकार</td><td><%= safeProductType %></td></tr>
+    </table>
+
+    <div class="section-title">अर्जदाराचे वैयक्तिक तपशील</div>
+
+    <div class="field-row">पदवी : <span class="chk"><%= safeTitle==='श्रीमती'?'✓':'' %></span> श्रीमती <span class="chk"><%= safeTitle==='कुमारी'?'✓':'' %></span> कुमारी <span class="chk"><%= safeTitle==='श्री'?'✓':'' %></span> श्री</div>
+
+    <div class="field-row">
+      नाव:
+      <div class="name-cols">
+        <div class="nc"><div class="line"><%= safeFirstName %></div><div class="cap">पहिले नाव</div></div>
+        <div class="nc"><div class="line"><%= safeMiddleName %></div><div class="cap">मधले नाव</div></div>
+        <div class="nc"><div class="line"><%= safeLastName %></div><div class="cap">आडनाव</div></div>
+      </div>
+    </div>
+
+    <div class="field-row">लिंग: <span class="chk"><%= safeGender==='पुरुष'?'✓':'' %></span> पुरुष <span class="chk"><%= safeGender==='स्त्री'?'✓':'' %></span> स्त्री <span class="chk"><%= safeGender==='इतर'?'✓':'' %></span> इतर</div>
+    <div class="field-row">आईचे पूर्ण नाव: <span class="fill xwide"><%= safeMotherName %></span></div>
+    <div class="field-row">वडिलांचे पूर्ण नाव: <span class="fill xwide"><%= safeFatherName %></span></div>
+    <div class="field-row">पती/पत्नीचे पूर्ण नाव: <span class="fill xwide"><%= safeSpouseName %></span></div>
+    <div class="field-row">कर्जदाराशी नाते: <span class="fill wide"><%= safeRelationWithBorrower %></span></div>
+
+    <div class="field-row">जन्मतारीख: <span class="fill"><%= safeDob %></span> &nbsp; वय: <span class="fill sm"><%= safeAge %></span> (वर्षांमध्ये) मोबाईल: <span class="fill grow"><%= safeMobile %></span></div>
+    <div class="field-row">वैवाहिक स्थिती: <span class="chk"><%= safeMaritalStatus==='विवाहित'?'✓':'' %></span> विवाहित <span class="chk"><%= safeMaritalStatus==='अविवाहित'?'✓':'' %></span> अविवाहित &nbsp;&nbsp; अवलंबितांची संख्या: <span class="fill grow"><%= safeDependents %></span></div>
+    <div class="field-row">शैक्षणिक पात्रता: <span class="chk"><%= safeEducation==='पदवीपूर्व'?'✓':'' %></span> पदवीपूर्व <span class="chk"><%= safeEducation==='पदवीधर'?'✓':'' %></span> पदवीधर <span class="chk"><%= safeEducation==='पदव्युत्तर'?'✓':'' %></span> पदव्युत्तर <span class="chk"><%= safeEducation==='इतर'?'✓':'' %></span> इतर <span class="fill"><%= safeEducation==='इतर'?safeEducation:'' %></span></div>
+    <div class="field-row">पॅन कार्ड क्रमांक: <span class="fill"><%= safePan %></span> ड्रायव्हिंग लायसन्स क्र. <span class="fill"><%= safeDrivingLicense %></span> मतदार ओळखपत्र: <span class="fill"><%= safeVoterId %></span></div>
+    <div class="field-row">भारताचे नागरिक: <span class="chk"><%= safeCitizen==='होय'?'✓':'' %></span> होय <span class="chk"><%= safeCitizen==='नाही'?'✓':'' %></span> नाही &nbsp; धर्म: <span class="fill"><%= safeReligion %></span> जात: <span class="chk"><%= safeCaste==='खुला'?'✓':'' %></span> खुला <span class="chk"><%= safeCaste==='एसटी/एससी'?'✓':'' %></span> एसटी/एससी</div>
+
+    <div class="field-row" style="margin-bottom: 6px;">रहिवासी पत्ता:</div>
+    <div class="field-row">मालकी स्थिती &nbsp;&nbsp;&nbsp; <span class="chk"><%= safeResiOwnership==='स्वतःचे'?'✓':'' %></span> स्वतःचे <span class="chk"><%= safeResiOwnership==='पालकांचे'?'✓':'' %></span> पालकांचे <span class="chk"><%= safeResiOwnership==='नातेवाईकांचे'?'✓':'' %></span> नातेवाईकांचे <span class="chk"><%= safeResiOwnership==='भाड्याचे'?'✓':'' %></span> भाड्याचे</div>
+    <div class="field-row">रस्त्याचे नाव/पोस्ट ऑफिस आणि पोलीस स्टेशन: <span class="fill wide"><%= safeResiStreet %></span></div>
+    <div class="field-row">पत्ता ओळ १: <span class="fill wide"><%= safeResiLine1 %></span></div>
+    <div class="field-row">पत्ता ओळ २: <span class="fill wide"><%= safeResiLine2 %></span></div>
+    <div class="field-row">शहर: <span class="fill"><%= safeResiCity %></span> जिल्हा: <span class="fill"><%= safeResiDistrict %></span> राज्य: <span class="fill"><%= safeResiState %></span></div>
+    <div class="field-row">देश: <span class="fill"><%= safeResiCountry %></span> जवळची खूण: <span class="fill grow"><%= safeResiLandmark %></span></div>
+    <div class="field-row">पिनकोड: <span class="fill grow"><%= safeResiPincode %></span> फोन: <span class="fill grow"><%= safeResiPhone %></span></div>
+
+    <div class="field-row" style="margin-top: 8px;"><b>कायमचा पत्ता:</b></div>
+    <div class="field-row">मालकी स्थिती &nbsp;&nbsp;&nbsp; <span class="chk"><%= safePermOwnership==='स्वतःचे'?'✓':'' %></span> स्वतःचे <span class="chk"><%= safePermOwnership==='पालकांचे'?'✓':'' %></span> पालकांचे <span class="chk"><%= safePermOwnership==='नातेवाईकांचे'?'✓':'' %></span> नातेवाईकांचे <span class="chk"><%= safePermOwnership==='भाड्याचे'?'✓':'' %></span> भाड्याचे</div>
+    <div class="field-row">कायमचा पत्ता: रस्त्याचे नाव/पोस्ट ऑफिस आणि पोलीस स्टेशन: <span class="fill grow"><%= safePermStreet %></span></div>
+    <div class="field-row">पत्ता ओळ १: <span class="fill wide"><%= safePermLine1 %></span></div>
+    <div class="field-row">पत्ता ओळ २: <span class="fill wide"><%= safePermLine2 %></span></div>
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page">
+    <div class="field-row">शहर: <span class="fill"><%= safePermCity %></span> जिल्हा: <span class="fill"><%= safePermDistrict %></span> राज्य: <span class="fill"><%= safePermState %></span></div>
+    <div class="field-row">देश: <span class="fill"><%= safePermCountry %></span> जवळची खूण: <span class="fill grow"><%= safePermLandmark %></span></div>
+    <div class="field-row">पिनकोड: <span class="fill grow"><%= safePermPincode %></span> फोन: <span class="fill grow"><%= safePermPhone %></span></div>
+
+    <div class="section-title">बँक तपशील</div>
+    <div class="field-row">बँकेचे नाव: <span class="fill wide"><%= safeBankName %></span></div>
+    <div class="field-row">बँकेच्या शाखेचा पत्ता: <span class="fill wide"><%= safeBankBranchAddress %></span></div>
+    <div class="field-row">खाते क्रमांक: <span class="fill wide"><%= safeAccountNumber %></span></div>
+    <div class="field-row">खात्याचा प्रकार: <span class="fill wide"><%= safeAccountType %></span></div>
+    <div class="field-row">सध्याच्या बँकेतील खात्याचा कालावधी: <span class="fill grow"><%= safeAccountDuration %></span></div>
+
+    <div class="section-title">मालमत्ता तपशील</div>
+    <div class="field-row">ब्रँड: <span class="fill grow"><%= safeBrand %></span> निर्माता/पुरवठादार: <span class="fill grow"><%= safeMakerSupplier %></span></div>
+    <div class="field-row">मॉडेल: <span class="fill grow"><%= safeModel %></span> मॉडेल क्रमांक: <span class="fill grow"><%= safeModelNumber %></span></div>
+    <div class="field-row">नोंदणीचे राज्य: <span class="fill grow"><%= safeRegState %></span> नोंदणीचे शहर: <span class="fill grow"><%= safeRegCity %></span></div>
+    <div class="field-row">भरलेले मार्जिन मनी: <span class="fill grow"><%= safeMarginMoney %></span> कर्जाची रक्कम: <span class="fill grow"><%= safeLoanAmount %></span></div>
+    <div class="field-row">कर्जाची मुदत (महिन्यांमध्ये) <span class="chk"><%= safeLoanTenor==='12'?'✓':'' %></span> 12 <span class="chk"><%= safeLoanTenor==='24'?'✓':'' %></span> 24 <span class="chk"><%= safeLoanTenor==='36'?'✓':'' %></span> 36 <span class="chk"><%= safeLoanTenor==='48'?'✓':'' %></span> 48 <span class="chk"><%= safeLoanTenor==='60'?'✓':'' %></span> 60</div>
+
+    <div class="section-title">सह-अर्जदार १ वैयक्तिक तपशील</div>
+    <div class="field-row">पदवी : <span class="chk"><%= safeCo1Title==='श्रीमती'?'✓':'' %></span> श्रीमती <span class="chk"><%= safeCo1Title==='कुमारी'?'✓':'' %></span> कुमारी <span class="chk"><%= safeCo1Title==='श्री'?'✓':'' %></span> श्री</div>
+    <div class="field-row">
+      नाव:
+      <div class="name-cols">
+        <div class="nc"><div class="line"><%= safeCo1FirstName %></div><div class="cap">पहिले नाव</div></div>
+        <div class="nc"><div class="line"><%= safeCo1MiddleName %></div><div class="cap">मधले नाव</div></div>
+        <div class="nc"><div class="line"><%= safeCo1LastName %></div><div class="cap">आडनाव</div></div>
+      </div>
+    </div>
+    <div class="field-row">लिंग: <span class="chk"><%= safeCo1Gender==='पुरुष'?'✓':'' %></span> पुरुष <span class="chk"><%= safeCo1Gender==='स्त्री'?'✓':'' %></span> स्त्री <span class="chk"><%= safeCo1Gender==='इतर'?'✓':'' %></span> इतर</div>
+    <div class="field-row">आईचे पूर्ण नाव: <span class="fill xwide"><%= safeCo1MotherName %></span></div>
+    <div class="field-row">वडिलांचे पूर्ण नाव: <span class="fill xwide"><%= safeCo1FatherName %></span></div>
+    <div class="field-row">पती/पत्नीचे पूर्ण नाव: <span class="fill xwide"><%= safeCo1SpouseName %></span></div>
+    <div class="field-row">कर्जदाराशी नाते: <span class="fill wide"><%= safeCo1RelationWithBorrower %></span></div>
+    <div class="field-row">जन्मतारीख: <span class="fill"><%= safeCo1Dob %></span> &nbsp; वय: <span class="fill sm"><%= safeCo1Age %></span> (वर्षांमध्ये) मोबाईल: <span class="fill grow"><%= safeCo1Mobile %></span></div>
+    <div class="field-row">वैवाहिक स्थिती: <span class="chk"><%= safeCo1MaritalStatus==='विवाहित'?'✓':'' %></span> विवाहित <span class="chk"><%= safeCo1MaritalStatus==='अविवाहित'?'✓':'' %></span> अविवाहित &nbsp;&nbsp; अवलंबितांची संख्या: <span class="fill grow"><%= safeCo1Dependents %></span></div>
+    <div class="field-row">शैक्षणिक पात्रता: <span class="chk"><%= safeCo1Education==='पदवीपूर्व'?'✓':'' %></span> पदवीपूर्व <span class="chk"><%= safeCo1Education==='पदवीधर'?'✓':'' %></span> पदवीधर <span class="chk"><%= safeCo1Education==='पदव्युत्तर'?'✓':'' %></span> पदव्युत्तर <span class="chk"><%= safeCo1Education==='इतर'?'✓':'' %></span> इतर <span class="fill"><%= safeCo1Education==='इतर'?safeCo1Education:'' %></span></div>
+    <div class="field-row">पॅन कार्ड क्रमांक: <span class="fill"><%= safeCo1Pan %></span> ड्रायव्हिंग लायसन्स क्र. <span class="fill"><%= safeCo1DrivingLicense %></span> मतदार ओळखपत्र: <span class="fill"><%= safeCo1VoterId %></span></div>
+    <div class="field-row">भारताचे नागरिक: <span class="chk"><%= safeCo1Citizen==='होय'?'✓':'' %></span> होय <span class="chk"><%= safeCo1Citizen==='नाही'?'✓':'' %></span> नाही &nbsp; धर्म: <span class="fill"><%= safeCo1Religion %></span> जात: <span class="chk"><%= safeCo1Caste==='खुला'?'✓':'' %></span> खुला <span class="chk"><%= safeCo1Caste==='एसटी/एससी'?'✓':'' %></span> एसटी/एससी</div>
+    <div class="field-row" style="margin-bottom: 6px;">रहिवासी पत्ता:</div>
+    <div class="field-row">मालकी स्थिती &nbsp;&nbsp;&nbsp; <span class="chk"><%= safeCo1ResiOwnership==='स्वतःचे'?'✓':'' %></span> स्वतःचे <span class="chk"><%= safeCo1ResiOwnership==='पालकांचे'?'✓':'' %></span> पालकांचे <span class="chk"><%= safeCo1ResiOwnership==='नातेवाईकांचे'?'✓':'' %></span> नातेवाईकांचे <span class="chk"><%= safeCo1ResiOwnership==='भाड्याचे'?'✓':'' %></span> भाड्याचे</div>
+    <div class="field-row">रस्त्याचे नाव/पोस्ट ऑफिस आणि पोलीस स्टेशन: <span class="fill wide"><%= safeCo1ResiStreet %></span></div>
+    <div class="field-row">पत्ता ओळ १: <span class="fill wide"><%= safeCo1ResiLine1 %></span></div>
+    <div class="field-row">पत्ता ओळ २: <span class="fill wide"><%= safeCo1ResiLine2 %></span></div>
+    <div class="field-row">शहर: <span class="fill"><%= safeCo1ResiCity %></span> जिल्हा: <span class="fill"><%= safeCo1ResiDistrict %></span> राज्य: <span class="fill"><%= safeCo1ResiState %></span></div>
+  </div>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="page">
+    <div class="field-row">देश: <span class="fill"><%= safeCo1ResiCountry %></span> जवळची खूण: <span class="fill grow"><%= safeCo1ResiLandmark %></span></div>
+    <div class="field-row">पिनकोड: <span class="fill grow"><%= safeCo1ResiPincode %></span> फोन: <span class="fill grow"><%= safeCo1ResiPhone %></span></div>
+
+    <div class="field-row" style="margin-top: 8px;"><b>कायमचा पत्ता:</b></div>
+    <div class="field-row">मालकी स्थिती &nbsp;&nbsp;&nbsp; <span class="chk"><%= safeCo1PermOwnership==='स्वतःचे'?'✓':'' %></span> स्वतःचे <span class="chk"><%= safeCo1PermOwnership==='पालकांचे'?'✓':'' %></span> पालकांचे <span class="chk"><%= safeCo1PermOwnership==='नातेवाईकांचे'?'✓':'' %></span> नातेवाईकांचे <span class="chk"><%= safeCo1PermOwnership==='भाड्याचे'?'✓':'' %></span> भाड्याचे</div>
+    <div class="field-row">कायमचा पत्ता: रस्त्याचे नाव/पोस्ट ऑफिस आणि पोलीस स्टेशन: <span class="fill grow"><%= safeCo1PermStreet %></span></div>
+    <div class="field-row">पत्ता ओळ १: <span class="fill wide"><%= safeCo1PermLine1 %></span></div>
+    <div class="field-row">पत्ता ओळ २: <span class="fill wide"><%= safeCo1PermLine2 %></span></div>
+    <div class="field-row">शहर: <span class="fill"><%= safeCo1PermCity %></span> जिल्हा: <span class="fill"><%= safeCo1PermDistrict %></span> राज्य: <span class="fill"><%= safeCo1PermState %></span></div>
+    <div class="field-row">देश: <span class="fill"><%= safeCo1PermCountry %></span> जवळची खूण: <span class="fill grow"><%= safeCo1PermLandmark %></span></div>
+    <div class="field-row">पिनकोड: <span class="fill grow"><%= safeCo1PermPincode %></span> फोन: <span class="fill grow"><%= safeCo1PermPhone %></span></div>
+
+    <div class="section-bar teal">संदर्भांचे तपशील</div>
+    <table class="ref-table">
+      <tr>
+        <td>
+          <b>संदर्भ १</b>
+          <div>नाव <div class="rline"><%= safeRef1Name %></div></div>
+          <div>पत्ता <div class="rline"><%= safeRef1Address %></div><div class="rline"></div></div>
+          <div style="text-align: right;">पिन <%= safeRef1Pin %></div>
+          <div>व्यवसाय <div class="rline"><%= safeRef1Occupation %></div></div>
+          <div>दूरध्वनी क्र. <div class="rline"><%= safeRef1Tel %></div></div>
+          <div>मोबाईल क्र. <div class="rline"><%= safeRef1Mobile %></div></div>
+        </td>
+        <td>
+          <b>संदर्भ २</b>
+          <div>नाव <div class="rline"><%= safeRef2Name %></div></div>
+          <div>पत्ता <div class="rline"><%= safeRef2Address %></div><div class="rline"></div></div>
+          <div style="text-align: right;">पिन <%= safeRef2Pin %></div>
+          <div>व्यवसाय <div class="rline"><%= safeRef2Occupation %></div></div>
+          <div>दूरध्वनी क्र. <div class="rline"><%= safeRef2Tel %></div></div>
+          <div>मोबाईल क्र. <div class="rline"><%= safeRef2Mobile %></div></div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="section-bar">अर्जाचा सारांश</div>
+    <div class="summary-box">
+      <div class="field-row">मागणी केलेली रक्कम (INR): <span class="fill wide"><%= safeAppliedAmount %></span></div>
+      <div class="field-row">मागणी केलेली मुदत (महिने): <span class="fill wide"><%= safeTenorApplied %></span></div>
+      <div class="field-row">व्याजदर (%): <span class="fill grow"><%= safeRoi %></span></div>
+      <div class="field-row" style="margin-bottom: 0;">कर्जाचा उद्देश: <span class="fill grow"><%= safePurpose %></span></div>
+    </div>
+
+    <p class="para" style="margin-top: 16px;">तुम्ही SFL ला CIBIL/इतर क्रेडिट ब्युरोमधून तुमचा क्रेडिट इतिहास (credit history) काढण्याची परवानगी देता.</p>
+
+    <div class="foot-note">
+      नोंदणीकृत कार्यालय (Registered Office): प्लॉट क्र. ४९२, चौथा मजला, बी विंग, उद्योग विहार, फेज-३, गुरुग्राम हरियाणा-१२२०१६.<br>
+      ईमेल (Email): info@satinfinserv.com, वेबसाईट (Website): www.satinfinserv.com
+    </div>
+  </div>
+
+  <!-- ================= PAGE 4 ================= -->
+  <div class="page">
+    <div class="box-received">
+      <span class="fill grow"><%= safeReceivedFrom %></span> यांच्याकडून व्यवसायासाठी कर्ज मिळविण्याचा अर्ज प्राप्त झाला. कर्जदाराच्या पतपात्रतेचे मूल्यमापन करण्याच्या उद्देशाने कंपनीला आवश्यक असलेली कोणतीही अतिरिक्त माहिती कर्जदाराने प्रदान करण्याच्या अधीन राहून, सर्व आवश्यक कागदपत्रांसह अर्ज प्राप्त झाल्यानंतर संबंधित SFL शाखेकडून ७ कामकाजाच्या दिवसांत अर्जाची स्थिती कळवली जाईल.
+    </div>
+
+    <div class="section-bar">शुल्क आणि फीचे विवरण</div>
+    <p class="para">अर्जाचे शुल्क आणि फीची यादी खाली दिली आहे. खालील दरपत्रक सर्वसमावेशक नाही, आणि ते सध्या प्रचलित आहेत आणि सॅटिन फिनसर्व्ह लिमिटेडच्या संपूर्ण अधिकारात वेळोवेळी बदलले जाऊ शकतात आणि असे शुल्क आणि फी अंतिम आणि आमच्यावर बंधनकारक असतील.</p>
+
+    <div class="section-bar">शुल्काचे विवरण</div>
+    <table class="charges-table">
+      <tr><td>१. स्वागत पत्र आणि कर्ज परतफेडीचे वेळापत्रकाची प्रत</td><td class="amt">शून्य</td></tr>
+      <tr><td>२. खाते उतारा, डुप्लिकेट NOC किंवा कागदपत्रांची यादी</td><td class="amt">३०० रुपये + लागू कर</td></tr>
+      <tr><td>३. बँक बदलण्याचे शुल्क</td><td class="amt">५०० रुपये + लागू कर</td></tr>
+      <tr><td>४. थकीत रकमेवर दंडात्मक शुल्क</td><td class="amt">२% प्रति महिना</td></tr>
+      <tr><td>५. ईएमआय बाऊन्स शुल्क</td><td class="amt">५०० रुपये + लागू कर</td></tr>
+      <tr><td>६. कर्ज रद्द करण्याचे शुल्क</td><td class="amt">२५०० रुपये + लागू कर</td></tr>
+      <tr><td>७. प्रक्रिया शुल्क (मंजूर झालेल्या कर्जाच्या रकमेवर लागू)</td><td class="amt">१.५% + लागू कर</td></tr>
+      <tr><td>८. अंश-पूर्व परतफेड शुल्क (थकीत मुद्दलावर लागू)</td><td class="amt">२% + लागू कर</td></tr>
+      <tr><td>९. मुदतपूर्व कर्जफेडीचे शुल्क (थकीत मुद्दलावर लागू)</td><td class="amt">२% + लागू कर</td></tr>
+      <tr><td>१०. CERSAI शुल्क - ५ लाखांपर्यंत</td><td class="amt">५० रुपये + जीएसटी</td></tr>
+      <tr><td>११. देऊ केलेला व्याजदर मासिक घटत्या आधारावर</td><td class="amt">२४%</td></tr>
+    </table>
+
+    <div class="field-row" style="font-weight: bold;">मुदतपूर्व कर्जफेड आणि अंश-पूर्वपरतफेड</div>
+    <p class="para">
+      अ) ग्राहक ६ समान मासिक हप्ते (EMI) भरल्यानंतरच कोणत्याही वेळी मुदतपूर्व कर्जफेड किंवा कर्जाची अंश-पूर्वपरतफेड निवडू शकतो.<br>
+      ब) अंश-पूर्वपरतफेड वर्षातून फक्त एकदाच अनुमत आहे. किमान अंश-परतफेडीची रक्कम ईएमआय रकमेच्या किमान दुप्पट असावी.<br>
+      क) अंश-पूर्वपरतफेड केल्यावर ग्राहकाला मूळ मुदत (tenor) ठेवण्याचा पर्याय असेल. मूळ मुदतीपेक्षा जास्त मुदत वाढवण्याची परवानगी नाही.<br>
+      ड) मुदतपूर्व कर्जफेड आणि अंश-पूर्वपरतफेडीसाठी सर्व विनंत्या ३० दिवसांच्या सूचनेसह (notice) लेखी करणे आवश्यक आहे.
+    </p>
+
+    <div class="field-row" style="font-weight: bold;">घोषणापत्र:</div>
+    <p class="para">या दस्तऐवजातील मजकूर सॅटिन फिनसर्व्ह लिमिटेडच्या प्रतिनिधींनी आम्हाला स्पष्टपणे समजावून सांगितला आहे. आम्हाला तो समजला आहे आणि आम्ही त्याचे पालन करण्याची पुष्टी करतो.</p>
+
+    <div class="section-bar">घोषणापत्र</div>
+    <p class="para">
+      मी/आम्ही सहमत आहोत की, भारतीय रिझर्व्ह बँकेने वेळोवेळी निर्दिष्ट केलेल्या किंवा आवश्यक असलेल्या पद्धतीने परवानगी दिल्यास आणि मंजूर केल्यासच सॅटिन फिनसर्व्ह लिमिटेड येथे नमूद केलेल्या क्रेडिट सुविधा प्रदान करू शकते. मला/आम्हाला समजते आणि मी/आम्ही सहमत आहोत की सॅटिन फिनसर्व्ह लिमिटेड कोणतीही कारणे न देता (लागू कायद्यानुसार आवश्यक असल्याशिवाय) अर्ज नाकारण्याचा अधिकार राखून ठेवते, आणि सॅटिन फिनसर्व्ह लिमिटेड अशा नाकारासाठी किंवा मला/आम्हाला अशा नाकाराबद्दल कळविण्यात झालेल्या कोणत्याही विलंबासाठी आणि कोणत्याही खर्चासाठी, नुकसानीसाठी, हानीसाठी, किंवा अशा नाकारामुळे झालेल्या इतर कोणत्याही परिणामांसाठी कोणत्याही प्रकारे जबाबदार राहणार नाही.
+    </p>
+    <p class="para">
+      मला/आम्हाला समजते आणि मी/आम्ही सहमत आहोत की सॅटिन फिनसर्व्ह लिमिटेड आणि/किंवा त्यांच्या समूह कंपन्या या अर्जासोबत सादर केलेली छायाचित्रे आणि कागदपत्रे स्वतःकडे ठेवण्याचा अधिकार राखून ठेवतात आणि ती कर्जदाराला/कर्जदारांना परत करणार नाहीत. सॅटिन फिनसर्व्ह लिमिटेड आणि/किंवा त्यांच्या समूह कंपन्यांनी आणि/किंवा त्यांच्या एजंट्सनी मला विविध उत्पादने, ऑफर्स आणि सेवांची माहिती कोणत्याही माध्यमातून (टेलिफोन कॉल/एसएमएस/ईमेल, पत्रे इत्यादींसह) देण्यास माझी/आमची कोणतीही हरकत नाही आणि मी/आम्ही सॅटिन फिनसर्व्ह लिमिटेड आणि/किंवा त्यांच्या समूह कंपन्यांना अधिकृत करतो. मी पुष्टी करतो की "भारतीय दूरसंचार नियामक प्राधिकरण" द्वारे निर्धारित केलेल्या "नॅशनल डू नॉट कॉल रजिस्ट्री"मध्ये संदर्भित अवांछित संवादासंबंधीचे कायदे अशा माहितीसाठी/संवादासाठी लागू होणार नाहीत. मला समजते की हे कर्ज सॅटिन फिनसर्व्ह लिमिटेडच्या संपूर्ण विवेकबुद्धीनुसार दिले जाईल.
+    </p>
+  </div>
+
+  <!-- ================= PAGE 5 ================= -->
+  <div class="page">
+    <p class="para">
+      मी/आम्ही पुष्टी करतो की सॅटिन फिनसर्व्ह लिमिटेडला वर दिलेली सर्व माहिती खरी आहे आणि आमच्यापैकी कोणीही कोणतीही महत्त्वाची माहिती दडवून ठेवलेली नाही किंवा लपवलेली नाही. मी पुष्टी करतो की कर्जाचा वापर केवळ नमूद केलेल्या उद्देशासाठीच केला जाईल आणि सट्टेबाजीच्या/समाजविघातक/बेकायदेशीर उद्देशांसाठी केला जाणार नाही. मी पुढे प्रमाणित करतो की मी भारताचा नागरिक आहे. माझ्या निवासी स्थितीत कोणताही बदल झाल्यास सॅटिन फिनसर्व्ह लिमिटेडला कळवण्याची मी हमी देतो. कर्जाच्या परतफेडीसाठी पोस्ट-डेटेड चेक/ईसीएस (ECS) मँडेट/नॅच (NACH) मँडेट/यूपीआय (UPI) मँडेट देण्यास मी सहमत आहे, आणि चेक/ईसीएस मँडेट/नॅच मँडेट/यूपीआय मँडेट न वटणे (अनादर होणे) हा कायद्यानुसार फौजदारी गुन्हा आहे याची मला पूर्ण जाणीव आहे. माझ्या क्रेडिट इतिहासाबाबत (credit history) इतर कोणत्याही वित्तीय कंपनी / बँक / नोंदणीकृत क्रेडिट ब्युरोमध्ये कोणतीही चौकशी करण्यासाठी मी सॅटिन फिनसर्व्ह लिमिटेडला अधिकृत करतो, तसेच क्रेडिट मूल्यांकनाच्या उद्देशाने / कोणत्याही कारणासाठी माहिती सामायिक करण्यासाठी माझ्या क्रेडिट इतिहासाचे तपशील कोणत्याही वित्तीय कंपनी / बँक / नोंदणीकृत क्रेडिट ब्युरोला प्रदान करण्यासाठी मी सॅटिन फिनसर्व्ह लिमिटेडला अधिकृत करतो.
+    </p>
+  </div>
+
+</body>
+</html>

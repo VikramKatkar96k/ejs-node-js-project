@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demand Promissory Note - Satin Finserv Limited</title>
+  <style>
+    /* A4 Dimensions and Page breaks for PDF engines */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 20mm 20mm 20mm 20mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .doc-title {
+      font-size: 12pt;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .revenue-stamp {
+      width: 90px;
+      height: 90px;
+      border: 1px solid #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 9pt;
+      margin: 0 auto 30px auto;
+      box-sizing: border-box;
+    }
+
+    .amount-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11pt;
+      margin-bottom: 22px;
+    }
+
+    .body-text {
+      font-size: 11pt;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 18px;
+    }
+
+    .signed-block {
+      margin-top: 45px;
+      font-size: 11pt;
+      line-height: 1.6;
+    }
+
+    .signed-block .signed-by {
+      font-weight: bold;
+    }
+
+    .signed-block .signed-name {
+      font-weight: bold;
+    }
+
+    .sign-img {
+      height: 55px;
+      width: auto;
+      display: block;
+      margin: 4px 0;
+    }
+
+    .page-footer {
+      position: absolute;
+      bottom: 12mm;
+      right: 20mm;
+      font-size: 9pt;
+    }
+  </style>
+</head>
+<body>
+
+  <%
+    // Safely assign variables or fallbacks
+    const safeLoanAmount = typeof loanAmount !== 'undefined' ? loanAmount : '__________';
+    const safeAmountInWords = typeof amountInWords !== 'undefined' ? amountInWords : '__________';
+    const safeBorrowerName = typeof borrowerName !== 'undefined' ? borrowerName : '__________';
+    const safeBorrowerAddress = typeof borrowerAddress !== 'undefined' ? borrowerAddress : '__________';
+    const safeRoi = typeof roi !== 'undefined' ? roi : '____';
+    const safePlace = typeof place !== 'undefined' ? place : 'Delhi';
+    const safeRests = typeof rests !== 'undefined' ? rests : 'monthly/quarterly/annual';
+  %>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="doc-title">Demand Promissory Note</div>
+
+    <div class="revenue-stamp">Revenue<br>Stamp</div>
+
+    <div class="amount-row">
+      <div>INR <b><%= safeLoanAmount %></b></div>
+      <div>Place: <%= safePlace %></div>
+    </div>
+
+    <div class="body-text">
+      ON DEMAND I, <b><%= safeBorrowerName %></b>, an Indian inhabitant, residing at <b><%= safeBorrowerAddress %></b>. (the
+      "Borrower"), promise to pay to SFL (Legal Entity name &ndash; Satin Finserv Limited), a company incorporated under the
+      laws of India having its registered office at 4th Floor, &lsquo;B&rsquo; Wing, Plot No. 492, Udyog Vihar, Phase -III
+      Gurugram, Haryana &ndash; 122016 (the "Lender" including, its successors and assigns), the sum of INR
+      <b><%= safeLoanAmount %></b>/- (Indian Rupees <b><%= safeAmountInWords %></b> Only) together with interest from the date
+      hereof, at the rate of <b><%= safeRoi %></b>% per annum (pursuant to the terms of the facility agreement dated executed
+      date of affixing of the last Digital Signature Certificate, payable with [<%= safeRests %>] rests, for value received.
+    </div>
+
+    <div class="body-text">
+      The DPN shall operate as continuing security to you to be enforceable for the repayment of the ultimate balance and/or
+      all sums remaining unpaid under the Facility now or hereafter, including all interest, Default Charges, costs and charged
+      that become payable in respect of or under the Facility or which may in future be advanced to us by you and we will remain
+      liable under the DPN notwithstanding payment made in connection with the Facility from time to time or the amounts due
+      under the Facility being reduced or extinguished from time to time
+    </div>
+
+    <div class="body-text">
+      In witness whereof, this demand promissory note has been signed and delivered by the Borrower on the day and the year
+      hereinafter mentioned.
+    </div>
+
+    <div class="signed-block">
+      <div class="signed-by">Signed by</div>
+      <img class="sign-img" src="/assets/sign.png" alt="Signature">
+      <div class="signed-name">Mr./Ms. <%= safeBorrowerName %></div>
+      <div>(Borrower)</div>
+    </div>
+
+    <div class="page-footer">Page <b>1</b> of 1</div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Agreement - Satin Finserv Limited</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 18mm 18mm 18mm 18mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .doc-title {
+      font-size: 12pt;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 10.5pt;
+      line-height: 1.5;
+      text-align: justify;
+      margin: 0 0 12px 0;
+    }
+
+    .section-heading {
+      font-size: 11pt;
+      font-weight: bold;
+      margin: 16px 0 10px 0;
+    }
+
+    /* Clause layout: number in left column, text in right */
+    .clause {
+      display: flex;
+      margin-bottom: 11px;
+    }
+
+    .clause .num {
+      flex: 0 0 42px;
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+
+    .clause .num.wide {
+      flex: 0 0 58px;
+    }
+
+    .clause .txt {
+      flex: 1;
+      font-size: 10.5pt;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .clause .txt p {
+      margin: 0 0 8px 0;
+    }
+
+    .indent-1 {
+      margin-left: 42px;
+    }
+
+    .indent-2 {
+      margin-left: 84px;
+    }
+
+    b { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <%
+    const safeBorrowerName = typeof borrowerName !== 'undefined' ? borrowerName : 'the Borrower';
+    const safeLoanAmount = typeof loanAmount !== 'undefined' ? loanAmount : '';
+  %>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="doc-title">LOAN AGREEMENT</div>
+
+    <p>This Loan Agreement (<b>"Agreement"</b>) is made at the place and date as mentioned in Schedule 1 hereto:</p>
+
+    <p><b>BETWEEN</b></p>
+
+    <p><b>The Persons</b> set out in Schedule 1 (hereinafter referred to as the <b>"Borrower"</b>);</p>
+
+    <p><b>AND</b></p>
+
+    <p><b>SATIN FINSERV LIMITED</b>, a company incorporated under the Companies Act, 2013 with CIN
+      U65999HR2018PLC099128, registered with the Reserve Bank of India as a non-banking financial company and having its
+      registered office at Registered Office and its Corporate Office at 4th Floor, B wing, Plot No. 492 Udyog Vihar, Phase III
+      Gurugram Haryana 122016 (hereinafter referred to as <b>"Lender"</b> or <b>"SFL"</b> which expression shall unless
+      repugnant to the context or meaning thereof be deemed to include its successors and assigns).</p>
+
+    <p><b>WHEREAS</b>:</p>
+
+    <div class="clause">
+      <div class="num">A.</div>
+      <div class="txt">The Borrower has approached and requested the Lender to provide certain financial assistance for the purpose of acquisition of a commercial vehicle (the <b>"Purpose"</b>).</div>
+    </div>
+    <div class="clause">
+      <div class="num">B.</div>
+      <div class="txt">Accordingly, the Lender has agreed to provide to the Borrower financial assistance in the form of an Indian rupee denominated vehicle loan facility (<b>"Loan Facility"</b>) up to a maximum principal amount set out in Schedule 1 in accordance with the terms and conditions of this Agreement.</div>
+    </div>
+    <div class="clause">
+      <div class="num">C.</div>
+      <div class="txt">Pursuant to the request of the Borrower along with the Co-Borrower, the Lender has agreed to grant the Loan Facility to the Borrower upon the terms and conditions as set out in this Agreement.</div>
+    </div>
+
+    <p><b>NOW THIS AGREEMENT WITHNESSETH AS UNDER:</b></p>
+
+    <div class="section-heading">1. DEFINITIONS AND INTERPRETATION</div>
+
+    <p>Any reference in this Agreement to:</p>
+
+    <div class="clause">
+      <div class="num">1.1.</div>
+      <div class="txt">any <b>"document"</b> or <b>"agreement"</b> includes that document or agreement as amended, supplemented, restated and/or replaced from time to time;</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.2.</div>
+      <div class="txt">a <b>"person"</b> includes any individual, company, corporation, a Hindu Undivided Family, unincorporated association or body (including a partnership, limited liability partnership, trust, joint venture, proprietorship, society or consortium) (whether or not registered and whether or not having a separate legal personality), government, state, agency, organization or other entity whether or not having separate legal personality, and its and any subsequent successors in title, heirs, permitted transferees and permitted assigns, in each case in accordance with their respective interests;</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.3.</div>
+      <div class="txt"><b>"Lender"</b> shall be construed so as to include its successors in interest, assigns and transferees.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.4.</div>
+      <div class="txt"><b>"Applicant"</b> means any person who has applied for the Loan Facility, whether individually or jointly, including any proposed Borrower or Co-Borrower. The Applicant and the Borrower may be the same person or different persons. References to the Applicant shall, where the context requires, include the Borrower, and references to the Borrower shall include the Applicant to the extent such person has executed or is bound by the relevant Finance Documents.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.5.</div>
+      <div class="txt"><b>"Borrower"</b> includes "Co-Borrower/s".</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page">
+    <div class="clause">
+      <div class="num">1.7.</div>
+      <div class="txt"><b>"Availability Period"</b> means the period commencing on the date of execution of this Agreement (or such other date as specified in the Sanction Letter) and ending on the earlier of (a) the Final Availability Date specified in the Sanction Letter, or (b) the date on which the Facility is fully drawn or cancelled.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.8.</div>
+      <div class="txt"><b>"Business day"</b> means a day (other than a Saturday, Sunday or a bank holiday) on which banks are open for general business in Delhi.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.9.</div>
+      <div class="txt"><b>"Finance Documents"</b> shall mean this Agreement along with its schedules and annexures, the sanction letter and any other documents related to the loan application of the Borrower.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.10.</div>
+      <div class="txt"><b>"Outstanding Obligations"</b> shall mean all obligations of the Borrower to pay, repay or reimburse, as the case may be, the principal amounts of the Loan Facility, interest, default charges, break costs, bounce charges, additional interest, prepayment premium, all costs and charges and other monies owed by, and all other present and future obligations and liabilities of the Borrower to the Lender under this Agreement and the Finance Documents, all costs, charges and expenses including but not limited to the legal expenses and costs of preserving the securities or enforcement thereof, incurred by the Lender under the Finance Documents.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.11.</div>
+      <div class="txt"><b>"Registration Certificate"</b> shall mean the certificate of registration of the Vehicle or any such similar document with different nomenclature issued by the applicable government authority with which the Vehicle is registered under the Applicable Law.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.12.</div>
+      <div class="txt"><b>"Vehicle"</b> or <b>"Hypothecated Vehicle"</b> shall mean the new vehicles to be acquired by the Borrower in respect of which the Loan is granted/to be granted hereunder including any accessories, if any.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.13.</div>
+      <div class="txt">Words denoting the singular will include the plural and vice versa.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.14.</div>
+      <div class="txt">Words denoting gender shall include masculine or feminine or neuter gender as applicable, such that "it/its" shall refer to "he/his" or "she/her" and vice versa, as applicable.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.15.</div>
+      <div class="txt">Headings to Clauses and Schedules are for ease of reference only.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.16.</div>
+      <div class="txt">References to "Clauses" and "Schedules" are to clauses of and schedules to this Agreement, and references to this Agreement include its Schedules.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.17.</div>
+      <div class="txt">Unless otherwise specified, whenever any payment to be made or action to be taken under this Agreement, is required to be made or taken on a day other than a Business Day, such payment shall be made or action shall be taken on the immediately succeeding Business Day, except if such due date is for the payment of principal and accrued interest, in which case the payment to be made on such due date (including accrued interest) shall be made on the immediately preceding Business Day. Interest and any other amounts payable pursuant to this Agreement will be determined on the basis of a year consisting of 365 (three hundred and sixty five) days, and the same shall be paid by the Borrower monthly along with the EMI's.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.18.</div>
+      <div class="txt">Where any provision of any Finance Document requires any determination to be made, whether for adequacy of or any requirement for any action taken or to be taken by any party, a conclusion to be arrived at, a decision to be made, an opinion to be formed, or where there is a possibility of or the occurrence of a disagreement, dispute, conflict of interpretation between the parties in relation to any provision of any Finance Document, or any other such assessment to be made, the determination or conclusion or opinion or decision or interpretation or assessment of the Lender shall be final and binding.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.19.</div>
+      <div class="txt">Any consent, permission, waiver, approval or clearance required to be provided by the Lender shall mean the prior written consent of the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.20.</div>
+      <div class="txt">A Default is "continuing" or "outstanding" if it has not been remedied or waived in writing.</div>
+    </div>
+    <div class="clause">
+      <div class="num">1.21.</div>
+      <div class="txt">All references to the knowledge, information, belief or awareness of any person shall be deemed to include the</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="page">
+    <p>its sole discretion, at any time cancel all or any part of the Loan Facility which has not been utilized.</p>
+
+    <div class="section-heading">3. DRAWDOWN OF THE FACILITY</div>
+
+    <div class="clause">
+      <div class="num">3.1.</div>
+      <div class="txt">The Borrower agrees that all proceeds under this Loan Facility shall be disbursed directly to the Vehicle dealer, as a lump-sum or in suitable installments in the specified account of the Vehicle dealer, details of which are set out in Schedule 1 (<b>"Loan Facility Account"</b>). The Borrower further agrees and undertakes that such disbursement to the Vehicle dealer shall be deemed to be a disbursement to the Borrower.</div>
+    </div>
+    <div class="clause">
+      <div class="num">3.2.</div>
+      <div class="txt">The Loan Facility may be availed in a single drawdown or multiple tranches, as agreed prior to the first disbursement and with the explicit consent of the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num">3.3.</div>
+      <div class="txt">Upon the Borrower complying with the conditions of this Agreement and such other conditions as may be prescribed by the Lender, the Lender may permit the Borrower to utilize the Loan Facility solely for the Purpose.</div>
+    </div>
+    <div class="clause">
+      <div class="num">3.4.</div>
+      <div class="txt">The Loan Facility shall be disbursed only within the "Availability Period" and in accordance with the terms and conditions of this Agreement. The "Availability Period" would be explicitly defined in advance by the Lender and can be amended by the Lender at any point in time, during the tenor of the loan, for either single or multiple tranche disbursal mode(s).</div>
+    </div>
+
+    <div class="section-heading">4. CONDITIONS PRECEDENT</div>
+
+    <div class="clause">
+      <div class="num">4.1.</div>
+      <div class="txt">Prior to the disbursement of the Loan Facility by the Lender, the Borrower shall not be in breach of any terms of this Agreement and shall comply with all requirements mentioned in this Agreement and all other Finance Documents to ensure that this Agreement and the Finance Documents are legally binding and enforceable against the Borrower.</div>
+    </div>
+    <div class="clause">
+      <div class="num">4.2.</div>
+      <div class="txt">Notwithstanding the generality of the foregoing, before disbursing the Loan Facility under this Agreement, the Borrower shall provide to the Lender all documents, undertakings and evidence, and comply with all conditions precedent (including but not limited to completion of all "know your customer" checks) as may be required by the Lender to the satisfaction of the Lender (<b>"Conditions Precedent"</b>) unless otherwise specifically waived by the Lender in writing.</div>
+    </div>
+    <div class="clause">
+      <div class="num">4.3.</div>
+      <div class="txt">The Borrower confirms that the Borrower is a citizen and permanent resident of India (in case of an individual) and subject to the tax regime of India. The Borrower hereby declares and confirms that the Borrower is not a "Politically Exposed Person" (PEP) or related to any such person, as defined under applicable KYC/AML guidelines issued by the Reserve Bank of India.</div>
+    </div>
+
+    <div class="section-heading">5. REPAYMENT AND PREPAYMENT</div>
+
+    <div class="clause">
+      <div class="num">5.1.</div>
+      <div class="txt">The Loan Facility will be repaid in accordance with the terms set out in Schedule 1, or as otherwise mutually agreed between the Parties in writing.</div>
+    </div>
+    <div class="clause">
+      <div class="num">5.2.</div>
+      <div class="txt">To repay the Loan Facility, the Borrower shall service such account of the Lender as may be communicated by the Lender to the Borrower from time to time, on the respective Due Dates by making repayment of the total principal amount and/or such instalments as set out in Schedule 1 together with any interest, Default Charges, Prepayment Premium (if applicable), Break Costs (if applicable) and commission thereon and all other costs, charges, payments and expenses payable under the Finance Documents and incidental to the Loan Facility disbursed by the Lender to the Borrower under this Agreement. Any amounts due and payable by the Borrower shall be appropriated in the following order unless the Lender in its sole discretion decides otherwise:</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">5.2.1.</div>
+      <div class="txt">firstly, towards costs, charges, expenses payable under the Finance Documents;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">5.2.2.</div>
+      <div class="txt">secondly, towards Fees and taxes on fees payable to Lender as per the Finance Documents;</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 4 ================= -->
+  <div class="page">
+    <div class="clause">
+      <div class="num">5.4.</div>
+      <div class="txt">All payments to be made by the Borrower to the Lender under this Agreement or the Finance Documents shall be made by Cheques/Post Dated Cheques (PDCs)/Electronic Instructions/SI/ECS/ACH or any other mode or instrument permitted by the Lender, in favor of the Lender. In case of any payment towards the dues if made by security cheques submitted by the Borrower to the Lender, then such payment shall be deemed to be received upon that amount being credited to the bank account of the Lender and the Borrower shall be responsible to replace the said security cheque used to make the payment, with a fresh/new security cheque if required by the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num">5.5.</div>
+      <div class="txt">Any dispute being raised will not enable the Borrower to withhold payment of any installment.</div>
+    </div>
+
+    <div class="section-heading">6. INTEREST, FEES, COMMISSION, COSTS</div>
+
+    <div class="clause">
+      <div class="num">6.1.</div>
+      <div class="txt">The rate of interest on the Loan Facility for the Interest Period is the Interest Rate set out in Schedule 1. The Borrower shall pay accrued interest on the amount disbursed as the Loan Facility on the Interest Payment Dates.</div>
+    </div>
+    <div class="clause">
+      <div class="num">6.2.</div>
+      <div class="txt">The Borrower will pay all fees, commission, interest, legal fees, and other costs (including in relation to the stamp duty payable on the Finance Documents) and charges in respect of the Loan Facility on the relevant Due Dates.</div>
+    </div>
+    <div class="clause">
+      <div class="num">6.3.</div>
+      <div class="txt">Borrower(s) shall pay any charge, sum levied on the account due to dishonour of any repayment instructions including the dishonour/bounce charges mentioned in Schedule 1. Borrower(s) shall pay any charge, sum, cost, which the Lender would reasonably incur pursuant to enforcing demand of dues, enforcement on breach of this Agreement/Finance Documents or on initiation of any recovery proceedings.</div>
+    </div>
+    <div class="clause">
+      <div class="num">6.4.</div>
+      <div class="txt">The Borrower(s) confirm, agree and undertake as follows: (i) The Borrower(s) has fully understood the mode and manner of computation of the Rate of Interest as more particularly mentioned in the Schedule 1 to this Agreement. (ii) The Borrower(s) will be charged the interest on a monthly basis and the same will be payable on monthly basis along with the EMI's.</div>
+    </div>
+
+    <div class="section-heading">7. DEFAULT CHARGES</div>
+
+    <div class="clause">
+      <div class="num">7.1.</div>
+      <div class="txt">In case of occurrence of an Event of Default, without prejudice to any rights of the Lender under the Finance Documents and Applicable Law, the Borrower shall pay Default Charges as set out in Schedule 1. Such charges will accrue on a daily basis from the date of the occurrence of the Event of Default until such Event of Default is cured to the satisfaction of the Lender, or the date of actual payment by the Borrower to the Lender of all Outstanding Obligations (<b>"Default Charges"</b>).</div>
+    </div>
+    <div class="clause">
+      <div class="num">7.2.</div>
+      <div class="txt">The Borrower acknowledges that the payment of Default Charges will not absolve the Borrower of any other obligations under the Finance Documents, including making timely payments and providing the requisite documents/undertakings/reports as required under this Agreement or any other Finance Document or affect any of the other rights of the Lender under the Finance Documents. For avoidance of doubt, it is clarified that the payment of Default Charges is in addition to other rights that the Lender has under the Finance Documents, and the Lender reserves all of its rights under this Agreement, the Finance Documents and Applicable Law.</div>
+    </div>
+
+    <div class="section-heading">8. STAMP DUTY</div>
+
+    <p>The Borrower shall promptly pay, and in any case within 10 (ten) Business Days of demand made by the Lender, and shall
+      indemnify the Lender against any cost, loss or liability incurred by the Lender in relation to all stamp duty, registration
+      and other similar amounts payable in respect of this Agreement or any Finance Document, or for any claims, penalties,
+      demands, actions or suits arising out of or relating to any breach of this clause by the Borrower. The Borrower understands
+      and agrees that the foregoing includes any stamp duty payable or which may become payable under Applicable Law on this
+      Agreement and the other Finance Documents, including pursuant to persons other than the Lender becoming a party to the
+      Finance Documents.</p>
+
+    <div class="section-heading">9. CANCELLATION</div>
+  </div>
+
+  <!-- ================= PAGE 5 ================= -->
+  <div class="page">
+    <p>to repay the Outstanding Obligations.</p>
+
+    <div class="section-heading">10. REPRESENTATIONS AND WARRANTIES</div>
+
+    <div class="clause">
+      <div class="num wide">10.1.</div>
+      <div class="txt">The Borrower and the Co-Borrower hereby jointly and severally represent and warrant that each of them: (i) is an individual, or a sole proprietorship, partnership, LLP, company or other entity, as applicable, duly constituted or established and validly existing under applicable law, and competent to contract and capable of entering into and performing obligations under this Agreement and the Finance Documents; and (ii) has all necessary authority and has taken all actions required to execute this Agreement and the Finance Documents and to perform their respective obligations hereunder.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">10.2.</div>
+      <div class="txt">The Borrower hereby represents and warrants that: (i) no encumbrance or lien of any nature whatsoever exists over the Vehicle to be hypothecated in favour of the Lender and the Borrower has obtained all consents and approvals required to avail of the Loan Facility and create security by way of hypothecation of the Vehicle in favour of the Lender; (ii) the Borrower has obtained and done all that is necessary to give full force and effect to this Agreement and the transactions contemplated hereunder, including obtaining all required authorisations, approvals, consents, no-objections, licenses and permissions under applicable law; and (iii) the Borrower has paid all taxes and dues payable to any governmental or local authority and there are no arrears outstanding as on the date hereof.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">10.3.</div>
+      <div class="txt">The representations and warranties in this Clause shall be deemed to be repeated until full repayment of all dues to the satisfaction of the Lender.</div>
+    </div>
+
+    <div class="section-heading">11. INDEMNITY AND LIMITATION OF LIABILITY</div>
+
+    <div class="clause">
+      <div class="num wide">11.1.</div>
+      <div class="txt">The Borrower and the Co-Borrower hereby jointly and severally agree and undertake to indemnify and keep indemnified and hold harmless the Lender and its nominee(s) or any of them and each of their affiliates, officers, directors, employees and advisors and every receiver, attorney, manager, agent or other person appointed by the Lender (each an "Indemnified Party") against any and all actual losses, expenses, liabilities, obligations, damages, actions, proceedings, claims, demands and judgments (including without limitation, legal and other fees on a full indemnity basis) incurred by any Indemnified Party upon the breach of any provisions of this Agreement or any other Finance Documents on the part of the Borrower herein contained and against all demands, actions, suits or proceedings made, filed, instituted against the Lender, in connection with or arising out of or relating to:</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">11.2.</div>
+      <div class="txt">any differential stamp duty obligations in case this Agreement or any other Finance Document is received in a state other than the state where it is executed;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">11.3.</div>
+      <div class="txt">providing the Loan Facility and any amounts thereunder;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">11.4.</div>
+      <div class="txt">any instructions received by the Lender, which it believes in good faith to be instructions provided by fax or by e-mail from the Borrower or an authorised representative of the Borrower;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">11.5.</div>
+      <div class="txt">any breach by the Borrower or the Co-Borrower of any of the terms and conditions of this Agreement and Finance Documents;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">11.6.</div>
+      <div class="txt">any liability including third-party liability that may arise out of the possession, operation and use of the Vehicle by the Borrower or by any of its employees or agents or by any other persons whosoever whether or not authorized by the Borrower for use of the said Vehicle and incidental to that purpose;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">11.7.</div>
+      <div class="txt">any claims, losses, demands, actions, costs, expenses and liabilities incurred or suffered by the Lender by reason of the Vehicle not being free from encumbrance and/or any previous charge;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">11.8.</div>
+      <div class="txt">the occurrence of the Event of Default;</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 6 ================= -->
+  <div class="page">
+    <div class="clause">
+      <div class="num wide">11.12.1.</div>
+      <div class="txt">The Lender shall not in any way be liable or responsible for any delay, omission or neglect in encashment, damage or loss of any Payment Instruments including PDCs/cheques (already given or to be given by the Borrower(s) to the Lender in terms hereof) for any reasons whatsoever, and /or no interest or compensation shall be payable by the Lender to the Borrower on the proceeds held/to be held by the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">11.12.2.</div>
+      <div class="txt">The Lender shall not be responsible for delay, or non-delivery, or any defect, damage, or quality of the Vehicle, for which the Borrower shall be solely responsible. It is further agreed that the Lender shall not be responsible or liable even if there is a defect or dispute of any nature in the title (even if the Vehicle is found to be a stolen Vehicle) or ownership of the Vehicle and that the Borrower shall be responsible to independently satisfy itself in this regard.</div>
+    </div>
+
+    <div class="section-heading">12. SECURITY AND CONTRACTUAL COMFORT</div>
+
+    <div class="clause">
+      <div class="num wide">12.1.</div>
+      <div class="txt">In consideration of the Lender having granted or agreed to grant to the Borrower(s) the Loan Facility, the Borrower(s) hereby hypothecates and charges in favour of the Lender by creating a first and exclusive charge on the Vehicle for the due payment and repayment of the Loan Facility and the respective dues and hereby agrees to obtain an endorsement to that effect on the Registration Certificate from the concerned Authority. Provided that if the Vehicle (to be acquired) has not been delivered to and/ or registered (wherever applicable) in the name of the Borrower at the time of signing of this Agreement, the particulars of the Vehicle shall be informed in writing by the Borrower within 2 (two) calendar days of such delivery and/or registration, whereupon such writing shall form part of this Agreement and the Schedule hereto. The Lender shall be entitled to withhold disbursement of the whole or part of the Loan Facility until the submission of the above referred hypothecation certificate to the Lender by the Borrower(s); further without prejudice to any other rights available to the Lender hereunder or under law, the Lender may call upon the Borrower(s) to submit/procure such additional documents in original and/or assurance(s) as the Lender may require and the Borrower(s) hereby unconditionally and irrevocably agree(s) and undertake(s) to submit/procure such additional documents in original and/or assurance(s) to the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">12.2.</div>
+      <div class="txt">The Borrower and Co-Borrower agree that the Lender is not responsible for delivery of duly endorsed Registration Certificate and that the Borrower(s) shall not withhold payment of installments on the ground that Registration Certificate has not been delivered.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">12.3.</div>
+      <div class="txt">The Borrower(s) hereby expressly and irrevocably agree that they shall be estopped from taking the plea that on the date this Agreement was signed the exact details of the Vehicle were not available.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">12.4.</div>
+      <div class="txt">The charge created by the Borrower(s) in accordance with this Agreement shall stand as security for the repayment and payment by the Borrower(s) of the Loans granted or to be granted to the Borrower(s) by the Lender together with all dues. The Borrower(s) hereby agrees that any and all filings made and any endorsement on the Registration Certificate obtained from the concerned authority in relation to the hypothecation and charge created over the Vehicle shall be deemed to have been filed/obtained (as the case may be) for the purpose of the Loan Facility and all the respective dues.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">12.5.</div>
+      <div class="txt">The charge herein created shall continue unless and until the Lender issues a written certificate discharging the security created herein and shall not be affected, impaired or discharged by any change in the constitution, status, ownership, management or legal existence of the Borrower, including but not limited to any insolvency, reorganization, merger, amalgamation, dissolution or otherwise.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">12.6.</div>
+      <div class="txt">The hypothecation and charge in favor of the Lender shall be deemed to take place immediately on signing of this Agreement or delivery of the Vehicle, as the case may be, whichever is earlier.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">12.7.</div>
+      <div class="txt">Without prejudice to the aforesaid, the Borrower and the Co-Borrower hereby agree to create such further/additional security as the Lender may in its sole and absolute discretion deem necessary for the purpose of securing the Loan Facility, and all the respective dues payable by the Borrower to the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">12.8.</div>
+      <div class="txt">The Loan Facility and the Outstanding Obligations will also be secured/supported by the following:</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 7 ================= -->
+  <div class="page">
+    <p>The Borrower hereby irrevocably and unconditionally agrees, confirms, undertakes and covenants as follows:</p>
+
+    <div class="clause">
+      <div class="num wide">13.1.1.</div>
+      <div class="txt"><b>Obligation to Pay</b>: The Borrower shall pay all Outstanding Obligations on their respective Due Dates. The Due Dates for making payments will be as per the repayment schedule to be separately shared by the Lender at the time of disbursement in terms of Schedule 1. The loan account shall be classified as Non-Performing Asset (NPA) as per the extant RBI Circulars/Regulations when the payment of instalment (principal and/or interest) remains overdue for more than 90 days, that is, the loan account will be marked as NPA on the 91st day of continuous default from the original Due Date. For example, if due date of a loan account is March 31, 2025, and full dues are not received before the Lender runs the day-end process for this date, the date of overdue shall be March 31, 2025. If it continues to remain overdue, then this account shall get tagged as SMA-1 upon running day-end process on April 30, 2025, i.e. upon completion of 30 days of being continuously overdue. Accordingly, the date of SMA-1 classification for that account shall be April 30, 2025. Similarly, if the account continues to remain overdue, it shall get tagged as SMA2 upon running day-end process on May 30, 2025 and if continues to remain overdue further, it shall get classified as NPA upon running day-end process on June 29, 2025.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.1.2.</div>
+      <div class="txt"><b>Purpose</b>: All proceeds from the Loan Facility will be utilized only for the agreed Purpose as defined in Schedule 1. If so required, the Borrower shall, within such timelines as may be prescribed by the Lender, provide a certificate from a chartered accountant/auditor to the satisfaction of the Lender, certifying the end use of the proceeds of the Loan Facility.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.1.3.</div>
+      <div class="txt"><b>Validity of debit mandates</b>: Where debit mandates, standing instructions or mandates of any other nature (including a National Automated Clearing House mandate) are provided by the Borrower in respect of any of its bank accounts in favor of the Lender, the Borrower will ensure that such mandates/instructions are valid and are maintained till the Final Settlement Date. In case of withdrawal, suspension or amendment of any such mandate/instruction, the Lender retains the right to suspend/cancel the Loan Facility and/or take such other action as provided under this Agreement or the Finance Documents or under Applicable Law.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.1.4.</div>
+      <div class="txt"><b>Compliance</b>: The Borrower will comply with Applicable Law, including all regulations/directions issued by the RBI from time to time.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.1.5.</div>
+      <div class="txt"><b>Inspection and Visit</b>: The Borrower hereby confirms that an inspection/site visit of all its premises, property/assets, books of accounts and all other relevant accounts, documents and records in respect of the Loan Facility will be conducted by the Lender on a bi-annual basis (or such shorter interval as maybe required by the Lender) and the Borrower shall allow the representatives, agents, nominees or employees, auditors (including stock audit), technical experts, management consultants of the Lender to enter its premises for such visit/inspection. Notwithstanding anything else contained herein, the Lender reserves the right to conduct such inspections/visits at all times, until the Final Settlement Date.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.1.6.</div>
+      <div class="txt"><b>Authorizations and Licenses</b>: The Borrower shall maintain its existence and all rights and privileges enjoyed by it and obtain and comply with the terms of and do all that is necessary to maintain in full force and effect, all authorizations, approvals, licenses and consents required to enable it to lawfully carry on its business and affairs and to enter into this Agreement and the Finance Documents.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.1.7.</div>
+      <div class="txt"><b>Insurance</b>: If so required by the Lender, the Borrower shall at its own cost, at all times until the Final Settlement Date effect and maintain, to the satisfaction of the Lender, insurance in respect of all its assets which are of insurable nature, against all such other risks as may be determined by the Lender, on a full reinstatement basis for such amounts and for such period and forms as the Lender may require and with such insurance company or companies of repute to be approved by the Lender in writing. The Borrower shall provide insurance certificates upon request from the Lender or whenever any insurance coverage / policy contemplated herein is modified / amended / changed. The Borrower will pay the Insurance Premium as stipulated in Schedule 1.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.1.8.</div>
+      <div class="txt"><b>KYC Updates</b>: In case there is any update in the know-your-customer ("KYC") information/documents</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 8 ================= -->
+  <div class="page">
+    <div class="clause">
+      <div class="num wide">13.2.3.</div>
+      <div class="txt">The Borrower hereby agrees to pay the installments and other dues to the Lender under this Agreement and the Finance Documents irrespective of whether or not the Vehicle is in use by the Borrower(s) and/or, even if the Vehicle is not in use due to damage and repair or for any other reason whatsoever.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.2.4.</div>
+      <div class="txt">The Borrowers hereby confirms that the price of the Vehicle has been arrived at after taking into account all the relevant taxes, duties and levies applicable as on the date of this Agreement. The Borrower agrees that the installments shall be increased by any fresh imposition or increase in the price of the Vehicle, taxes, duties, levies and charges during the subsistence of this Agreement or that are or may be levied on the installments or the transaction hereunder or which are or may become payable by the Lender by virtue of entering into this Agreement. In the event of such taxes, duties, levies and charges being imposed and/or increasing during the period of the placing of the order of the Vehicle and its acceptance and eventual delivery to the Borrower, all and any such taxes, duties, levies and charges, increments shall be borne and paid by the Borrower.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.2.5.</div>
+      <div class="txt">The Borrower agrees not to sell, encumber, transfer or otherwise dispose of or suffer or allow to suffer any attachment or distress to the Vehicle or any parts thereof or allow anything that may prejudice or endanger the security herein (including installation of LPG / CNG Kit) without the express consent in writing of the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.2.6.</div>
+      <div class="txt">The Borrower agrees and undertakes to keep and maintain in good and marketable condition the said Vehicle at the Borrower's own expense and replace all such parts whether broken or damaged, as is the normal practice adopted for the maintenance of any Vehicle. The Borrower expressly agrees to engage mechanics, dealer's service facilities expressly authorized by the manufacturer of the Vehicle to effect repairs and to service the Vehicle.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.2.7.</div>
+      <div class="txt">If the Borrower(s) fails to comply with any of the terms mentioned above in this Clause, the Lender may, without prejudice to its rights and remedies under this Agreement and in law, take such steps as it may deem fit to keep and maintain the Vehicle or insure or renew such insurance at the Borrower's costs, charges and expenses, which shall be reimbursed by the Borrower on demand by the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.2.8.</div>
+      <div class="txt">In order to safeguard the security for the dues and to ensure that the Lender's lien is marked on the insurance, the Lender may get the insurance done on behalf of the Borrower, by acting as a facilitator and making the premium payment of the approved insurance company through the Borrower's payment instruments including post-dated cheques/pay orders/any other payment instructions. However, any non-payment on the part of the Lender due to any reason whatsoever, will not affect the liability of the Borrower to pay the necessary insurance premium and to keep the Vehicle insured. The first claim on any insurance proceeds shall be that of the Lender with respect to insurance policy and its renewal as stipulated from time to time and shall pay the amounts as may be specified by the Lender from time to time as nominal compensation for the services rendered by the Lender for facilitating the above mentioned arrangement with the insurance company and ensuring that the Lender's name is marked under insurance. The compensation mentioned above is subject to change at the discretion of the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.2.9.</div>
+      <div class="txt">The Borrower shall on demand being made by the Lender: (a) give immediate actual possession to the Lender, its nominees or agents (as the case may be) of the Vehicle; (b) transfer, deliver and endorse all registrations, policies, certificates and documents relating to the Vehicle to the Lender, its nominees or agents (as the case may be); and (c) do and execute or cause to be done and executed at the costs and expenses of the Borrower, all such acts, deeds, assurances, matters, and things as may be required by the Lender for further assuring and confirming the security created herein and the rights, powers and remedies hereby conferred.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.2.10.</div>
+      <div class="txt">The Borrower shall sign and deliver the necessary forms that may be required to be filed with the Registering Authority or other authorities under the Motor Vehicles Act, 1988 or any other law for the time being in force to record the hypothecation on the said Vehicle, created or to be created in favour of the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">13.2.11.</div>
+      <div class="txt">The Borrower shall be responsible for submitting to the Lender a certified true copy of the Registration</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 9 ================= -->
+  <div class="page">
+    <p>any amount that may be due and payable by the Borrower to it in terms hereof.</p>
+
+    <div class="clause">
+      <div class="num wide">13.2.14.</div>
+      <div class="txt">The Borrower, for the purpose of the above, hereby irrevocably authorizes the Lender to cancel, annul or rescind any booking of the Vehicle and to receive any refund of booking price of the Vehicle from the manufacturer thereof or its dealer.</div>
+    </div>
+
+    <div class="section-heading">14. EVENTS OF DEFAULT</div>
+
+    <p>The Borrower and the Co-Borrower expressly, unconditionally, irrevocably, jointly and severally agree that upon occurrence
+      of any one or more of the following events will constitute an Event of Default under the Finance Documents:</p>
+
+    <div class="clause">
+      <div class="num wide">14.1.</div>
+      <div class="txt"><b>Non-Payment</b>: The Borrower commits any default in the payment of any principal amounts, the interest, costs and charges or any obligation of the Borrower to the Lender on their Due Dates under this Agreement or the Finance Documents.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.2.</div>
+      <div class="txt"><b>Misrepresentation</b>: Any representations, information, statements or particulars made by or provided by, or deemed to be made by the Borrower or on behalf of the Borrower under this Agreement or any other Finance Document or other certificates, undertakings and/or declarations are found to be incorrect or misleading when made or provided or deemed to be made or provided.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.3.</div>
+      <div class="txt"><b>Breach of Other Obligations</b>: The Borrower commits or threatens to commit any breach or default in performance or observance of the provisions of this Agreement (including any financial, affirmative, negative, reporting and any additional covenants) or of any other Finance Document or fails to keep or perform any of the terms or provisions of any other agreement or other writings between the Lender and the Borrower in respect of the Loan Facility.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.4.</div>
+      <div class="txt"><b>Insolvency:</b></div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.4.1.</div>
+      <div class="txt">Failure in business of the Borrower, general assignment by the Borrower for the benefit of creditors, suspension or threats to suspend any payment to any creditors by the Borrower, any petition in insolvency by, or against the Borrower is filed or any petition for winding up of the Borrower is filed.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.4.2.</div>
+      <div class="txt">The Borrower is unable to pay its debts or if a liquidator, or receiver is appointed in respect of any property or estate of the Borrower, or the Borrower goes into liquidation for the purpose of amalgamation or reconstruction.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.4.3.</div>
+      <div class="txt">A receiver, liquidator, administrator or similar officer is appointed in respect of the whole or any part of the property/assets of the Borrower.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.4.4.</div>
+      <div class="txt">The liability of the Borrower exceeds its assets.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.5.</div>
+      <div class="txt"><b>Litigation:</b> Any litigation, arbitration, administrative, governmental, regulatory or other investigations, proceedings or disputes are commenced in relation to the Finance Documents or the transactions contemplated therein or against the Borrower or its assets which has or might, in the sole opinion of the Lender, be expected to have a Material Adverse Effect.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.6.</div>
+      <div class="txt"><b>Unlawfulness:</b> It is or becomes unlawful for the Borrower to perform its obligations under this Agreement or any Finance Document to which it is a party or if this Agreement or any of the Finance Documents to which the Borrower is a party becomes ineffective against the Borrower.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.7.</div>
+      <div class="txt"><b>Repudiation</b>: The Borrower repudiates this Agreement or any other Finance Document to which it is a party or evidences an intention to repudiate this Agreement or any Finance Document to which it is a party.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.8.</div>
+      <div class="txt"><b>Cessation or Change of Business:</b> The Borrower ceases or threatens to cease to carry on its business or source of income.</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 10 ================= -->
+  <div class="page">
+    <div class="clause">
+      <div class="num wide">14.12.</div>
+      <div class="txt"><b>Cross Default:</b></div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.12.1.</div>
+      <div class="txt">The Borrower or its affiliates, if any, commit a breach of any other agreement entered into by the Borrower with any other bank, financial institution or lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.12.2.</div>
+      <div class="txt">Any Financial Indebtedness of the Borrower or its affiliates is not paid when due nor within any originally applicable grace period or is declared to be or otherwise becomes due and payable prior to its specified maturity.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.</div>
+      <div class="txt"><b>Defaults related to the Vehicle</b></div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.1.</div>
+      <div class="txt">The Borrower fails to pay any insurance premium for the Vehicle or payment instrument/cheque bounce charges under this Agreement;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.2.</div>
+      <div class="txt">The Vehicle is confiscated, attached, taken into custody by any authority or subject to any execution proceeding;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.3.</div>
+      <div class="txt">The Vehicle is in distraint, endangered or badly damaged due to accident or any other reason whatever causing the same to be a total loss in the opinion of the Lender or caused bodily injury to any person due to any accident or otherwise;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.4.</div>
+      <div class="txt">The Borrower fails to pay any tax impost, duty or other imposition or comply with any other formalities required for the Vehicle under law from time to time;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.5.</div>
+      <div class="txt">the Vehicle is stolen and/or untraceable for any reason whatever;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.6.</div>
+      <div class="txt">The Borrower fails to supply a certified true copy of the Registration Certificate within the time frames specified in this Agreement hereof;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.7.</div>
+      <div class="txt">The Vehicle being destroyed for any reason whatsoever;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.8.</div>
+      <div class="txt">The Borrower failing to file the particulars of the Vehicle in the prescribed form provided by the Lender and as provided to the Borrower by the Lender</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.9.</div>
+      <div class="txt">the Vehicle has been used or alleged to have been used for any illegal or speculative purposes or activity;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">14.13.10.</div>
+      <div class="txt">Any circumstances arise which give reasonable grounds in the opinion of the Lender that are likely to prejudice or endanger the Vehicle;</div>
+    </div>
+
+    <div class="section-heading">15. CONSEQUENCES OF EVENTS OF DEFAULT</div>
+
+    <p>If an Event of Default has occurred or may occur in the reasonable opinion of the Lender, then the Lender may, without
+      prejudice to any rights that it may have, take one or more of the following actions including, but not limited to:</p>
+
+    <div class="clause">
+      <div class="num wide">15.1.</div>
+      <div class="txt">cancel undrawn commitments and suspend withdrawals under the Loan Facility;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">15.2.</div>
+      <div class="txt">declare all or part of the Outstanding Obligations (including the Loan Facility), to be immediately due and payable, whereupon they shall become immediately due and payable;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">15.3.</div>
+      <div class="txt">make disclosure of details pertaining to the Borrower to CIBIL and RBI or any other regulatory authority, as applicable;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">15.4.</div>
+      <div class="txt">charge Default Charges on the overdue amounts under the Loan Facility;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">15.5.</div>
+      <div class="txt">to enforce any/all security and/or guarantees, provided to the Lender in terms of this Agreement and the other</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 11 ================= -->
+  <div class="page">
+    <p>recovery efforts. The Lender shall remain responsible for the actions of its Recovery Partners and shall address any grievance
+      raised by the Borrower in relation to the recovery process.</p>
+
+    <div class="clause">
+      <div class="num wide">15.9.</div>
+      <div class="txt">exercise of any other rights/remedies available to the Lender under Applicable Law or under the Finance Documents.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">15.10.</div>
+      <div class="txt">without prejudice to the rights and remedies of the Lender, the Lender may (but shall not be bound to do so) at any time, without the specific intervention of a court or any court order, by written notices to the Borrower declare the Loan, to be immediately due and payable, whereupon the same shall become payable together with accrued interest thereon, the charges as set out in the Schedule hereunder written and all other dues.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">15.11.</div>
+      <div class="txt">On the question whether any of the above events / circumstances has/ have occurred / happened, the decision of the Lender shall be final conclusive and binding on the Borrower and the Co-Borrower.</div>
+    </div>
+
+    <div class="section-heading">16. ENFORCEMENT OF RIGHTS</div>
+
+    <div class="clause">
+      <div class="num wide">16.1.</div>
+      <div class="txt">If any of the "Events of Default'' arises (whether demand for repayment/payment is actually made or not), and the same (if capable of remedy) is not remedied to the satisfaction of the Lender within the period specified by the Lender, then and in such case and at any time thereafter, the Lender through its officers, agents or nominees including but not limited to Recovery Partners shall have the right (without prejudice to the right in Clause 15 above and any of its other rights and remedies in law and contract) to take any one or more than one of the following actions without the specific intervention of a Court or any court order:</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">16.1.1.</div>
+      <div class="txt">without any notice and assigning any reason and at the risk and expense of the Borrower(s) and if necessary, as attorney for and in the name of the Borrower(s) take charge and/or possession of and to seize, recover, appoint receiver of and remove the Vehicle from the Borrower's possession. The Lender will be within its rights to use tow-van to carry away the Vehicle, and/or, enter into or upon any place or premises where the Vehicle may be kept or stored and inspect, value or insure the same at the costs and expenses of the Borrower(s), and/or, sell by auction or any private contract or tender, dispatch or consign for realization or otherwise dispose of or deal with the Vehicle in the manner the Lender may think fit,</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">16.2.</div>
+      <div class="txt">The Borrower hereby agrees and authorizes the officers, agents and nominees of the Lender to do and exercise any one or more than one of the acts and powers under this Agreement and the Finance Documents.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">16.3.</div>
+      <div class="txt">Notwithstanding anything to the contrary expressed or implied herein:</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">16.3.1.</div>
+      <div class="txt">the Lender shall have a right to but shall not be bound to exercise any of the powers mentioned in this Agreement or any Finance Documents; or,</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">16.3.2.</div>
+      <div class="txt">if the Lender exercises any one or more powers mentioned in this Agreement and/or the Documents the same shall be without prejudice to the Lender's rights and remedies available in any suit or any legal proceeding either pending or that may be initiated against the Borrower(s) in law, or,</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">16.3.3.</div>
+      <div class="txt">the Lender or its officers, agents or nominees shall not be in any way responsible for any loss, damage, limitation, or depreciation that the Vehicle may suffer or sustain on any account whatsoever whilst the same is in possession of the Lender, its officers, agents or nominees including but not limited to Recovery Partners or because of exercise or non-exercise of the rights, powers, or remedies available to the Lender or its officers, agents or nominees and all such loss, damage or depreciation shall be debited to the account of the Borrower howsoever caused; or,</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">16.3.4.</div>
+      <div class="txt">neither the Lender nor its agents, officers or nominees shall be in any way be responsible and liable and the Borrower hereby agrees not to make the Lender or its officers, agents or any nominees including but not limited to its Recovery Partner liable for any loss, damage, limitation or otherwise for any belongings and articles that may be kept or lying in the Vehicle at the time of taking charge and / or possession, seizure of the Vehicle pursuant to the terms of this Clause 16.</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 12 ================= -->
+  <div class="page">
+    <div class="section-heading">18. SET-OFF AND LIEN</div>
+
+    <p>In respect of all or any of Borrower's / Co-Borrower's liabilities to the Lender, whether under this Agreement or under any
+      other obligation or any other facilities/borrowings/document, whether or not such liabilities have been crystallized, actual or
+      contingent, primary or collateral or several or jointly with others, whether as principal debtor and/or as guarantor and/or
+      otherwise howsoever (collectively "<b>Liabilities</b>"), the Lender shall have a specific and special lien on all the Borrower's /
+      Co-Borrower's present and future stocks, shares, securities, property, book debts, all moneys in all accounts whether current,
+      savings, overdraft, fixed or other deposits, held with or in custody, legal or constructive, with the Lender, now or in future,
+      whether in same or different capacity and whether severally or jointly, whether for any banking relationship, safe custody,
+      collection, or otherwise and the Lender shall have the right to, without notice to and without consent of the Borrower to
+      transfer, sell, realize, adjust, appropriate all such securities and property as aforesaid for the purpose of realizing or
+      appropriating against any of Lender's dues in respect of any of the Liabilities. In addition to general lien and/or similar right,
+      the Lender may at any time in its absolute discretion and without notice to and without consent of the Borrower, combine or
+      consolidate all or any of accounts of the Borrower, whether of same type or nature or not and whether in same capacity or not,
+      with any of the Liabilities and set off or transfer any sum or sums standing to the credit of any one or more of such accounts
+      in or towards satisfaction of any of the Liabilities. The Lender shall be deemed to have and hold and continue to have first
+      charge on any assets including any of the deposit on which security has been created in respect of the Loan, also for any of the
+      other Liabilities and all the rights and powers vested in the Lender in terms of any security or charge created for the Loan
+      shall be available to the Lender also in respect of such Liabilities, irrespective of the fact whether the Loan is at any time repaid
+      or satisfied or not and even after the Loan has been repaid or prepaid or the security and property is given to the Lender in
+      respect of any particular liabilities.</p>
+
+    <div class="section-heading">19. COSTS AND EXPENSES</div>
+
+    <p>The Borrower will promptly and on demand reimburse and pay to the Lender all costs, charges and expenses, including stamp
+      duty and legal costs on actual basis and other charges and expenses which may be incurred by the Lender in connection with
+      (a) the negotiation, preparation, printing and execution of any Finance Document; (b) responding to, evaluating, negotiating
+      or complying with any request from the Borrower for any amendment, waiver or consent in connection with the Facility; and
+      (c) the enforcement or preservation of any rights of the Lender under any Finance Documents including in relation to
+      maintenance of any Security created/executed by the Borrower and/or the Co-Borrower in favour of the Lender, and (d)
+      various charges for possession of the Vehicle like tow-away charges, godown charges, rentals and such other expenses as may
+      be incurred by the Lender for effecting the possession of the Vehicle and for its custody and safe keeping, etc.</p>
+
+    <div class="section-heading">20. ASSIGNMENT AND TRANSFER</div>
+
+    <div class="clause">
+      <div class="num wide">20.1.</div>
+      <div class="txt">The Borrower cannot transfer or assign any of its rights or liabilities under this Agreement or under any Finance Document, executed or to be executed by the Borrower in the Lender's favour pursuant to this Agreement and/or the Loan Facility to any person without the prior written consent of the Lender.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">20.2.</div>
+      <div class="txt">The Borrower agrees that notwithstanding anything to the contrary contained in this Agreement or any other Finance Document, the Lender shall have the right to assign, transfer, novate and/or securitise its rights or obligations under this Agreement and/or other Finance Documents, without any reference or notice to, and without requiring any consent from, the Borrower. The Borrower expressly agrees, confirms, recognizes and accepts that the Lender shall be absolutely entitled and have full power and authority to sell, assign or transfer in any manner, in whole or in part, and in such manner and on such terms as the Lender may decide, including (i) reserving a right to the Lender to retain its power hereunder to proceed against the Borrower on behalf of the purchaser, assignee or transferee and/or (ii) entering into any risk participation arrangement/ co-lending/ assignment and/or transfer and/or novation arrangement as per circulars, directions and guidelines issued in this regard from time to time by Reserve Bank of India ("RBI") any or all outstanding dues of the Borrower to any third party of the Lender's choice without any further reference or intimation to the Borrower and the Borrower hereby agrees and acknowledges that it is hereby and has been deemed to have been adequately informed of such actions as may be required by extant RBI guidelines/ circulars/ directions.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">20.3.</div>
+      <div class="txt">The Borrower acknowledges that the Lender may, in accordance with applicable law and guidelines issued</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 13 ================= -->
+  <div class="page">
+    <div class="clause">
+      <div class="num wide">21.1.1.1.</div>
+      <div class="txt">to any Affiliate of the Lender (together with the Lender, the "Permitted Parties");</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.1.1.2.</div>
+      <div class="txt">to professional advisers, arrangers, structurers, chartered accountants, insurers or insurance brokers and service providers of the Permitted Parties who are under a duty of confidentiality towards the Permitted Parties;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.1.1.3.</div>
+      <div class="txt">to any actual or potential assignee, novatee, transferee, participant or sub-participant in relation to any of the Lender's rights and/or obligations under any agreement (or any agent or adviser of any of the foregoing); and</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.1.1.4.</div>
+      <div class="txt">to any rating agency, insurer or insurance broker, or direct or indirect provider of credit protection to any Permitted Party, as required under Applicable Law or by a Governmental Authority.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.1.2.</div>
+      <div class="txt">The Lender and/or any third party mentioned in this Clause may transfer and disclose any such information as required under Applicable Law or by any Governmental Authority or by an agreement between the Lender and any Governmental Authority.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.</div>
+      <div class="txt"><b>Other Disclosures</b></div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.1.</div>
+      <div class="txt">The Borrower agrees and confirms that as a pre-condition, to the grant of the Facility by the Lender to the Borrower, the Lender, requires consent of the Borrower to make certain disclosures in relation to the Borrower including information and data relating to the Borrower and any credit facility availed or to be availed by the Borrower, obligations assumed or to be assumed by the Borrower in relation thereto and default, if any, committed by the Borrower in discharge thereof. Accordingly, the Borrower hereby agrees and gives consent to the disclosure by the Lender of all or any such;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.1.1.</div>
+      <div class="txt">information and data relating to the Borrower;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.1.2.</div>
+      <div class="txt">the information or data relating to any credit facilities including, the Facility availed of or to be availed of by the Borrower from the Lender and the Borrower's obligations in any credit facility granted/to be granted, by the Lender (including the Facility); and</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.1.3.</div>
+      <div class="txt">default, if any, committed by the Borrower in discharge of such obligations;</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.1.4.</div>
+      <div class="txt">as the Lender may deem appropriate and necessary, to disclose and furnish to TransUnion CIBIL Limited or any other Credit Information Company registered under the Credit Information Companies (Regulation) Act, 2005 ("CIBIL") and/or RBI and any other agency authorized in this behalf under Applicable Law or any other Governmental Authority, including the Information Utilities established pursuant to the IBC (as applicable).</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.1.5.</div>
+      <div class="txt">The Borrower further declares that the information and data furnished by the Borrower to the Lender are/shall be true and correct and further undertakes and declares that:</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.1.6.</div>
+      <div class="txt">CIBIL, RBI, any Information Utility or any other Governmental Authority, and any other agency so authorized may use, process the said information and data disclosed by the Borrower in a manner deemed fit by them; and</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.1.7.</div>
+      <div class="txt">CIBIL, RBI, any Information Utility or any other Governmental Authority, and any other agency so authorized may furnish for consideration, the processed information and data or products thereof prepared by them to banks/financial institutions and other credit grantors or registered users, as may be specified under Applicable Law.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">21.2.2.</div>
+      <div class="txt">The rights conferred on the Lender under this Clause are in addition to and shall not be in any way prejudiced or affected by any other agreement, expressed or implied, between the Borrower and the Lender in relation to any information nor shall any such other agreement be in any way prejudiced or affected by this Clause.</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 14 ================= -->
+  <div class="page">
+    <div class="section-heading">23. SEVERABILITY & ILLEGALITY</div>
+
+    <p>If, at any time, any provision of this Agreement is or becomes illegal, invalid or unenforceable in any respect, the legality,
+      validity or enforceability of the remaining provisions will not, in any way, be affected or impaired.</p>
+
+    <p>If it becomes unlawful in any applicable jurisdiction for the Lender to perform any of its obligations as contemplated by this
+      Agreement or any other Finance Document, the Lender shall promptly notify the Borrower upon becoming aware of that event
+      and in which case the Facility, or a part thereof shall stand cancelled, and the Borrower shall repay the same forthwith to the
+      Lender.</p>
+
+    <div class="section-heading">24. GRIEVANCE REDRESSAL</div>
+
+    <div class="clause">
+      <div class="num wide">24.1.</div>
+      <div class="txt">The Borrower may register a complaint with the Lender with respect to the Loan Facility, at info@satinfinserv.com. The Borrower may also correspond with the Company at the below mentioned address: Customer Service Department, Plot no &ndash; 492, 4th floor 'B' wing, Udyog Vihar Phase III Gurugram, Haryana 122016.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">24.2.</div>
+      <div class="txt">If the Borrower is not satisfied with the resolution received from above channels, or if the customer does not receive a response from the Lender in 7 (seven) calendar days, the customer may write to the Designated Officer or the Principal Nodal Officer. The Principal Nodal Officer shall be responsible for receiving and managing grievances at clientgrievance@satinfinserv.com.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">24.3.</div>
+      <div class="txt">If the Borrower is not satisfied with the response from the 2nd level of escalation, then the Borrower may escalate the same with the concerned Banking Ombudsman/Ombudsman for NBFCs or the Customer Education and Protection Cell (CEPC) in RBI.</div>
+    </div>
+
+    <div class="section-heading">25. GOVERNING LAW AND JURISDICTION</div>
+
+    <div class="clause">
+      <div class="num wide">25.1.</div>
+      <div class="txt">This Agreement shall be governed by and construed in all respects by the laws of India.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">25.2.</div>
+      <div class="txt">Subject to Clause 26 (Arbitration), the Parties agree to submit to the exclusive jurisdiction of the courts and tribunals of Delhi. The Borrower irrevocably submits to and accepts for itself and in respect of its property, generally and unconditionally, the jurisdiction of these courts and tribunals, and irrevocably waives any objection now or in future, to the laying of the venue of any proceedings in the courts or tribunals of Delhi and any claim that any such proceedings have been brought in an inconvenient forum. The submission to the exclusive jurisdiction of the courts of Delhi is for the benefit of the Lender only and will not (and will not be construed so as to) limit the right of the Lender to take proceedings in any other court of competent jurisdiction, nor shall the taking of proceedings by the Lender in any one or more jurisdictions preclude the taking of proceedings by the Lender in any other jurisdiction (whether concurrently or not) if and to the extent permitted by Applicable Law.</div>
+    </div>
+
+    <div class="section-heading">26. ARBITRATION</div>
+
+    <div class="clause">
+      <div class="num wide">26.1.</div>
+      <div class="txt">Any dispute, difference, controversy or claim arising out of or in connection with this Agreement and/or the relationship between the Parties, including any dispute relating to the interpretation, construction, validity, enforceability, performance or breach of this Agreement, shall be referred to and finally resolved by arbitration in accordance with the provisions of the Arbitration and Conciliation Act, 1996, as amended from time to time, and applicable law.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">26.2.</div>
+      <div class="txt">The arbitration shall be conducted by a sole arbitrator to be appointed in accordance with the provisions of this Clause. The Lender shall issue a written notice to the Borrower proposing a panel of not less than three independent and eligible arbitrators, each of whom shall be eligible under the Arbitration and Conciliation Act, 1996 and not ineligible under Section 12 (5) read with the Seventh Schedule thereto. Within five Business Days from receipt of such notice, the Borrower shall select and communicate to the Lender the name of any one arbitrator from the proposed panel. In the event the Borrower fails to communicate its selection within</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 15 ================= -->
+  <div class="page">
+    <div class="section-heading">27. AMENDMENT</div>
+
+    <p>No provision of this Agreement may be amended or waived except by written agreement between the Parties.</p>
+
+    <div class="section-heading">28. REMEDIES AND WAIVERS; CONTINUING OBLIGATION</div>
+
+    <div class="clause">
+      <div class="num wide">28.1.</div>
+      <div class="txt">No failure to exercise, nor any delay in exercising, on the part of the Lender, any right or remedy under the Finance Documents will operate as a waiver, nor will any single or partial exercise of any right or remedy prevent any further or other exercise or the exercise of any other right or remedy. The rights and remedies provided in this Agreement and the other Finance Documents are cumulative and not exclusive of any rights or remedies provided by Applicable Law.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">28.2.</div>
+      <div class="txt">The Borrower's obligations hereunder shall remain in full force and shall not be affected, impaired, diminished or extinguished by any act, omission, default, matter or thing (including anything which, but for this Clause, would have discharged the Borrower (wholly or in part) or would have afforded the Borrower any legal or equitable defense) except the full, prompt and complete performance of all the terms, undertakings and conditions of the Finance Documents, including the due and punctual payment of all amounts that may become due to the Lender under the Finance Documents.</div>
+    </div>
+
+    <div class="section-heading">29. MISCELLANEOUS</div>
+
+    <div class="clause">
+      <div class="num wide">29.1.</div>
+      <div class="txt">The Borrower confirms that it has received, read and understood the Key Fact Statement (KFS) and all material terms of the Loan Facility, including the rate of interest, charges, repayment schedule and Cooling-off Period, prior to execution of this Agreement.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">29.2.</div>
+      <div class="txt">Any notice or communication under this Agreement shall be given in writing and shall be deemed to have been duly given if delivered by hand, courier, registered post or email to the address or contact details of the Parties as set out in Schedule 1 or as may be updated from time to time.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">29.3.</div>
+      <div class="txt">The Borrower agrees that this Agreement and any related documents may be executed and communicated electronically, including through electronic signatures, and such execution shall be valid, binding and enforceable.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">29.4.</div>
+      <div class="txt">This Agreement constitutes the entire agreement between the Parties with respect to the subject matter hereof and supersedes all prior discussions, representations or arrangements.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">29.5.</div>
+      <div class="txt">The provisions relating to indemnity, confidentiality, payment obligations and any other provisions which by their nature are intended to survive shall survive termination or repayment of the Loan Facility.</div>
+    </div>
+    <div class="clause">
+      <div class="num wide">29.6.</div>
+      <div class="txt">The Lender shall not be liable for any failure or delay in performing its obligations under this Agreement if such failure or delay is due to events beyond its reasonable control.</div>
+    </div>
+
+    <p style="margin-top: 40px;"><i><u>[The remainder of the page is intentionally left blank, Schedule 1 follows]</u></i></p>
+  </div>
+
+</body>
+</html>

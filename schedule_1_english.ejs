@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule 1 - Commercial Terms and Conditions - Satin Finserv Limited</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 16mm 16mm 16mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .doc-title {
+      text-align: center;
+      font-size: 12pt;
+      font-weight: bold;
+      text-decoration: underline;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    table.sch-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table.sch-table th {
+      border: 1px solid #000000;
+      background-color: #e3ecd9;
+      font-size: 10pt;
+      font-weight: bold;
+      text-align: left;
+      padding: 6px 8px;
+    }
+
+    table.sch-table td {
+      border: 1px solid #000000;
+      font-size: 10pt;
+      padding: 6px 8px;
+      vertical-align: top;
+      line-height: 1.4;
+      text-align: justify;
+    }
+
+    table.sch-table td.sno {
+      width: 6%;
+      text-align: left;
+    }
+
+    table.sch-table td.desc {
+      width: 26%;
+    }
+
+    /* Inner table (lock-in period / tenor) */
+    table.inner {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+    }
+
+    table.inner td, table.inner th {
+      border: 1px solid #000000;
+      padding: 3px 6px;
+      font-size: 9.5pt;
+    }
+
+    .fill {
+      display: inline-block;
+      border-bottom: 1px solid #000000;
+      min-width: 70px;
+      height: 12px;
+    }
+
+    /* Signature page */
+    .sig-title {
+      font-size: 11pt;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .sig-rule {
+      border-top: 1px solid #000000;
+      margin-bottom: 16px;
+    }
+
+    p.para {
+      font-size: 10.5pt;
+      line-height: 1.5;
+      text-align: justify;
+      margin: 0 0 12px 0;
+    }
+
+    .ack-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 11pt;
+      margin: 14px 0 12px 0;
+    }
+
+    .sig-block {
+      margin: 18px 0;
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+
+    .sig-line {
+      border-top: 1px solid #000000;
+      width: 220px;
+      margin: 22px 0 4px 0;
+    }
+
+    .sign-img { height: 50px; width: auto; display: block; margin: 6px 0 2px 0; }
+
+    b { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <%
+    const safeFacilityAmount = typeof facilityAmount !== 'undefined' ? facilityAmount : 'XXXXXX';
+    const safeFacilityAmountWords = typeof facilityAmountWords !== 'undefined' ? facilityAmountWords : 'XXX lakh';
+    const safeTenor = typeof tenor !== 'undefined' ? tenor : 'XXX';
+    const safeDocumentationCharges = typeof documentationCharges !== 'undefined' ? documentationCharges : '________';
+    const safeRepaymentAccountNo = typeof repaymentAccountNo !== 'undefined' ? repaymentAccountNo : '50200097781152';
+    const safeRepaymentBank = typeof repaymentBank !== 'undefined' ? repaymentBank : 'HDFC Bank,';
+    const safeDisbursementAccountNo = typeof disbursementAccountNo !== 'undefined' ? disbursementAccountNo : 'XXXXXXXX';
+    const safeDisbursementAccountName = typeof disbursementAccountName !== 'undefined' ? disbursementAccountName : 'XXXXXXXXXX';
+    const safeDisbursementBank = typeof disbursementBank !== 'undefined' ? disbursementBank : 'XXXXX Bank';
+    const safeDisbursementIfsc = typeof disbursementIfsc !== 'undefined' ? disbursementIfsc : 'XXXXXXX';
+    const safeSecurityCheques = typeof securityCheques !== 'undefined' ? securityCheques : 'Cheque no XXXXX to XXXXX of XXX Bank.';
+    const safeCollateralVehicles = typeof collateralVehicles !== 'undefined' ? collateralVehicles : 'XXXX';
+    const safeCollateralMake = typeof collateralMake !== 'undefined' ? collateralMake : 'XXXXXX';
+    const safeInsurancePremium = typeof insurancePremium !== 'undefined' ? insurancePremium : 'XXXXX';
+    const safeInsurancePremiumWords = typeof insurancePremiumWords !== 'undefined' ? insurancePremiumWords : 'XXXXXXX';
+    const safeBorrowerName = typeof borrowerName !== 'undefined' ? borrowerName : 'XXXXXXXXX';
+    const safeCoBorrowerName = typeof coBorrowerName !== 'undefined' ? coBorrowerName : 'XXXXXXXXXXXX';
+  %>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="doc-title">
+      SCHEDULE 1<br>
+      COMMERCIAL TERMS AND CONDITIONS
+    </div>
+
+    <table class="sch-table">
+      <thead>
+        <tr>
+          <th style="width: 6%;">S.NO</th>
+          <th style="width: 26%;">DESCRIPTION</th>
+          <th>PARTICULAR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sno">1.</td>
+          <td class="desc">Date of Execution</td>
+          <td>The date of execution of this Agreement shall be the date on which the last party affixes its electronic signature to this Agreement.</td>
+        </tr>
+        <tr>
+          <td class="sno">2.</td>
+          <td class="desc">Place of Execution</td>
+          <td>Delhi</td>
+        </tr>
+        <tr>
+          <td class="sno">3.</td>
+          <td class="desc">Borrower</td>
+          <td><%= safeBorrowerName %></td>
+        </tr>
+        <tr>
+          <td class="sno">4.</td>
+          <td class="desc">Co-Borrower</td>
+          <td><%= safeCoBorrowerName %></td>
+        </tr>
+        <tr>
+          <td class="sno">5.</td>
+          <td class="desc">Facility</td>
+          <td><b><u>Pink EV Rickshaw</u></b> of INR <%= safeFacilityAmount %> /- (Rs <%= safeFacilityAmountWords %> Only)</td>
+        </tr>
+        <tr>
+          <td class="sno">6.</td>
+          <td class="desc">Nature of the Facility</td>
+          <td>Indian Rupee denominated Purchase of <b><u>Pink EV Rickshaw</u></b> purpose as approved facility.</td>
+        </tr>
+        <tr>
+          <td class="sno">7.</td>
+          <td class="desc">Purpose</td>
+          <td>
+            The Facility shall be utilised by the Borrower solely for the purpose of Purchase of <b><u>Pink EV Rickshaw</u></b>) as specified in Schedule 1 and for no other purpose.<br>
+            The amounts borrowed by the Borrower shall not, directly or indirectly, be used for:<br>
+            a) subscription to or purchase of shares/debentures;<br>
+            b) investment in capital markets;<br>
+            c) investment into any affiliate or group entities;<br>
+            d) investment in real estate or land acquisition;<br>
+            e) indulging in any activities which are prohibited under Applicable Law;<br>
+            f) purchase of gold in any form (including primary gold, gold bullion, gold jewellery, gold coins, units of gold exchange-traded funds (ETF) and units of gold mutual funds);<br>
+            g) any speculative business or activity; or<br>
+            h) any purpose in contravention of any guidelines, rules or regulations of the Reserve Bank of India.
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">8.</td>
+          <td class="desc">Pre-Instalment Interest</td>
+          <td>Pre-instalment interest shall be charged from the date of disbursement till the date immediately preceding the commencement of the first EMI at the applicable Interest Rate and shall be payable by the Borrower as may be specified by the Lender, including as part of the first instalment or as a separate demand.</td>
+        </tr>
+        <tr>
+          <td class="sno">9.</td>
+          <td class="desc">Cooling off Period</td>
+          <td>The Borrower shall have the option to exit from the Loan Facility within 10 (ten) days from the date of disbursement by paying the principal amount and the proportionate APR without any prepayment penalty. Upon expiry of such period, the Borrower shall continue to be bound by the terms of this Agreement.</td>
+        </tr>
+        <tr>
+          <td class="sno">10.</td>
+          <td class="desc">Tenor</td>
+          <td>The tenor of the Loan Facility will be a period of <span class="fill"></span> months from the date of its disbursal.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page">
+    <table class="sch-table">
+      <tbody>
+        <tr>
+          <td class="sno">12.</td>
+          <td class="desc">Repayment</td>
+          <td>The Loan Facility shall be repaid by the Borrower in equated monthly instalments ("EMIs") or such other instalments as specified in the repayment schedule provided by the Lender to the Borrower.</td>
+        </tr>
+        <tr>
+          <td class="sno">13.</td>
+          <td class="desc">Prepayment</td>
+          <td>
+            The Facility may be prepaid on such terms and conditions as may be prescribed by the Lender. There shall be a lock-in period, prior to which no prepayment shall be allowed, as specified below:
+            <table class="inner">
+              <tr><th style="width: 50%;">Tenor</th><th>Lock-In Period</th></tr>
+              <tr><td><%= safeTenor %></td><td>Nil.</td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">14.</td>
+          <td class="desc">Prepayment Premium</td>
+          <td>NIL.</td>
+        </tr>
+        <tr>
+          <td class="sno">15.</td>
+          <td class="desc">Interest Rate</td>
+          <td>
+            Interest at the rate of 24% per annum will be payable by the Borrower on the outstanding principal amounts.<br><br>
+            Any change in Interest Rate will be effective prospectively and would be intimated to the borrower at least 30 days before effecting the change.
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">16.</td>
+          <td class="desc">Interest Payment Date</td>
+          <td>Interest shall be payable on a monthly basis on such date as shall be intimated by Lender on the corresponding dues of the outstanding principal amounts.</td>
+        </tr>
+        <tr>
+          <td class="sno">17.</td>
+          <td class="desc">Interest Period</td>
+          <td>
+            Interest will be charged at monthly rests.<br>
+            For the sake of absolute clarity, the Borrower shall make interest payment as per the loan repayment schedule (RPS) to be separately shared by the Lender to the Borrower.
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">18.</td>
+          <td class="desc">Default Charges</td>
+          <td>Default Charges at the rate of 3% per month on the overdue amount proportionate to the delayed days + applicable GST shall be payable by the Borrower upon occurrence of any payment related Event of Default.</td>
+        </tr>
+        <tr>
+          <td class="sno">19.</td>
+          <td class="desc">Processing Fees</td>
+          <td>A one-time non-refundable processing fee at the rate of 1.5% plus applicable taxes will be payable by the Borrower to the Lender prior to the disbursement under the Facility.</td>
+        </tr>
+        <tr>
+          <td class="sno">20.</td>
+          <td class="desc">Documentation Charges</td>
+          <td>Rs. <%= safeDocumentationCharges %> /- to be paid prior to the disbursal.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="page">
+    <table class="sch-table">
+      <tbody>
+        <tr>
+          <td class="sno">22.</td>
+          <td class="desc">Loan Repayment account</td>
+          <td>Account number <b><u><%= safeRepaymentAccountNo %></u></b> held in the name of the Borrower and maintained with <b><u><%= safeRepaymentBank %></u></b> or such other account as may be specified by the Borrower by a written notification to the Lender.</td>
+        </tr>
+        <tr>
+          <td class="sno">23.</td>
+          <td class="desc">Loan Disbursement account details</td>
+          <td>Account number <b><u><%= safeDisbursementAccountNo %></u></b> held in the name of <%= safeDisbursementAccountName %> and maintained with <b><u><%= safeDisbursementBank %></u></b> <b><u>IFSC Code-<%= safeDisbursementIfsc %>.</u></b></td>
+        </tr>
+        <tr>
+          <td class="sno">24.</td>
+          <td class="desc">Post-Dated Cheques and Undated Cheques</td>
+          <td>
+            The Borrower shall submit to the Lender, along with this Agreement the Security Cheques as set out in Schedule 1, with the Lender named as the payee therein.<br>
+            The Borrower hereby agrees, acknowledges, and confirms that it has agreed to issue the Security Cheques voluntarily in discharge of the Outstanding Obligations and Lender is hereby authorized to recover the Outstanding Obligations by way of submitting/depositing the Security Cheques.<br>
+            The Borrower confirms that until the Final Settlement Date, it shall ensure that sufficient funds are available in the account to which the Security Cheques relate to enable the Lender to present the same.<br>
+            The Borrower shall honor all Security Cheques when presented for payment by the Lender and shall not take any steps, which in any way are likely to affect the payment thereunder to the Lender including without limitation, any 'stop payment instructions'. Further, the prior written consent of the Lender shall be required by the Borrower for changing the authorized signatories for the relevant bank account(s) of the Borrower to which the Security Cheques relate.
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">25.</td>
+          <td class="desc">Details of the Security Cheques</td>
+          <td><%= safeSecurityCheques %></td>
+        </tr>
+        <tr>
+          <td class="sno">26.</td>
+          <td class="desc">Collateral/Security</td>
+          <td>1 ) Hypothecation of <%= safeCollateralVehicles %> Vehicles Make-<%= safeCollateralMake %> Three-Wheeler Vehicles.</td>
+        </tr>
+        <tr>
+          <td class="sno">27.</td>
+          <td class="desc">Insurance Premium</td>
+          <td>INR <%= safeInsurancePremium %> /- (Rupees <%= safeInsurancePremiumWords %>) (inclusive of GST) to be paid by Borrower and can be deducted by Lender out of the disbursement amount and paid by Lender to the insurer on behalf of the Borrower.</td>
+        </tr>
+        <tr>
+          <td class="sno">28.</td>
+          <td class="desc">Location of Dispute Resolution</td>
+          <td>Exclusive jurisdiction of Delhi.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ================= PAGE 4 ================= -->
+  <div class="page">
+    <table class="sch-table">
+      <tbody>
+        <tr>
+          <td class="sno">30.</td>
+          <td class="desc">Notices to the Lender</td>
+          <td>
+            <b>Address : SATIN FINSERV LIMITED</b><br>
+            4th Floor, 'B' Wing, Plot No. 492, Udyog Vihar, Phase-III Gurugram, Haryana &ndash; 122016<br><br>
+            Phone : +91- <b>1800-572-1102</b><br><br>
+            Email. : <b>info@satinfinserv.com</b>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 26px;">
+      <div class="sig-title">SIGNATURE PAGE</div>
+      <div class="sig-rule"></div>
+
+      <p class="para">IN WITNESS WHEREOF the Parties hereto have caused these presents to be executed in the manner hereinabove appearing:</p>
+
+      <div class="ack-head">
+        <span>Acknowledgment</span><span>of</span><span>Dual</span><span>Capacity</span>
+      </div>
+
+      <p class="para">The undersigned individuals, namely <b>Mr. <%= safeBorrowerName %></b> and <b>Mr. <%= safeCoBorrowerName %></b>, hereby acknowledge and agree that they are executing this Agreement in their individual capacities as <b>Borrowers</b> to the loan facility extended by <b>Satin Finserv Limited</b> for the said facility.</p>
+
+      <p class="para">The obligations undertaken herein shall be binding upon each of them in both capacities, and the execution of this Agreement shall constitute valid and enforceable commitments as Borrowers/Co-Applicants, without requiring separate instruments for each role.</p>
+
+      <div class="sig-block">
+        <b>SIGNED AND DELIVERED by</b><br>
+        <b>The within named Borrower</b>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="sig-line"></div>
+        <b>Name &ndash;</b>
+      </div>
+
+      <div class="sig-block">
+        <b>SIGNED AND DELIVERED by</b><br>
+        <b>The within named Co-Borrower</b>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="sig-line"></div>
+        <b>Name &ndash;</b>
+      </div>
+
+      <div class="sig-block">
+        <b>SIGNED AND DELIVERED by</b><br>
+        <b>The within named Lender SFL</b><br>
+        <b>((Satin Finserv Limited)</b><br><br>
+        <b>By the hands of its authorized signatory</b>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="sig-line"></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

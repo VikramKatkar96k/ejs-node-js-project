@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Consent Letter - Satin Finserv Limited</title>
+  <style>
+    /* A4 Dimensions and Page breaks for PDF engines */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 15mm 15mm 20mm 15mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* Logo and Header Box */
+    .header-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    /* Title */
+    .doc-header-title {
+      text-align: center;
+      font-size: 13pt;
+      font-weight: bold;
+      margin-bottom: 22px;
+    }
+
+    /* Applicant / PAN rows */
+    .applicant-block {
+      font-size: 11pt;
+      margin-bottom: 22px;
+    }
+
+    .applicant-row {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .applicant-row .field {
+      display: flex;
+      align-items: flex-end;
+      flex: 1;
+    }
+
+    .applicant-row .label {
+      font-weight: bold;
+      white-space: nowrap;
+      margin-right: 6px;
+    }
+
+    .underline-value {
+      border-bottom: 1px solid #000000;
+      display: inline-block;
+      padding-left: 5px;
+      padding-bottom: 1px;
+      flex-grow: 1;
+      min-height: 15px;
+    }
+
+    .consent-lead {
+      font-size: 11pt;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    /* Numbered terms list */
+    .terms-list {
+      margin: 0 0 14px 0;
+      padding-left: 24px;
+      font-size: 10.5pt;
+      line-height: 1.4;
+      text-align: justify;
+    }
+
+    .terms-list li {
+      margin-bottom: 9px;
+    }
+
+    .agree-line {
+      font-size: 10.5pt;
+      margin: 8px 0 14px 0;
+    }
+
+    .docs-heading {
+      font-size: 11pt;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .docs-list {
+      list-style-type: decimal;
+      padding-left: 55px;
+      font-size: 10.5pt;
+      line-height: 1.6;
+      margin: 0 0 26px 0;
+    }
+
+    .docs-list li {
+      min-height: 16px;
+    }
+
+    /* Signature row */
+    .signature-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .signature-col {
+      width: 30%;
+      font-size: 11pt;
+    }
+
+    .signature-word {
+      margin-bottom: 45px;
+    }
+
+    .signature-line {
+      border-top: 1px solid #000000;
+      margin: 0 8px 6px 8px;
+    }
+
+    .signature-label {
+      font-weight: bold;
+    }
+
+    .sign-img {
+      height: 45px;
+      width: auto;
+      display: block;
+      margin: 0 auto 4px auto;
+    }
+
+    .doc-footer {
+      text-align: center;
+      font-size: 11pt;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <%
+    // Safely assign variables or fallbacks
+    const safeApplicantName = typeof applicantName !== 'undefined' ? applicantName : '';
+    const safeApplicantPan = typeof applicantPan !== 'undefined' ? applicantPan : '';
+    const safeCoApplicant1Name = typeof coApplicant1Name !== 'undefined' ? coApplicant1Name : '';
+    const safeCoApplicant1Pan = typeof coApplicant1Pan !== 'undefined' ? coApplicant1Pan : '';
+    const safeCoApplicant2Name = typeof coApplicant2Name !== 'undefined' ? coApplicant2Name : '';
+    const safeCoApplicant2Pan = typeof coApplicant2Pan !== 'undefined' ? coApplicant2Pan : '';
+    const safeDocuments = (typeof documents !== 'undefined' && Array.isArray(documents)) ? documents : ['', '', '', ''];
+  %>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="header-container">
+      <!-- USER_LOGO: Replace the src attribute with your PNG logo image path (e.g. "/assets/logo.png") -->
+      <img src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo" style="height: 40px; max-width: 200px; object-fit: contain;">
+    </div>
+
+    <div class="doc-header-title">
+      <u>Consent Letter</u>
+    </div>
+
+    <div class="applicant-block">
+      <div class="applicant-row">
+        <div class="field"><span class="label">Name of Applicant</span><span class="underline-value"><%= safeApplicantName %></span></div>
+        <div class="field" style="margin-left: 20px;"><span class="label">PAN No.</span><span class="underline-value"><%= safeApplicantPan %></span></div>
+      </div>
+      <div class="applicant-row">
+        <div class="field"><span class="label">Co-Applicant 1</span><span class="underline-value"><%= safeCoApplicant1Name %></span></div>
+        <div class="field" style="margin-left: 20px;"><span class="label">PAN No.</span><span class="underline-value"><%= safeCoApplicant1Pan %></span></div>
+      </div>
+      <div class="applicant-row">
+        <div class="field"><span class="label">Co-Applicant 2</span><span class="underline-value"><%= safeCoApplicant2Name %></span></div>
+        <div class="field" style="margin-left: 20px;"><span class="label">PAN No.</span><span class="underline-value"><%= safeCoApplicant2Pan %></span></div>
+      </div>
+    </div>
+
+    <div class="consent-lead">I/We consent, understand, acknowledge, undertake, agree and declare that:</div>
+
+    <ol class="terms-list">
+      <li>All information and documents provided by me/us are true, correct and complete, and any misstatement or omission may result in rejection or cancellation of the loan.</li>
+      <li>The loan is subject to Satin Finserv Limited's ("Satin") internal credit policies and applicable RBI guidelines, and Satin may approve or reject the application at its sole discretion without assigning any reason.</li>
+      <li>Satin is authorised to verify, validate and obtain my/our details from any source, including but not limited to PAN/GST databases, MCA records, utility data, bank statements, government repositories, public sources and independent verification agencies.</li>
+      <li>Satin is authorized to obtain my/our credit information from any Credit Information Company (CIC), and to submit, update and share my/our credit data with CICs, even if the loan is not sanctioned or disbursed.</li>
+      <li>Aadhaar authentication is being provided voluntarily for e-KYC, and submission of the Aadhaar OTP shall be treated as my/our electronic signature and acceptance of this loan application.</li>
+      <li>Satin may collect, process, store, share and retain my/our personal data, KYC information, financial information and Aadhaar e-KYC data for credit appraisal, sanction, monitoring, servicing, recovery, fraud checks and regulatory compliance, in accordance with the Digital Personal Data Protection Act, 2023 and other applicable laws.</li>
+      <li>My/our information may be shared with Satin's group companies, service providers, verification partners, lenders, banks, insurers, collection partners, regulators and statutory authorities, as required for lawful purposes.</li>
+      <li>Satin may contact me/us through phone calls, SMS, WhatsApp, email or any other mode of communication, even if my/our mobile number is registered under DND/DNC.</li>
+      <li>Documents and information submitted through this application will not be returned and may be retained by Satin for statutory, regulatory or legal purposes.</li>
+      <li>The loan, if sanctioned, will be used only for the declared business purpose and not for any illegal, speculative or restricted activities.</li>
+      <li>Any change in address, contact details, ownership structure or any material information relevant to this application or loan will be immediately communicated to Satin.</li>
+    </ol>
+
+    <div class="agree-line">I agree to the above mentioned terms and conditions</div>
+
+    <div class="docs-heading">List of Documents Given:</div>
+    <ol class="docs-list">
+      <% for (let i = 0; i < 4; i++) { %>
+        <li><%= safeDocuments[i] || '' %></li>
+      <% } %>
+    </ol>
+
+    <div class="signature-row">
+      <div class="signature-col">
+        <div class="signature-word">Signature</div>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="signature-line"></div>
+        <div class="signature-label">Applicant</div>
+      </div>
+      <div class="signature-col">
+        <div class="signature-word">Signature</div>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="signature-line"></div>
+        <div class="signature-label">Co-Applicant 1</div>
+      </div>
+      <div class="signature-col">
+        <div class="signature-word">Signature</div>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="signature-line"></div>
+        <div class="signature-label">Co-Applicant 2</div>
+      </div>
+    </div>
+
+    <div class="doc-footer">SATIN FINSERV LIMITED</div>
+  </div>
+
+</body>
+</html>

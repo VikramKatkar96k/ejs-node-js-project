@@ -59,9 +59,151 @@ app.get('/sanction_letter_english', async (req, res) => {
   }
 });
 
-app.get('/sanction_letter_marathi', (req, res) => {
-  res.render('sanction_letter_marathi');
+app.get('/consent_letter_english', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'consent_letter_english.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const consentData = JSON.parse(rawData);
+    res.render('consent_letter_english', consentData);
+  } catch (error) {
+    console.error('Failed to load consent letter JSON:', error);
+    res.status(500).send('Unable to load consent letter.');
+  }
 });
+
+app.get('/demand_promissory_note_letter_english', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'demand_promissory_note_letter_english.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const dpnData = JSON.parse(rawData);
+    res.render('demand_promissory_note_letter_english', dpnData);
+  } catch (error) {
+    console.error('Failed to load demand promissory note JSON:', error);
+    res.status(500).send('Unable to load demand promissory note.');
+  }
+});
+
+app.get('/disbursal_request_form_letter_english', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'disbursal_request_form_letter_english.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const drfData = JSON.parse(rawData);
+    res.render('disbursal_request_form_letter_english', drfData);
+  } catch (error) {
+    console.error('Failed to load disbursal request form JSON:', error);
+    res.status(500).send('Unable to load disbursal request form.');
+  }
+});
+
+app.get('/disbursal_request_form_letter_marathi', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'disbursal_request_form_letter_marathi.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const drfData = JSON.parse(rawData);
+    res.render('disbursal_request_form_letter_marathi', drfData);
+  } catch (error) {
+    console.error('Failed to load Marathi disbursal request form JSON:', error);
+    res.status(500).send('Unable to load disbursal request form.');
+  }
+});
+
+app.get('/loan_agreement_english', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'loan_agreement_english.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const loanAgreementData = JSON.parse(rawData);
+    res.render('loan_agreement_english', loanAgreementData);
+  } catch (error) {
+    console.error('Failed to load loan agreement JSON:', error);
+    res.status(500).send('Unable to load loan agreement.');
+  }
+});
+
+app.get('/loan_application_form_english', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'loan_application_form_english.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const applicationData = JSON.parse(rawData);
+    res.render('loan_application_form_english', applicationData);
+  } catch (error) {
+    console.error('Failed to load loan application form JSON:', error);
+    res.status(500).send('Unable to load loan application form.');
+  }
+});
+
+app.get('/schedule_1_english', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'schedule_1_english.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const scheduleData = JSON.parse(rawData);
+    res.render('schedule_1_english', scheduleData);
+  } catch (error) {
+    console.error('Failed to load schedule 1 JSON:', error);
+    res.status(500).send('Unable to load schedule 1.');
+  }
+});
+
+app.get('/schedule_1_marathi', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'schedule_1_marathi.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const scheduleData = JSON.parse(rawData);
+    res.render('schedule_1_marathi', scheduleData);
+  } catch (error) {
+    console.error('Failed to load Marathi schedule 1 JSON:', error);
+    res.status(500).send('Unable to load schedule 1.');
+  }
+});
+
+app.get('/loan_agreement_marathi', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'loan_agreement_marathi.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const loanAgreementData = JSON.parse(rawData);
+    res.render('loan_agreement_marathi', loanAgreementData);
+  } catch (error) {
+    console.error('Failed to load Marathi loan agreement JSON:', error);
+    res.status(500).send('Unable to load loan agreement.');
+  }
+});
+
+app.get('/consent_letter_marathi', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'consent_letter_marathi.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const consentData = JSON.parse(rawData);
+    res.render('consent_letter_marathi', consentData);
+  } catch (error) {
+    console.error('Failed to load Marathi consent letter JSON:', error);
+    res.status(500).send('Unable to load consent letter.');
+  }
+});
+
+app.get('/sanction_letter_marathi', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'sanction_letter_marathi.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const sanctionData = JSON.parse(rawData);
+    res.render('sanction_letter_marathi', sanctionData);
+  } catch (error) {
+    console.error('Failed to load Marathi sanction letter JSON:', error);
+    res.status(500).send('Unable to load sanction letter.');
+  }
+});
+
+app.get('/loan_application_form_marathi', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'loan_application_form_marathi.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const applicationData = JSON.parse(rawData);
+    res.render('loan_application_form_marathi', applicationData);
+  } catch (error) {
+    console.error('Failed to load Marathi loan application form JSON:', error);
+    res.status(500).send('Unable to load loan application form.');
+  }
+});
+
+
 
 app.get('/agreement_marathi', async (req, res) => {
   try {

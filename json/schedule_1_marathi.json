@@ -1,0 +1,22 @@
+{
+  "borrowerName": "सुखदीप कौर",
+  "coBorrowerName": "गुरप्रीत सिंग",
+  "facilityAmount": "१,१३,९४६",
+  "facilityAmountWords": "एक लाख तेरा हजार नऊशे शेहेचाळीस",
+  "tenor": "६०",
+  "documentationCharges": "३०४",
+  "repaymentAccountNo": "५०२०००९७७८११५२",
+  "repaymentBank": "एचडीएफसी बँकेत",
+  "disbursementAccountNo": "५०२०००९९८८७७६६",
+  "disbursementAccountName": "महिंद्रा इलेक्ट्रिक मोबिलिटी लिमिटेड",
+  "disbursementBank": "आयसीआयसीआय बँकेत",
+  "disbursementIfsc": "ICIC0000456",
+  "securityCheques1": "एचडीएफसी बँकेचा धनादेश क्र. १०००१ ते १०००५.",
+  "securityCheques2": "एचडीएफसी बँकेचा धनादेश क्र. १०००६ ते १०००१०.",
+  "collateralVehicles": "०१",
+  "collateralMake": "महिंद्रा ट्रिओ",
+  "insurancePremium": "५,०००",
+  "insurancePremiumWords": "पाच हजार",
+  "borrowerNameAck": "सुखदीप कौर",
+  "coBorrowerNameAck": "गुरप्रीत सिंग"
+}
