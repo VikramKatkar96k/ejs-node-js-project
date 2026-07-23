@@ -1,0 +1,21 @@
+{
+  "borrowerName": "SUKHDEEP KAUR",
+  "coBorrowerName": "GURPREET SINGH",
+  "facilityAmount": "1,13,946",
+  "facilityAmountWords": "One lakh thirteen thousand nine hundred forty six",
+  "tenor": "60",
+  "documentationCharges": "304",
+  "repaymentAccountNo": "50200097781152",
+  "repaymentBank": "HDFC Bank,",
+  "disbursementAccountNo": "50200099887766",
+  "disbursementAccountName": "Mahindra Electric Mobility Ltd.",
+  "disbursementBank": "ICICI Bank",
+  "disbursementIfsc": "ICIC0000456",
+  "securityCheques": "Cheque no 100001 to 100005 of HDFC Bank. / Cheque no 100006 to 100010 of HDFC Bank.",
+  "collateralVehicles": "01",
+  "collateralMake": "Mahindra Treo",
+  "insurancePremium": "5,000",
+  "insurancePremiumWords": "Five thousand",
+  "borrowerNameAck": "SUKHDEEP KAUR",
+  "coBorrowerNameAck": "GURPREET SINGH"
+}

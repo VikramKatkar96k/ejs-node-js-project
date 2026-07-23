@@ -1,82 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
-<meta charset="UTF-8">
-<title>Sanction Letter - Satin Finserv Limited</title>
+  <meta charset="UTF-8">
+  <title>पिंक ईव्ही रिक्षा कर्जाचे मंजुरी पत्र - सॅटिन फिनसर्व्ह लिमिटेड</title>
+  <style>
+    @page { size: A4; margin: 0; }
 
-<style>
-@page {
-    size: A4;
-    margin: 0;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Nirmala UI', 'Mangal', 'Noto Sans Devanagari', sans-serif;
+      -webkit-print-color-adjust: exact;
+    }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 210mm;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      padding: 15mm 15mm 25mm 15mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+    .page:last-child { page-break-after: avoid; }
 
-.page {
-    position: relative;
-    width: 210mm;
-    height: 297mm;
-    padding: 15mm;
-    box-sizing: border-box;
-    page-break-after: always;
-}
+    .header-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 12px;
+    }
 
-.page:last-child {
-    page-break-after: avoid;
-}
+    .doc-header-title {
+      font-size: 12pt;
+      font-weight: bold;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
 
-.annex-title {
-    text-align: right;
-    font-size: 11pt;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5pt;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
 
-.title {
-    text-align: center;
-    font-size: 16pt;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
+    .address-block {
+      font-size: 9.5pt;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
 
-.page-footer {
-    position: absolute;
-    bottom: 12mm;
-    left: 15mm;
-    right: 15mm;
-    text-align: center;
-    font-size: 9pt;
-}
-</style>
+    .address-line { display: flex; align-items: flex-end; margin-bottom: 5px; }
 
+    .underline-value {
+      border-bottom: 1px dashed #000000;
+      display: inline-block;
+      padding-left: 5px;
+      font-weight: bold;
+      flex-grow: 1;
+    }
+
+    .salutation { font-size: 9.5pt; font-weight: bold; margin: 12px 0 8px 0; }
+
+    .intro-paragraph {
+      font-size: 9.5pt;
+      line-height: 1.6;
+      text-align: justify;
+      margin: 0 0 12px 0;
+    }
+
+    .kfs-title {
+      font-size: 10.5pt;
+      font-weight: bold;
+      margin: 12px 0 10px 0;
+    }
+
+    table.kfs-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+    table.kfs-table td {
+      border: 1px solid #000000;
+      padding: 4px 6px;
+      font-size: 8.5pt;
+      vertical-align: middle;
+      line-height: 1.3;
+    }
+    table.kfs-table tr.grey-bg td { background-color: #f2f2f2; }
+
+    .terms-heading { font-size: 9.5pt; font-weight: bold; margin: 10px 0 6px 0; }
+
+    ol.terms-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      text-align: justify;
+    }
+    ol.terms-list li { margin-bottom: 5px; }
+
+    ul.bullet-list { margin: 5px 0; padding-left: 20px; font-size: 9pt; line-height: 1.5; }
+    ul.bullet-list li { margin-bottom: 4px; }
+
+    .closing-text { font-size: 9pt; line-height: 1.6; margin-bottom: 12px; text-align: justify; }
+
+    .signatory-section { margin-top: 20px; font-size: 9pt; line-height: 1.5; }
+
+    .accept-text { margin-top: 25px; font-weight: bold; font-size: 10pt; }
+
+    .sign-img { height: 55px; width: auto; display: block; margin: 4px 0; }
+
+    .page-footer {
+      position: absolute;
+      bottom: 12mm;
+      left: 15mm;
+      right: 15mm;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      box-sizing: border-box;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 5px;
+    }
+
+    .footer-page-num {
+      font-size: 8pt;
+      font-weight: bold;
+      color: #5b7b9c;
+    }
+    b { font-weight: bold; }
+  </style>
 </head>
-
 <body>
 
-<div class="page">
+  <%
+    const safeDated = typeof dated !== 'undefined' ? dated : '/ /20____';
+    const safeApplicationFormNo = typeof applicationFormNo !== 'undefined' ? applicationFormNo : '____________';
+    const safeApplicationDate = typeof applicationDate !== 'undefined' ? applicationDate : '_______________';
+    const safeBorrowerName = typeof borrowerName !== 'undefined' ? borrowerName : '';
+    const safeBorrowerAddress = typeof borrowerAddress !== 'undefined' ? borrowerAddress : '';
+    const safeBorrowerPincode = typeof borrowerPincode !== 'undefined' ? borrowerPincode : '';
+    const safeBorrowerMobile = typeof borrowerMobile !== 'undefined' ? borrowerMobile : '';
+    const safeBranchName = typeof branchName !== 'undefined' ? branchName : '_________';
+    const safeLmsLoanNo = typeof lmsLoanNo !== 'undefined' ? lmsLoanNo : '_________';
+    const safeLoanAmount = typeof loanAmount !== 'undefined' ? loanAmount : '________';
+    const safeLifeInsuranceFinance = typeof lifeInsuranceFinance !== 'undefined' ? lifeInsuranceFinance : '________';
+    const safeMedicalInsuranceFinance = typeof medicalInsuranceFinance !== 'undefined' ? medicalInsuranceFinance : '________';
+    const safeGrossFinanceAmount = typeof grossFinanceAmount !== 'undefined' ? grossFinanceAmount : '________';
+    const safeLoanTenor = typeof loanTenor !== 'undefined' ? loanTenor : '६० महिने';
+    const safeInterestRate = typeof interestRate !== 'undefined' ? interestRate : '२४%';
+    const safeProcessingFee = typeof processingFee !== 'undefined' ? processingFee : '_________';
+    const safeStampDuty = typeof stampDuty !== 'undefined' ? stampDuty : '________';
+    const safeCersaiCharge = typeof cersaiCharge !== 'undefined' ? cersaiCharge : '५०/- किंवा रु. १००/- + जीएसटी (रु. ५९)';
+    const safeEmiAmount = typeof emiAmount !== 'undefined' ? emiAmount : '_________';
+    const safeLastEmiAmount = typeof lastEmiAmount !== 'undefined' ? lastEmiAmount : '_________';
+    const safeRepaymentTenor = typeof repaymentTenor !== 'undefined' ? repaymentTenor : '३६';
+    const safeRepaymentStartDate = typeof repaymentStartDate !== 'undefined' ? repaymentStartDate : '_________';
+    const safeRepaymentBankName = typeof repaymentBankName !== 'undefined' ? repaymentBankName : '_____';
+    const safeRepaymentBankAccountNo = typeof repaymentBankAccountNo !== 'undefined' ? repaymentBankAccountNo : '_________';
+    const safeEmployeeName = typeof employeeName !== 'undefined' ? employeeName : '';
+    const safeEmployeeCode = typeof employeeCode !== 'undefined' ? employeeCode : '';
+    const safeEmployeeDesignation = typeof employeeDesignation !== 'undefined' ? employeeDesignation : '';
+    const safeEmployeeBranch = typeof employeeBranch !== 'undefined' ? employeeBranch : '';
+    const safeCoBorrower1 = typeof coBorrower1 !== 'undefined' ? coBorrower1 : '';
+    const safeCoBorrower2 = typeof coBorrower2 !== 'undefined' ? coBorrower2 : '';
+    const safeAssetDetail = typeof assetDetail !== 'undefined' ? assetDetail : '';
+  %>
 
-    <div class="annex-title">
-        Annexure - I
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="header-container">
+      <img src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo" style="height: 40px; max-width: 200px; object-fit: contain;">
     </div>
 
-    <div class="title">
-        Sanction Letter
+    <div class="doc-header-title">
+      <u>पिंक ईव्ही रिक्षा कर्जाचे मंजुरी पत्र</u><br>
+      <u>सॅटिन फिनसर्व्ह लिमिटेड</u>
     </div>
 
-    <!-- Page 1 Content -->
+    <div class="meta-row">
+      <div>
+        अर्ज फॉर्म क्र. <b><%= safeApplicationFormNo %></b><br>
+        अर्जाची तारीख: <b><%= safeApplicationDate %></b>
+      </div>
+      <div><b>दिनांक : <%= safeDated %></b></div>
+    </div>
+
+    <div class="address-block">
+      <div style="margin-bottom: 4px;">प्रति,</div>
+      <div class="address-line">नाव: <span class="underline-value"><%= safeBorrowerName %></span></div>
+      <div class="address-line">पत्ता: <span class="underline-value"><%= safeBorrowerAddress %></span></div>
+      <div class="address-line">पिन कोड: <span class="underline-value"><%= safeBorrowerPincode %></span></div>
+      <div class="address-line">मोबाईल क्र.: <span class="underline-value"><%= safeBorrowerMobile %></span></div>
+    </div>
+
+    <div class="intro-paragraph" style="margin-top: 8px;">
+      संदर्भ क्र. SFL / शाखेचे नाव <span class="underline-value" style="max-width: 140px; text-align: center;"><%= safeBranchName %></span> / LMS कर्ज क्र. <span class="underline-value" style="max-width: 140px; text-align: center;"><%= safeLmsLoanNo %></span>
+    </div>
+
+    <div class="salutation">प्रिय महोदय/महोदया,</div>
+
+    <div class="intro-paragraph">
+      रु. <span class="underline-value" style="max-width: 110px; text-align: center;"><%= safeGrossFinanceAmount %></span>/- च्या पिंक ईव्ही रिक्षा कर्जाच्या मर्यादेच्या मंजुरीसाठी विनंती करणाऱ्या तुमच्या अर्जाच्या संदर्भात. खालील क्रेडिट सुविधांच्या मंजुरीची माहिती देताना आम्हाला आनंद होत आहे, ज्या तुमच्या स्वीकृती आणि खाली दिलेल्या अटी आणि शर्तींच्या पूर्ततेच्या अधीन राहून उपलब्ध आहेत.
+    </div>
+
+    <div class="kfs-title"><u>मुख्य तथ्य विवरण</u><br><u>पिंक ईव्ही रिक्षा कर्ज</u></div>
+
+    <table class="kfs-table">
+      <tbody>
+        <tr><td style="width:6%; text-align:center;">१</td><td style="width:54%;">कर्जदार/अर्जदार</td><td style="width:40%; font-weight:bold;"><%= safeBorrowerName %></td></tr>
+        <tr><td style="text-align:center;">२</td><td>सह-कर्जदार १</td><td style="font-weight:bold;"><%= safeCoBorrower1 %></td></tr>
+        <tr><td style="text-align:center;">३</td><td>सह-कर्जदार २</td><td style="font-weight:bold;"><%= safeCoBorrower2 %></td></tr>
+        <tr><td style="text-align:center;">४</td><td>कर्जाची रक्कम</td><td>रु. <b><%= safeLoanAmount %></b></td></tr>
+        <tr><td style="text-align:center;">५</td><td>आयुर्विमा वित्त</td><td>रु. <%= safeLifeInsuranceFinance %></td></tr>
+        <tr><td style="text-align:center;">६</td><td>वैद्यकीय विमा वित्त</td><td>रु. <%= safeMedicalInsuranceFinance %></td></tr>
+        <tr><td style="text-align:center;">७</td><td>नोंदणीकृत गहाण प्रभार वित्त</td><td>नाही</td></tr>
+        <tr><td style="text-align:center;">८</td><td>एकूण वित्त रक्कम</td><td>रु. <b><%= safeGrossFinanceAmount %></b></td></tr>
+        <tr><td style="text-align:center;">९</td><td>कर्जाची मुदत (महिन्यांमध्ये)</td><td><%= safeLoanTenor %></td></tr>
+        <tr><td style="text-align:center;">१०</td><td>वार्षिक व्याजदर</td><td><%= safeInterestRate %></td></tr>
+        <tr><td style="text-align:center;">११</td><td>कर्जाचा उद्देश/ निधीचा अंतिम वापर</td><td>ईव्ही ऑटो रिक्षा खरेदी करण्यासाठी</td></tr>
+        <tr><td style="text-align:center;">१२</td><td>कर्ज सुविधा</td><td>ईव्ही ऑटो रिक्षा</td></tr>
+        <tr><td style="text-align:center;">१३</td><td>अर्ज प्रक्रियेवरील शुल्क</td><td>लागू नाही</td></tr>
+        <tr><td style="text-align:center;">१४</td><td>प्रक्रिया शुल्क (वस्तू आणि सेवा करासह)</td><td>कर्जाच्या रकमेच्या १.५०% + जीएसटी (<%= safeProcessingFee %>)</td></tr>
+        <tr><td style="text-align:center;">१५</td><td>मुद्रांक शुल्क आणि दस्तऐवजीकरण</td><td>रु. <%= safeStampDuty %>/-</td></tr>
+        <tr><td style="text-align:center;">१६</td><td>CERSAI प्रभार</td><td>रु. <%= safeCersaiCharge %></td></tr>
+        <tr class="grey-bg" style="font-weight:bold;"><td style="text-align:center;">१७</td><td colspan="2">कर्जाच्या मुदतीदरम्यान</td></tr>
+        <tr><td style="text-align:center;">A</td><td>मुदतपूर्व कर्जफेडीवर</td><td>थकीत मुद्दलावर २% + जीएसटी</td></tr>
+        <tr><td style="text-align:center;">B</td><td>विलंबित देयकांसाठी दंड</td><td><b>थकीत ईएमआय वर २% प्रति महिना</b></td></tr>
+      </tbody>
+    </table>
 
     <div class="page-footer">
-        Page 1 | 16
+      <div class="footer-page-num">Page 1 | 3</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page">
+    <div class="header-container">
+      <img src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo" style="height: 40px; max-width: 200px; object-fit: contain;">
     </div>
 
-</div>
+    <table class="kfs-table" style="margin-top: 10px;">
+      <tbody>
+        <tr><td style="width:6%; text-align:center;">१८</td><td style="width:54%;">समान मासिक हप्ता (EMI) देय रक्कम (INR मध्ये)</td><td style="width:40%;">प्रत्येकी रु. <b><%= safeEmiAmount %></b>/- आणि शेवटचा EMI रु. <b><%= safeLastEmiAmount %></b>/</td></tr>
+        <tr><td style="text-align:center;">१९</td><td>अर्थसहाय्य केलेल्या मालमत्तेचा तपशील</td><td><%= safeAssetDetail %></td></tr>
+        <tr><td style="text-align:center;">२२</td><td>इतर तारण (असल्यास)</td><td>लागू नाही</td></tr>
+        <tr class="grey-bg" style="font-weight:bold;"><td style="text-align:center;">२१</td><td colspan="2">आम्ही अटी आणि शर्तींसह स्वीकारतो</td></tr>
+        <tr><td style="text-align:center;">A</td><td>मंजुरी पत्राची वैधता</td><td>मंजुरी पत्राच्या तारखेपासून ३० दिवस</td></tr>
+        <tr><td style="text-align:center;">B</td><td>अर्थसहाय्य केलेल्या मालमत्तेचा तपशील</td><td><%= safeAssetDetail %></td></tr>
+        <tr><td style="text-align:center;">C</td><td>परतफेडीचे वेळापत्रक</td><td>कर्जाच्या रकमेची परतफेड (<b><%= safeRepaymentTenor %></b> महिन्यांत) प्रत्येकी रु. <b><%= safeEmiAmount %></b>/- च्या समान मासिक हप्त्यांमध्ये (EMI) आणि शेवटचा EMI रु. <b><%= safeLastEmiAmount %></b> मध्ये केली जाईल. सुरुवात तारीख: <b><%= safeRepaymentStartDate %></b>.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="terms-heading">इतर अटी आणि शर्ती: -</div>
+    <ol class="terms-list">
+      <li>वितरण OEM च्या चालू खात्यात केले जाईल.</li>
+      <li>परतफेडीची तारीख पुढील महिन्याच्या ५ तारखेला निश्चित केली जावी, आणि तुमच्या सोयीसाठी पहिल्या हप्त्यामध्ये उर्वरित दिवसांच्या व्याजाचा समावेश असू शकतो.</li>
+      <li>मुदतपूर्व परतफेड शुल्क हे मुदतपूर्व कर्जफेडीच्या दिवशी थकीत असलेल्या मुद्दल रकमेवर मोजले जाईल.</li>
+      <li>कर्जाची परतफेड समान मासिक हप्त्यांमध्ये आणि/किंवा मुख्य तथ्य नमूद केलेल्या इतर पद्धतीने केली जाईल. <span style="color:red;">हप्ते दर महिन्याला देय.</span> ईएमआयमध्ये मासिक आधारावर लागू दराने मोजले जाणारे मुद्दल आणि व्याज समाविष्ट असते आणि ते पुढील रुपयामध्ये पूर्णांकित केले जाते.</li>
+      <li>प्री ईएमआय व्याज, ज्या दराने ईएमआयची गणना केली गेली आहे त्या दराने, कर्जाच्या संदर्भात वितरणाच्या संबंधित तारखेपासून ते ईएमआय सुरू होण्याच्या तारखेपर्यंत आकारले जाईल.</li>
+      <li>सेंट्रल रजिस्ट्री ऑफ सिक्युरिटायझेशन ऑफ अॅसेट रिकन्स्ट्रक्शन अँड सिक्युरिटी इंटरेस्ट ऑफ इंडियाद्वारे आकारले जाणारे न परत करण्यायोग्य शुल्क:
+        <div style="margin-left: 15px; margin-top: 3px;">
+          a) कर्जदात्याच्या बाजूने तयार केलेल्या सुरक्षेच्या सुधारणा आणि समाधानासाठी शुल्क, लागू असल्यास, लागू कायद्यानुसार आकारले जाईल.<br>
+          b) वर नमूद केलेले CERSAI शुल्क न परत करण्यायोग्य, वैधानिकरित्या नियमन केलेले आणि लागू कायद्यानुसार बदलण्याच्या अधीन आहेत.
+        </div>
+      </li>
+      <li>SFL कर्जाच्या मुदतीसाठी जीवन आणि वैद्यकीय विमा कव्हर करेल. मूळ पॉलिसी/कव्हर नोट SFL कडे जमा करावी. पालन न केल्यास, SFL ला तुमच्या कर्ज खात्यातून डेबिट करून आवश्यकतेनुसार विमा कव्हर घेण्याचा अधिकार राखीव आहे, जो शेवटी तुम्हाला भरावा लागेल.</li>
+      <li>तारण निर्मितीच्या संदर्भात सुरक्षा दस्तऐवजीकरण आणि औपचारिकता पूर्ण झाल्यानंतरच वितरण केले जाईल.</li>
+      <li>कर्जाच्या दस्तऐवजीकरणाच्या अपूर्णतेमुळे आणि मॉर्गेज क्रेडिट अटींच्या संदर्भात औपचारिकता पूर्ण न केल्यामुळे कर्ज वितरणात होणाऱ्या कोणत्याही विलंबासाठी SFL जबाबदार राहणार नाही.</li>
+      <li><b>मंजुरीच्या अटी खालीलप्रमाणे आहेत: -</b></li>
+    </ol>
+
+    <ul class="bullet-list" style="font-size:8.5pt;">
+      <li>SFL च्या बाजूने तारण केले जावे.</li>
+      <li>सर्व अंतर्गत अहवाल सकारात्मक असावेत</li>
+    </ul>
+
+    <div class="page-footer">
+      <div class="footer-page-num">Page 2 | 3</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="page">
+    <div class="header-container">
+      <img src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo" style="height: 40px; max-width: 200px; object-fit: contain;">
+    </div>
+
+    <ul class="bullet-list" style="margin-top: 15px; margin-bottom: 20px;">
+      <li>परतफेड <b><%= safeRepaymentBankName %></b> बँकेच्या खाते क्रमांक <b><%= safeRepaymentBankAccountNo %></b> मधून घेतली जाईल</li>
+      <li>कर्ज वितरणापूर्वी E NACH किंवा M NACH सक्रिय केले जावे</li>
+    </ul>
+
+    <div class="closing-text">
+      आम्ही हे पत्र आमच्या अटी व शर्तींसह दोन प्रतीत पाठवत आहोत. अटी व शर्ती स्वीकारल्याचे प्रतीक म्हणून तुम्ही आणि सह-अर्जदाराने/अर्जदारांनी रीतसर स्वाक्षरी केलेली दुसरी प्रत आम्हाला परत केल्यास आम्हाला आनंद होईल.
+    </div>
+
+    <div class="closing-text">तुम्हाला नेहमी आमच्या सर्वोत्तम सेवांची खात्री देत आहोत,</div>
+
+    <div class="signatory-section">
+      <b>आपला नम्र,<br>सॅटिन फिनसर्व्ह लिमिटेड करिता</b>
+
+      <div style="margin-top: 12px; font-weight: bold;">अधिकृत स्वाक्षरीकर्ता</div>
+
+      <div style="margin-top: 15px; width: 260px;">
+        <table style="width: 100%; border: none; font-size: 9pt; border-collapse: collapse;">
+          <tr><td style="border:none; padding:2px 0; width:45%;">कर्मचाऱ्याचे नाव:</td><td style="border:none; padding:2px 0; font-weight:bold;"><%= safeEmployeeName %></td></tr>
+          <tr><td style="border:none; padding:2px 0;">कर्मचारी कोड:</td><td style="border:none; padding:2px 0; font-weight:bold;"><%= safeEmployeeCode %></td></tr>
+          <tr><td style="border:none; padding:2px 0;">पदनाम:</td><td style="border:none; padding:2px 0; font-weight:bold;"><%= safeEmployeeDesignation %></td></tr>
+          <tr><td style="border:none; padding:2px 0;">शाखा:</td><td style="border:none; padding:2px 0; font-weight:bold;"><%= safeEmployeeBranch %></td></tr>
+        </table>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div style="margin-top: 12px;">शिक्का आणि स्वाक्षरी.........</div>
+      </div>
+    </div>
+
+    <div class="accept-text">आम्हाला मान्य आहे</div>
+
+    <div class="page-footer">
+      <div class="footer-page-num">Page 3 | 3</div>
+    </div>
+  </div>
 
 </body>
 </html>

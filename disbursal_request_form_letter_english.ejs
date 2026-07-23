@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Disbursal Request Form - Satin Finserv Limited</title>
+  <style>
+    /* A4 Dimensions and Page breaks for PDF engines */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 20mm 20mm 20mm 20mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .doc-title {
+      font-size: 12pt;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 18px;
+    }
+
+    .date-line {
+      font-size: 11pt;
+      margin-bottom: 18px;
+    }
+
+    .address-block {
+      font-size: 11pt;
+      font-weight: bold;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .body-text {
+      font-size: 11pt;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    table.drf-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px 0;
+    }
+
+    table.drf-table td {
+      border: 1px solid #000000;
+      padding: 5px 8px;
+      font-size: 10.5pt;
+      vertical-align: middle;
+      line-height: 1.3;
+    }
+
+    table.drf-table td.label-cell {
+      width: 45%;
+    }
+
+    table.drf-table td.value-cell {
+      font-weight: bold;
+    }
+
+    .center-value {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .regards-block {
+      margin-top: 26px;
+      font-size: 11pt;
+      line-height: 1.8;
+    }
+
+    .sign-name {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .sign-line {
+      margin: 26px 0 6px 0;
+      width: 220px;
+      border-top: 1px solid #000000;
+    }
+
+    .sign-img {
+      height: 50px;
+      width: auto;
+      display: block;
+      margin: 6px 0 2px 0;
+    }
+
+    .final-name {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <%
+    // Safely assign variables or fallbacks
+    const safeAgreementDate = typeof agreementDate !== 'undefined' ? agreementDate : '__________';
+    const safeLoanAccountNo = typeof loanAccountNo !== 'undefined' ? loanAccountNo : '__________';
+    const safeLoanAmount = typeof loanAmount !== 'undefined' ? loanAmount : '__________';
+    const safeProcessingFee = typeof processingFee !== 'undefined' ? processingFee : '____';
+    const safeCdd = typeof cdd !== 'undefined' ? cdd : '____';
+    const safeDocumentsCharges = typeof documentsCharges !== 'undefined' ? documentsCharges : '';
+    const safeInsurance = typeof insurance !== 'undefined' ? insurance : '';
+    const safeNetPayment = typeof netPayment !== 'undefined' ? netPayment : '';
+    const safeName = typeof borrowerName !== 'undefined' ? borrowerName : '__________';
+    const safeAmount = typeof disbursalAmount !== 'undefined' ? disbursalAmount : '';
+    const safeRepaymentBank = typeof repaymentBank !== 'undefined' ? repaymentBank : '';
+    const safeRepaymentAccNo = typeof repaymentAccNo !== 'undefined' ? repaymentAccNo : '';
+    const safeIfsc = typeof ifscCode !== 'undefined' ? ifscCode : '';
+  %>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="doc-title">Disbursal Request Form</div>
+
+    <div class="date-line">Date: <%= safeAgreementDate %></div>
+
+    <div class="address-block">
+      Satin Finserv Limited<br>
+      4th Floor, 'B' Wing, Plot No. 492,<br>
+      Udyog Vihar, Phase- III,<br>
+      Gurugram, Haryana- 122016
+    </div>
+
+    <div class="body-text">Dear Sir,</div>
+
+    <div class="body-text">
+      This is with reference to my loan account number <b><u><%= safeLoanAccountNo %></u></b>
+      with <b>M/s SATIN FINSERV LIMITED.</b>
+    </div>
+
+    <div class="body-text">
+      I/we have been total sanctioned a loan of Rs.<b><%= safeLoanAmount %></b>/- towards Business loan.
+    </div>
+
+    <table class="drf-table">
+      <tbody>
+        <tr>
+          <td class="label-cell">Sanction Loan Amount (Rs)</td>
+          <td class="center-value"><%= safeLoanAmount %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">Loan Amount (Rs)</td>
+          <td class="center-value"><%= safeLoanAmount %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">Processing Fee with GST <%= safeProcessingFee %>% of loan amount</td>
+          <td><%= typeof processingFeeAmount !== 'undefined' ? processingFeeAmount : '' %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">CDD Charges with GST <%= safeCdd %>% of loan amount</td>
+          <td><%= typeof cddAmount !== 'undefined' ? cddAmount : '' %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">Document charges with GST</td>
+          <td><%= safeDocumentsCharges %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">Insurance charges</td>
+          <td><%= safeInsurance %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">Pre EMI</td>
+          <td style="text-align: center;">-</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Net Payment to be credited (Rs)</td>
+          <td><%= safeNetPayment %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="body-text">Request you to make a disbursal as per following details:</div>
+
+    <table class="drf-table">
+      <tbody>
+        <tr>
+          <td class="label-cell">Cheque / NEFT</td>
+          <td>NEFT</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Beneficiary</td>
+          <td><%= safeName %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">Amount</td>
+          <td>Rs. <%= safeAmount %>/-</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Bank name</td>
+          <td><%= safeRepaymentBank %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">Bank account A/c No.</td>
+          <td><%= safeRepaymentAccNo %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">Bank IFSC Code</td>
+          <td><%= safeIfsc %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="body-text">
+      With this disbursal, the total amount drawn down against the above mentioned loan account stands at
+      Rs. <b><%= safeLoanAmount %></b>/-, which will be the final loan amount.
+    </div>
+
+    <div class="regards-block">
+      <div>Regards</div>
+      <div class="sign-name">Mr./Ms. <%= safeName %></div>
+      <img class="sign-img" src="/assets/sign.png" alt="Signature">
+      <div class="sign-line"></div>
+      <div class="final-name">Name - <%= safeName %></div>
+    </div>
+  </div>
+
+</body>
+</html>

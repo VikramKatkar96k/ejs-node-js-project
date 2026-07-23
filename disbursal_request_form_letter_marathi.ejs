@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>कर्ज वितरण विनंती अर्ज - सॅटिन फिनसर्व्ह लिमिटेड</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Nirmala UI', 'Mangal', 'Noto Sans Devanagari', sans-serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 20mm 20mm 20mm 20mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .doc-title {
+      font-size: 13pt;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 18px;
+    }
+
+    .date-line {
+      font-size: 11pt;
+      margin-bottom: 16px;
+    }
+
+    .address-block {
+      font-size: 11pt;
+      font-weight: bold;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .body-text {
+      font-size: 11pt;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    table.drf-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px 0;
+    }
+
+    table.drf-table td {
+      border: 1px solid #000000;
+      padding: 6px 8px;
+      font-size: 10.5pt;
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+
+    table.drf-table td.label-cell {
+      width: 55%;
+    }
+
+    table.drf-table td.value-cell {
+      font-weight: bold;
+    }
+
+    .regards-block {
+      margin-top: 26px;
+      font-size: 11pt;
+      line-height: 1.9;
+    }
+
+    .sign-name {
+      font-weight: bold;
+    }
+
+    .sign-line {
+      margin: 26px 0 6px 0;
+      width: 220px;
+      border-top: 1px solid #000000;
+    }
+
+    .sign-img {
+      height: 50px;
+      width: auto;
+      display: block;
+      margin: 6px 0 2px 0;
+    }
+
+    .final-name {
+      font-weight: bold;
+    }
+
+    .page-footer {
+      position: absolute;
+      bottom: 12mm;
+      right: 20mm;
+      font-size: 9.5pt;
+    }
+  </style>
+</head>
+<body>
+
+  <%
+    const safeAgreementDate = typeof agreementDate !== 'undefined' ? agreementDate : '__________';
+    const safeLoanAccountNo = typeof loanAccountNo !== 'undefined' ? loanAccountNo : '__________';
+    const safeLoanAmount = typeof loanAmount !== 'undefined' ? loanAmount : '__________';
+    const safeProcessingFee = typeof processingFee !== 'undefined' ? processingFee : '____';
+    const safeCdd = typeof cdd !== 'undefined' ? cdd : '____';
+    const safeDocumentsCharges = typeof documentsCharges !== 'undefined' ? documentsCharges : '';
+    const safeInsurance = typeof insurance !== 'undefined' ? insurance : '';
+    const safeNetPayment = typeof netPayment !== 'undefined' ? netPayment : '';
+    const safeName = typeof borrowerName !== 'undefined' ? borrowerName : '__________';
+    const safeAmount = typeof disbursalAmount !== 'undefined' ? disbursalAmount : '';
+    const safeRepaymentBank = typeof repaymentBank !== 'undefined' ? repaymentBank : '';
+    const safeRepaymentAccNo = typeof repaymentAccNo !== 'undefined' ? repaymentAccNo : '';
+    const safeIfsc = typeof ifscCode !== 'undefined' ? ifscCode : '';
+  %>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="doc-title">कर्ज वितरण विनंती अर्ज</div>
+
+    <div class="date-line">दिनांक: <%= safeAgreementDate %></div>
+
+    <div class="address-block">
+      सॅटिन फिनसर्व्ह लिमिटेड चौथा मजला,<br>
+      'बी' विंग, प्लॉट क्र. ४९२,<br>
+      उद्योग विहार, फेज - ३,<br>
+      गुरुग्राम, हरियाणा – १२२०१६
+    </div>
+
+    <div class="body-text">महोदय,</div>
+
+    <div class="body-text">
+      हे <b>मेसर्स सॅटिन फिनसर्व्ह लिमिटेड</b> मधील माझ्या <b><%= safeLoanAccountNo %></b> या कर्ज खाते क्रमांकाच्या संदर्भात आहे.
+    </div>
+
+    <div class="body-text">
+      मला/आम्हाला व्यवसाय कर्जापोटी एकूण रु. <b><%= safeLoanAmount %></b>/- चे कर्ज मंजूर करण्यात आले आहे.
+    </div>
+
+    <table class="drf-table">
+      <tbody>
+        <tr>
+          <td class="label-cell">मंजूर कर्जाची रक्कम (रु.)</td>
+          <td class="value-cell"><%= safeLoanAmount %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">कर्जाची रक्कम (रु.)</td>
+          <td class="value-cell"><%= safeLoanAmount %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">वस्तू आणि सेवा करासह प्रक्रिया शुल्क कर्जाच्या रकमेच्या <%= safeProcessingFee %>%</td>
+          <td><%= typeof processingFeeAmount !== 'undefined' ? processingFeeAmount : '' %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">वस्तू आणि सेवा करासह ग्राहक पडताळणी शुल्क कर्जाच्या रकमेच्या <%= safeCdd %>%</td>
+          <td><%= typeof cddAmount !== 'undefined' ? cddAmount : '' %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">वस्तू आणि सेवा करासह दस्तऐवजीकरण शुल्क</td>
+          <td><%= safeDocumentsCharges %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">विमा शुल्क</td>
+          <td><%= safeInsurance %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">हप्त्यापूर्वीचे व्याज</td>
+          <td style="text-align: center;">-</td>
+        </tr>
+        <tr>
+          <td class="label-cell">जमा करावयाची निव्वळ रक्कम (रु.)</td>
+          <td><%= safeNetPayment %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="body-text">विनंती आहे की खालील तपशिलानुसार कर्ज वितरण करावे:</div>
+
+    <table class="drf-table">
+      <tbody>
+        <tr>
+          <td class="label-cell">धनादेश / एनईएफटी</td>
+          <td>एनईएफटी</td>
+        </tr>
+        <tr>
+          <td class="label-cell">लाभार्थी</td>
+          <td><%= safeName %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">रक्कम</td>
+          <td>रु. <%= safeAmount %>/-</td>
+        </tr>
+        <tr>
+          <td class="label-cell">बँकेचे नाव</td>
+          <td><%= safeRepaymentBank %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">बँक खाते क्र.</td>
+          <td><%= safeRepaymentAccNo %></td>
+        </tr>
+        <tr>
+          <td class="label-cell">बँकेचा आयएफएससी कोड</td>
+          <td><%= safeIfsc %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="body-text">
+      या वितरणासह, वर नमूद केलेल्या कर्ज खात्यातून काढलेली एकूण रक्कम रु. <b><%= safeLoanAmount %></b>/- इतकी होईल, जी अंतिम कर्जाची रक्कम असेल.
+    </div>
+
+    <div class="regards-block">
+      <div>आपला/आपली नम्र,</div>
+      <div class="sign-name">श्री./श्रीमती <%= safeName %></div>
+      <img class="sign-img" src="/assets/sign.png" alt="Signature">
+      <div class="sign-line"></div>
+      <div class="final-name">नाव - <%= safeName %></div>
+    </div>
+
+    <div class="page-footer">Page 1 of 1</div>
+  </div>
+
+</body>
+</html>

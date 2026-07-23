@@ -1,0 +1,17 @@
+{
+  "agreementDate": "02/06/2026",
+  "loanAccountNo": "LMS-765638",
+  "loanAmount": "1,13,946",
+  "processingFee": "1.50",
+  "processingFeeAmount": "1,709",
+  "cdd": "0.50",
+  "cddAmount": "570",
+  "documentsCharges": "304",
+  "insurance": "5,000",
+  "netPayment": "1,05,000",
+  "borrowerName": "SUKHDEEP KAUR",
+  "disbursalAmount": "1,05,000",
+  "repaymentBank": "HDFC Bank",
+  "repaymentAccNo": "50200097781152",
+  "ifscCode": "HDFC0001234"
+}

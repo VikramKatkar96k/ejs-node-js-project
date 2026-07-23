@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>अनुसूची १ - व्यावसायिक अटी आणि शर्ती - सॅटिन फिनसर्व्ह लिमिटेड</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Nirmala UI', 'Mangal', 'Noto Sans Devanagari', sans-serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 16mm 16mm 16mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .doc-title {
+      text-align: center;
+      font-size: 12pt;
+      font-weight: bold;
+      text-decoration: underline;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    table.sch-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table.sch-table th {
+      border: 1px solid #000000;
+      background-color: #e3ecd9;
+      font-size: 10pt;
+      font-weight: bold;
+      text-align: left;
+      padding: 6px 8px;
+    }
+
+    table.sch-table td {
+      border: 1px solid #000000;
+      font-size: 10pt;
+      padding: 6px 8px;
+      vertical-align: top;
+      line-height: 1.45;
+      text-align: justify;
+    }
+
+    table.sch-table td.sno {
+      width: 6%;
+      text-align: left;
+    }
+
+    table.sch-table td.desc {
+      width: 26%;
+    }
+
+    table.inner {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+    }
+
+    table.inner td, table.inner th {
+      border: 1px solid #000000;
+      padding: 4px 6px;
+      font-size: 9.5pt;
+    }
+
+    .fill {
+      display: inline-block;
+      border-bottom: 1px solid #000000;
+      min-width: 70px;
+      height: 12px;
+    }
+
+    .sig-title {
+      font-size: 11pt;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .sig-rule {
+      border-top: 1px solid #000000;
+      margin-bottom: 16px;
+    }
+
+    p.para {
+      font-size: 10.5pt;
+      line-height: 1.55;
+      text-align: justify;
+      margin: 0 0 12px 0;
+    }
+
+    .ack-head {
+      font-weight: bold;
+      font-size: 11pt;
+      margin: 14px 0 12px 0;
+    }
+
+    .sig-block {
+      margin: 18px 0;
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+
+    .sig-line {
+      border-top: 1px solid #000000;
+      width: 230px;
+      margin: 22px 0 4px 0;
+    }
+
+    .sign-img { height: 50px; width: auto; display: block; margin: 6px 0 2px 0; }
+
+    b { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <%
+    const safeFacilityAmount = typeof facilityAmount !== 'undefined' ? facilityAmount : 'XXXXXX';
+    const safeFacilityAmountWords = typeof facilityAmountWords !== 'undefined' ? facilityAmountWords : 'XXX लाख';
+    const safeTenor = typeof tenor !== 'undefined' ? tenor : 'XXX';
+    const safeDocumentationCharges = typeof documentationCharges !== 'undefined' ? documentationCharges : '________';
+    const safeRepaymentAccountNo = typeof repaymentAccountNo !== 'undefined' ? repaymentAccountNo : '५०२०००९७७८११५२';
+    const safeRepaymentBank = typeof repaymentBank !== 'undefined' ? repaymentBank : 'एचडीएफसी बँकेत';
+    const safeDisbursementAccountNo = typeof disbursementAccountNo !== 'undefined' ? disbursementAccountNo : 'XXXXXXXXX';
+    const safeDisbursementAccountName = typeof disbursementAccountName !== 'undefined' ? disbursementAccountName : 'XXXXXXXXX';
+    const safeDisbursementBank = typeof disbursementBank !== 'undefined' ? disbursementBank : 'XXXXX बँकेत';
+    const safeDisbursementIfsc = typeof disbursementIfsc !== 'undefined' ? disbursementIfsc : 'XXXXXXX';
+    const safeSecurityCheques1 = typeof securityCheques1 !== 'undefined' ? securityCheques1 : 'XXX बँकेचा धनादेश क्र. XXXXX ते XXXXX.';
+    const safeSecurityCheques2 = typeof securityCheques2 !== 'undefined' ? securityCheques2 : 'XXX बँकेचा धनादेश क्र. XXXXX ते XXXXX.';
+    const safeCollateralVehicles = typeof collateralVehicles !== 'undefined' ? collateralVehicles : 'XXXX';
+    const safeCollateralMake = typeof collateralMake !== 'undefined' ? collateralMake : 'XXXXXXX';
+    const safeInsurancePremium = typeof insurancePremium !== 'undefined' ? insurancePremium : 'XXXXX';
+    const safeInsurancePremiumWords = typeof insurancePremiumWords !== 'undefined' ? insurancePremiumWords : 'XXXXXXXX';
+    const safeBorrowerName = typeof borrowerName !== 'undefined' ? borrowerName : '';
+    const safeCoBorrowerName = typeof coBorrowerName !== 'undefined' ? coBorrowerName : '';
+    const safeBorrowerNameAck = typeof borrowerNameAck !== 'undefined' ? borrowerNameAck : 'XXXXXXXX';
+    const safeCoBorrowerNameAck = typeof coBorrowerNameAck !== 'undefined' ? coBorrowerNameAck : 'XXXXXXXXXXX';
+  %>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="doc-title">
+      अनुसूची १<br>
+      व्यावसायिक अटी आणि शर्ती
+    </div>
+
+    <table class="sch-table">
+      <thead>
+        <tr>
+          <th style="width: 6%;">अ.क्र.</th>
+          <th style="width: 26%;">विवरण</th>
+          <th>तपशील</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sno">१.</td>
+          <td class="desc">अंमलबजावणीची तारीख</td>
+          <td>या कराराच्या अंमलबजावणीची तारीख ती तारीख असेल ज्या दिवशी अंतिम पक्षकार या करारावर आपली विद्युतीय स्वाक्षरी करेल.</td>
+        </tr>
+        <tr>
+          <td class="sno">२.</td>
+          <td class="desc">अंमलबजावणीचे ठिकाण</td>
+          <td>दिल्ली</td>
+        </tr>
+        <tr>
+          <td class="sno">३.</td>
+          <td class="desc">कर्जदार</td>
+          <td><%= safeBorrowerName %></td>
+        </tr>
+        <tr>
+          <td class="sno">४.</td>
+          <td class="desc">सह-कर्जदार</td>
+          <td><%= safeCoBorrowerName %></td>
+        </tr>
+        <tr>
+          <td class="sno">५.</td>
+          <td class="desc">सुविधा</td>
+          <td><b><u>गुलाबी विद्युतीय रिक्षा</u></b> साठी भारतीय रुपये <%= safeFacilityAmount %>/- (केवळ रुपये <%= safeFacilityAmountWords %>)</td>
+        </tr>
+        <tr>
+          <td class="sno">६.</td>
+          <td class="desc">सुविधेचे स्वरूप</td>
+          <td>भारतीय रुपयात दर्शविलेली आणि मंजूर केल्याप्रमाणे <b><u>'गुलाबी विद्युतीय रिक्षा खरेदी'</u></b> या उद्देशासाठी असलेली सुविधा.</td>
+        </tr>
+        <tr>
+          <td class="sno">७.</td>
+          <td class="desc">उद्देश</td>
+          <td>
+            कर्जदाराकडून या सुविधेचा वापर अनुसूची १ मध्ये नमूद केल्याप्रमाणे केवळ <b><u>'गुलाबी विद्युतीय रिक्षा खरेदी'</u></b> करण्याच्या उद्देशासाठीच केला जाईल आणि इतर कोणत्याही उद्देशासाठी केला जाणार नाही.<br>
+            कर्जदाराने घेतलेल्या कर्जाच्या रकमेचा प्रत्यक्ष किंवा अप्रत्यक्षपणे खालील कारणांसाठी वापर केला जाणार नाही:<br>
+            अ) समभाग/कर्जरोख्यांची खरेदी किंवा वर्गणीसाठी;<br>
+            ब) भांडवली बाजारातील गुंतवणुकीसाठी;<br>
+            क) कोणत्याही संलग्न किंवा समूह संस्थांमधील गुंतवणुकीसाठी;<br>
+            ड) स्थावर मालमत्ता किंवा जमीन संपादनातील गुंतवणुकीसाठी;<br>
+            इ) लागू कायद्यांतर्गत प्रतिबंधित असलेल्या कोणत्याही क्रियाकलापांमध्ये सहभागी होण्यासाठी;<br>
+            फ) कोणत्याही स्वरूपातील सोने खरेदी करण्यासाठी (ज्यामध्ये प्राथमिक सोने, सोन्याची वीट, सोन्याचे दागिने, सोन्याची नाणी, सुवर्ण विनिमय-व्यापार निधीचे एकक आणि सुवर्ण परस्पर निधीचे एकक यांचा समावेश आहे);<br>
+            ग) कोणताही सट्टेबाजीचा व्यवसाय किंवा क्रियाकलाप; किंवा<br>
+            ह) भारतीय रिझर्व्ह बँकेच्या कोणत्याही मार्गदर्शक तत्त्वांचे, नियमांचे किंवा विनियमांचे उल्लंघन करणारा कोणताही उद्देश.
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">८.</td>
+          <td class="desc">हप्त्यापूर्वीचे व्याज</td>
+          <td>हप्त्यापूर्वीचे व्याज कर्ज वितरणाच्या तारखेपासून ते पहिल्या समान मासिक हप्त्याच्या सुरुवातीच्या लगेच आधीच्या तारखेपर्यंत लागू व्याजदराने आकारले जाईल आणि ते कर्जदात्याने निर्दिष्ट केल्यानुसार कर्जदाराने भरणे आवश्यक असेल, ज्यामध्ये पहिल्या हप्त्याचा भाग म्हणून किंवा स्वतंत्र मागणी म्हणून समावेश असू शकतो.</td>
+        </tr>
+        <tr>
+          <td class="sno">९.</td>
+          <td class="desc">विचार करण्याचा कालावधी</td>
+          <td>कर्जदाराला वितरणाच्या तारखेपासून १० (दहा) दिवसांच्या आत मुद्दल रक्कम आणि प्रमाणित वार्षिक दर भरून कोणत्याही मुदतपूर्व परतफेड दंडाशिवाय कर्ज सुविधेमधून बाहेर पडण्याचा पर्याय असेल. असा कालावधी संपल्यानंतर, कर्जदार या कराराच्या अटींना बांधील राहील.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page">
+    <table class="sch-table">
+      <tbody>
+        <tr>
+          <td class="sno">१०.</td>
+          <td class="desc">मुदत</td>
+          <td>कर्ज सुविधेची मुदत तिच्या वितरणाच्या तारखेपासून <span class="fill"></span> महिन्यांचा कालावधी असेल.</td>
+        </tr>
+        <tr>
+          <td class="sno">११.</td>
+          <td class="desc">सुविधेची उचल</td>
+          <td>ही सुविधा एकाच उचलीत मिळवली जाईल. अनेक टप्प्यांमध्ये उचल करण्याच्या कोणत्याही विनंतीसाठी कर्जदात्याची पूर्व लेखी संमती आवश्यक असेल.</td>
+        </tr>
+        <tr>
+          <td class="sno">१२.</td>
+          <td class="desc">परतफेड</td>
+          <td>कर्जदाराकडून कर्ज सुविधेची परतफेड समान मासिक हप्त्यांमध्ये किंवा कर्जदात्याने कर्जदाराला दिलेल्या परतफेडीच्या वेळापत्रकात नमूद केल्यानुसार इतर हप्त्यांमध्ये केली जाईल.</td>
+        </tr>
+        <tr>
+          <td class="sno">१३.</td>
+          <td class="desc">मुदतपूर्व परतफेड</td>
+          <td>
+            कर्जदात्याने विहित केलेल्या अटी आणि शर्तींवर सुविधेची मुदतपूर्व परतफेड केली जाऊ शकते. खाली नमूद केल्यानुसार एक निर्बंधाचा (लॉक-इन) कालावधी असेल, ज्याच्या आधी कोणत्याही मुदतपूर्व परतफेडीस परवानगी दिली जाणार नाही:
+            <table class="inner">
+              <tr><th style="width: 50%;">मुदत</th><th>निर्बंधाचा कालावधी</th></tr>
+              <tr><td><b><%= safeTenor %></b></td><td>शून्य</td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">१४.</td>
+          <td class="desc">मुदतपूर्व परतफेड अधिमूल्य</td>
+          <td>शून्य.</td>
+        </tr>
+        <tr>
+          <td class="sno">१५.</td>
+          <td class="desc">व्याजदर</td>
+          <td>
+            थकीत मुद्दल रकमेवर कर्जदाराकडून वार्षिक २४% दराने व्याज देय असेल.<br><br>
+            व्याजदरातील कोणताही बदल भविष्यातील प्रभावाने लागू होईल आणि तो बदल अंमलात आणण्यापूर्वी किमान ३० दिवस आधी कर्जदाराला कळविला जाईल.
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">१६.</td>
+          <td class="desc">व्याज प्रदानाची तारीख</td>
+          <td>थकीत मुद्दल रकमेच्या संबंधित देण्यांवर कर्जदात्याने कळविलेल्या तारखेला मासिक आधारावर व्याज देय असेल.</td>
+        </tr>
+        <tr>
+          <td class="sno">१७.</td>
+          <td class="desc">व्याज कालावधी</td>
+          <td>
+            व्याज मासिक आधारावर (मासिक शिल्लक रकमेवर) आकारले जाईल.<br>
+            संपूर्ण स्पष्टतेसाठी, कर्जदात्याने कर्जदाराला स्वतंत्रपणे सामायिक करावयाच्या कर्ज परतफेडीच्या वेळापत्रकानुसार कर्जदार व्याजाचे प्रदान करेल.
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">१८.</td>
+          <td class="desc">कसुरीचे शुल्क</td>
+          <td>देयकाशी संबंधित कोणतीही कसुरीची घटना घडल्यास थकीत रकमेवर विलंबित दिवसांच्या प्रमाणात दरमहा ३% दराने कसुरीचे शुल्क अधिक लागू वस्तू आणि सेवा कर कर्जदाराकडून देय असेल.</td>
+        </tr>
+        <tr>
+          <td class="sno">१९.</td>
+          <td class="desc">प्रक्रिया शुल्क</td>
+          <td>सुविधेअंतर्गत वितरणापूर्वी कर्जदाराकडून कर्जदात्याला १.५% दराने अधिक लागू करांसह एकरकमी परत न करण्यायोग्य प्रक्रिया शुल्क देय असेल.</td>
+        </tr>
+        <tr>
+          <td class="sno">२०.</td>
+          <td class="desc">दस्तऐवजीकरण शुल्क</td>
+          <td>वितरणापूर्वी रुपये <%= safeDocumentationCharges %>/- भरावे लागतील.</td>
+        </tr>
+        <tr>
+          <td class="sno">२१.</td>
+          <td class="desc">शुल्क</td>
+          <td>धनादेश न वटण्याचे शुल्क / बाऊन्स शुल्क - तांत्रिक बिघाड आणि निधीच्या अपुऱ्या प्रमाणामुळे अशा दोन्ही कारणांसाठी प्रत्येक वैयक्तिक धनादेश बाऊन्स/न वटल्यास/परत आल्यास ५०० रुपये अधिक लागू वस्तू आणि सेवा कर.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="page">
+    <table class="sch-table">
+      <tbody>
+        <tr>
+          <td class="sno">२२.</td>
+          <td class="desc">कर्ज परतफेड खाते</td>
+          <td>कर्जदाराच्या नावावर असलेले आणि <b><u><%= safeRepaymentBank %></u></b> असलेले खाते क्रमांक <b><u><%= safeRepaymentAccountNo %></u></b>, किंवा कर्जदाराने कर्जदात्याला लेखी सूचनेद्वारे निर्दिष्ट केलेले असे इतर कोणतेही खाते.</td>
+        </tr>
+        <tr>
+          <td class="sno">२३.</td>
+          <td class="desc">कर्ज वितरण खात्याचे तपशील</td>
+          <td><b><u><%= safeDisbursementAccountName %></u></b> च्या नावे असलेले आणि <b><u><%= safeDisbursementBank %></u></b> असलेले खाते क्रमांक <b><u><%= safeDisbursementAccountNo %></u></b>, आयएफएससी कोड-<b><u><%= safeDisbursementIfsc %></u></b>.</td>
+        </tr>
+        <tr>
+          <td class="sno">२४.</td>
+          <td class="desc">पुढील तारखेचे धनादेश आणि तारीख नसलेले धनादेश</td>
+          <td>
+            कर्जदार या करारासोबत अनुसूची १ मध्ये नमूद केल्याप्रमाणे सुरक्षा धनादेश कर्जदात्याला सादर करेल, ज्यामध्ये कर्जदात्याचे नाव प्राप्तकर्ता म्हणून असेल.<br><br>
+            कर्जदार याद्वारे सहमत आहे, मान्य करतो आणि पुष्टी करतो की त्याने थकीत दायित्वांच्या पूर्ततेसाठी स्वेच्छेने सुरक्षा धनादेश देण्याचे मान्य केले आहे आणि कर्जदात्याला याद्वारे सुरक्षा धनादेश सादर करून/जमा करून थकीत दायित्वे वसूल करण्याचा अधिकार आहे.<br><br>
+            कर्जदार पुष्टी करतो की अंतिम तडजोडीच्या तारखेपर्यंत, कर्जदात्याला ते धनादेश सादर करण्यासाठी सक्षम करण्यासाठी सुरक्षा धनादेश ज्या खात्याशी संबंधित आहेत त्या खात्यात पुरेसा निधी उपलब्ध असल्याची तो खात्री करेल.<br><br>
+            कर्जदात्याकडून पैशांसाठी सादर केल्यावर कर्जदार सर्व सुरक्षा धनादेशांचा आदर करेल आणि अशी कोणतीही पावले उचलणार नाही, ज्यामुळे कोणत्याही प्रकारे कर्जदात्याला मिळणाऱ्या रकमेवर परिणाम होण्याची शक्यता आहे, ज्यामध्ये कोणत्याही मर्यादेशिवाय 'प्रदान थांबविण्याच्या सूचना' यांचा समावेश आहे. याव्यतिरिक्त, सुरक्षा धनादेश ज्या संबंधित बँक खात्याशी संबंधित आहेत त्या बँक खात्याचे अधिकृत स्वाक्षरीकर्ते बदलण्यासाठी कर्जदाराला कर्जदात्याच्या पूर्व लेखी संमतीची आवश्यकता असेल.
+          </td>
+        </tr>
+        <tr>
+          <td class="sno">२५.</td>
+          <td class="desc">सुरक्षा धनादेशांचे तपशील</td>
+          <td><%= safeSecurityCheques1 %><br><%= safeSecurityCheques2 %></td>
+        </tr>
+        <tr>
+          <td class="sno">२६.</td>
+          <td class="desc">तारण/सुरक्षा</td>
+          <td>१) <%= safeCollateralVehicles %> वाहनांचे तारण, कंपनी - <%= safeCollateralMake %> तीन चाकी वाहने.</td>
+        </tr>
+        <tr>
+          <td class="sno">२७.</td>
+          <td class="desc">विमा हप्ता</td>
+          <td>भारतीय रुपये <%= safeInsurancePremium %> /- (रुपये <%= safeInsurancePremiumWords %>) (वस्तू आणि सेवा करासह) कर्जदाराकडून भरावे लागतील आणि कर्जदात्याकडून वितरणाच्या रकमेतून वजा केले जाऊ शकतात आणि कर्जदाराच्या वतीने कर्जदात्याकडून विमा कंपनीला दिले जाऊ शकतात.</td>
+        </tr>
+        <tr>
+          <td class="sno">२८.</td>
+          <td class="desc">विवाद निवारणाचे ठिकाण</td>
+          <td>दिल्लीचे अनन्य अधिकारक्षेत्र.</td>
+        </tr>
+        <tr>
+          <td class="sno">२९.</td>
+          <td class="desc">कर्जदाराला द्यावयाच्या नोटिसा</td>
+          <td>
+            पत्ता:<br><br>
+            फोन:<br><br>
+            ईमेल:<br><br>
+            यांच्या माहितीसाठी:
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ================= PAGE 4 ================= -->
+  <div class="page">
+    <table class="sch-table">
+      <tbody>
+        <tr>
+          <td class="sno">३०.</td>
+          <td class="desc">कर्जदात्याला द्यावयाच्या नोटिसा</td>
+          <td>
+            पत्ता : <b>सॅटिन फिनसर्व्ह लिमिटेड</b><br>
+            चौथा मजला, 'बी' विंग, प्लॉट क्र. ४९२, उद्योग विहार, फेज - ३ गुरुग्राम, हरियाणा - १२२०१६<br><br>
+            फोन : +९१- <b>१८००-५७२-११०२</b><br><br>
+            ईमेल : <b>info@satinfinserv.com</b>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 26px;">
+      <div class="sig-title">स्वाक्षरीचे पान</div>
+      <div class="sig-rule"></div>
+
+      <p class="para">याची साक्ष म्हणून यातील पक्षकारांनी वर नमूद केलेल्या पद्धतीने हा करार अंमलात आणला आहे:</p>
+
+      <div class="ack-head">दुहेरी क्षमतेची स्वीकृती</div>
+
+      <p class="para">खाली स्वाक्षरी करणाऱ्या व्यक्ती, म्हणजेच श्रीमान <b><%= safeBorrowerNameAck %></b> आणि श्रीमान <b><%= safeCoBorrowerNameAck %></b>, याद्वारे मान्य करतात आणि सहमत आहेत की ते सॅटिन फिनसर्व्ह लिमिटेडने उक्त सुविधेसाठी दिलेल्या कर्ज सुविधेचे कर्जदार म्हणून त्यांच्या वैयक्तिक क्षमतेत या कराराची अंमलबजावणी करत आहेत.</p>
+
+      <p class="para">यामध्ये स्वीकारलेली दायित्वे त्यांच्यापैकी प्रत्येकावर दोन्ही क्षमतांमध्ये बंधनकारक असतील, आणि या कराराची अंमलबजावणी कर्जदार/सह-अर्जदार म्हणून वैध आणि अंमलबजावणीयोग्य वचनबद्धता बनवेल, ज्यासाठी प्रत्येक भूमिकेसाठी स्वतंत्र दस्तऐवजांची आवश्यकता नसेल.</p>
+
+      <div class="sig-block">
+        <b>यांच्याद्वारे स्वाक्षरीकृत आणि वितरित</b><br>
+        <b>यात नाव असलेले कर्जदार</b>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="sig-line"></div>
+        <b>नाव -</b>
+      </div>
+
+      <div class="sig-block">
+        <b>यांच्याद्वारे स्वाक्षरीकृत आणि वितरित यात नाव असलेले सह-कर्जदार</b>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="sig-line"></div>
+        <b>नाव -</b>
+      </div>
+
+      <div class="sig-block">
+        <b>यांच्याद्वारे स्वाक्षरीकृत आणि वितरित</b><br>
+        <b>यात नाव असलेले कर्जदाते एसएफएल</b><br>
+        <b>(सॅटिन फिनसर्व्ह लिमिटेड)</b><br><br>
+        <b>त्याच्या अधिकृत स्वाक्षरीकर्त्याच्या हस्ते</b>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="sig-line"></div>
+        <b>नाव –</b><br>
+        <b>पदनाम –</b>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

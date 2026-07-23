@@ -1,0 +1,14 @@
+{
+  "applicantName": "सुखदीप कौर",
+  "applicantPan": "ABCDE1234F",
+  "coApplicant1Name": "गुरप्रीत सिंग",
+  "coApplicant1Pan": "PQRST5678K",
+  "coApplicant2Name": "मनदीप सिंग",
+  "coApplicant2Pan": "LMNOP9012Q",
+  "documents": [
+    "आधार कार्ड",
+    "पॅन कार्ड",
+    "बँक स्टेटमेंट",
+    "छायाचित्र"
+  ]
+}

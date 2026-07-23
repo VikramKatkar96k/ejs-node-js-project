@@ -1,0 +1,14 @@
+{
+  "applicantName": "SUKHDEEP KAUR",
+  "applicantPan": "ABCDE1234F",
+  "coApplicant1Name": "GURPREET SINGH",
+  "coApplicant1Pan": "PQRST5678K",
+  "coApplicant2Name": "MANDEEP SINGH",
+  "coApplicant2Pan": "LMNOP9012Q",
+  "documents": [
+    "Aadhaar Card",
+    "PAN Card",
+    "Bank Statement",
+    "Photograph"
+  ]
+}

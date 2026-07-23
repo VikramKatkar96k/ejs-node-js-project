@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>संमती पत्र - सॅटिन फिनसर्व्ह लिमिटेड</title>
+  <style>
+    @page { size: A4; margin: 0; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: 'Nirmala UI', 'Mangal', 'Noto Sans Devanagari', sans-serif;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      padding: 14mm 15mm 16mm 15mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+    .page:last-child { page-break-after: avoid; }
+
+    .header-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .doc-header-title {
+      text-align: center;
+      font-size: 13pt;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 20px;
+    }
+
+    .applicant-block { font-size: 11pt; margin-bottom: 20px; }
+    .applicant-row { display: flex; align-items: flex-end; margin-bottom: 16px; }
+    .applicant-row .field { display: flex; align-items: flex-end; flex: 1; }
+    .applicant-row .label { font-weight: bold; white-space: nowrap; margin-right: 6px; }
+
+    .underline-value {
+      border-bottom: 1px solid #000000;
+      display: inline-block;
+      padding-left: 5px;
+      flex-grow: 1;
+      min-height: 15px;
+    }
+
+    .consent-lead { font-size: 11pt; font-weight: bold; margin-bottom: 12px; }
+
+    ol.terms-list {
+      margin: 0 0 14px 0;
+      padding-left: 22px;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      text-align: justify;
+    }
+    ol.terms-list li { margin-bottom: 9px; }
+
+    .agree-line { font-size: 10.5pt; margin: 8px 0 14px 0; }
+
+    .docs-heading { font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+    ol.docs-list { list-style-type: decimal; padding-left: 55px; font-size: 10.5pt; line-height: 1.7; margin: 0 0 26px 0; }
+    ol.docs-list li { min-height: 16px; }
+
+    .signature-row { display: flex; justify-content: space-between; margin-top: 40px; text-align: center; }
+    .signature-col { width: 30%; font-size: 11pt; }
+    .signature-word { margin-bottom: 45px; }
+    .signature-line { border-top: 1px solid #000000; margin: 0 6px 6px 6px; }
+    .signature-label { font-weight: bold; }
+    .sign-img { height: 45px; width: auto; display: block; margin: 0 auto 4px auto; }
+
+    .doc-footer { text-align: center; font-size: 9.5pt; line-height: 1.5; margin-top: 26px; }
+    .doc-footer .fname { font-weight: bold; font-size: 10.5pt; }
+    b { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <%
+    const safeApplicantName = typeof applicantName !== 'undefined' ? applicantName : '';
+    const safeApplicantPan = typeof applicantPan !== 'undefined' ? applicantPan : '';
+    const safeCoApplicant1Name = typeof coApplicant1Name !== 'undefined' ? coApplicant1Name : '';
+    const safeCoApplicant1Pan = typeof coApplicant1Pan !== 'undefined' ? coApplicant1Pan : '';
+    const safeCoApplicant2Name = typeof coApplicant2Name !== 'undefined' ? coApplicant2Name : '';
+    const safeCoApplicant2Pan = typeof coApplicant2Pan !== 'undefined' ? coApplicant2Pan : '';
+    const safeDocuments = (typeof documents !== 'undefined' && Array.isArray(documents)) ? documents : ['', '', '', ''];
+  %>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    <div class="header-container">
+      <img src="/assets/SFL-logo.png" alt="Satin Finserv Limited Logo" style="height: 40px; max-width: 200px; object-fit: contain;">
+    </div>
+
+    <div class="doc-header-title">संमती पत्र</div>
+
+    <div class="applicant-block">
+      <div class="applicant-row">
+        <div class="field"><span class="label">अर्जदाराचे नाव</span><span class="underline-value"><%= safeApplicantName %></span></div>
+        <div class="field" style="margin-left: 20px;"><span class="label">पॅन क्र.</span><span class="underline-value"><%= safeApplicantPan %></span></div>
+      </div>
+      <div class="applicant-row">
+        <div class="field"><span class="label">सह-अर्जदार १</span><span class="underline-value"><%= safeCoApplicant1Name %></span></div>
+        <div class="field" style="margin-left: 20px;"><span class="label">पॅन क्र.</span><span class="underline-value"><%= safeCoApplicant1Pan %></span></div>
+      </div>
+      <div class="applicant-row">
+        <div class="field"><span class="label">सह-अर्जदार २</span><span class="underline-value"><%= safeCoApplicant2Name %></span></div>
+        <div class="field" style="margin-left: 20px;"><span class="label">पॅन क्र.</span><span class="underline-value"><%= safeCoApplicant2Pan %></span></div>
+      </div>
+    </div>
+
+    <div class="consent-lead">मी/आम्ही संमती देतो, समजून घेतो, मान्य करतो, हमी देतो, सहमत आहोत आणि अशी घोषणा करतो की:</div>
+
+    <ol class="terms-list">
+      <li>माझ्याद्वारे/आमच्याद्वारे प्रदान केलेली सर्व माहिती आणि कागदपत्रे खरी, अचूक आणि पूर्ण आहेत आणि कोणत्याही चुकीच्या विधानामुळे किंवा माहिती लपवल्यामुळे कर्ज नाकारले जाऊ शकते किंवा रद्द केले जाऊ शकते.</li>
+      <li>हे कर्ज सॅटिन फिनसर्व्ह लिमिटेडच्या ("सॅटिन") अंतर्गत क्रेडिट धोरणे आणि लागू आरबीआय (RBI) मार्गदर्शक तत्त्वांच्या अधीन आहे, आणि सॅटिन कोणतेही कारण न देता आपल्या पूर्ण अधिकारानुसार अर्ज मंजूर किंवा नामंजूर करू शकते.</li>
+      <li>पॅन/जीएसटी (PAN/GST) डेटाबेस, एमसीए (MCA) रेकॉर्ड, युटिलिटी डेटा, बँक स्टेटमेंट, सरकारी भांडार (repositories), सार्वजनिक स्रोत आणि स्वतंत्र पडताळणी संस्थांसह (परंतु यापुरते मर्यादित नाही) कोणत्याही स्रोतावरून माझे/आमचे तपशील सत्यापित करण्यासाठी, प्रमाणित करण्यासाठी आणि प्राप्त करण्यासाठी सॅटिन अधिकृत आहे.</li>
+      <li>सॅटिन कोणत्याही क्रेडिट इन्फॉर्मेशन कंपनीकडून (CIC) माझी/आमची क्रेडिट माहिती प्राप्त करण्यासाठी, आणि कर्ज मंजूर किंवा वितरित न झाल्यास देखील CIC ला माझा/आमचा क्रेडिट डेटा सबमिट करण्यासाठी, अपडेट करण्यासाठी आणि शेअर करण्यासाठी अधिकृत आहे.</li>
+      <li>ई-केवायसी (e-KYC) साठी आधार प्रमाणीकरण स्वेच्छेने प्रदान केले जात आहे, आणि आधार ओटीपी (OTP) सबमिट करणे हे माझी/आमची इलेक्ट्रॉनिक स्वाक्षरी आणि या कर्ज अर्जाची स्वीकृती मानली जाईल.</li>
+      <li>डिजिटल पर्सनल डेटा प्रोटेक्शन अॅक्ट, २०२३ आणि इतर लागू कायद्यांनुसार सॅटिन क्रेडिट मूल्यांकन, मंजुरी, देखरेख, सेवा, वसुली, फसवणूक तपासणी आणि नियामक अनुपालनासाठी माझा/आमचा वैयक्तिक डेटा, केवायसी (KYC) माहिती, आर्थिक माहिती आणि आधार ई-केवायसी (e-KYC) डेटा संकलित, प्रक्रिया, संचयित, शेअर आणि जतन करू शकते.</li>
+      <li>कायदेशीर उद्देशांसाठी आवश्यकतेनुसार माझी/आमची माहिती सॅटिनच्या समूह कंपन्या, सेवा प्रदाते, पडताळणी भागीदार, कर्जदाते, बँका, विमा कंपन्या, संकलन भागीदार (collection partners), नियामक आणि वैधानिक प्राधिकरणांसोबत शेअर केली जाऊ शकते.</li>
+      <li>माझा/आमचा मोबाईल नंबर DND/DNC अंतर्गत नोंदणीकृत असला तरीही, सॅटिन माझ्याशी/आमच्याशी फोन कॉल, एसएमएस (SMS), व्हॉट्सॲप (WhatsApp), ईमेल किंवा इतर कोणत्याही संवादाच्या माध्यमातून संपर्क साधू शकते.</li>
+      <li>या अर्जाद्वारे सादर केलेली कागदपत्रे आणि माहिती परत केली जाणार नाही आणि वैधानिक, नियामक किंवा कायदेशीर उद्देशांसाठी सॅटिनकडे ठेवली जाऊ शकते.</li>
+      <li>कर्ज मंजूर झाल्यास, त्याचा वापर केवळ घोषित व्यवसाय उद्देशासाठी केला जाईल आणि कोणत्याही बेकायदेशीर, सट्टेबाजीच्या किंवा प्रतिबंधित क्रियाकलापांसाठी केला जाणार नाही.</li>
+      <li>पत्ता, संपर्क तपशील, मालकी संरचना (ownership structure) किंवा या अर्जाशी किंवा कर्जाशी संबंधित कोणत्याही महत्त्वाच्या माहितीत कोणताही बदल झाल्यास सॅटिनला त्वरित कळविले जाईल.</li>
+    </ol>
+
+    <div class="agree-line">मी वर नमूद केलेल्या अटी आणि शर्तींशी सहमत आहे</div>
+
+    <div class="docs-heading">दिलेल्या कागदपत्रांची यादी:</div>
+    <ol class="docs-list">
+      <% for (let i = 0; i < 4; i++) { %>
+        <li><%= safeDocuments[i] || '' %></li>
+      <% } %>
+    </ol>
+
+    <div class="signature-row">
+      <div class="signature-col">
+        <div class="signature-word">स्वाक्षरी</div>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="signature-line"></div>
+        <div class="signature-label">अर्जदार</div>
+      </div>
+      <div class="signature-col">
+        <div class="signature-word">स्वाक्षरी</div>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="signature-line"></div>
+        <div class="signature-label">सह-अर्जदार १</div>
+      </div>
+      <div class="signature-col">
+        <div class="signature-word">स्वाक्षरी</div>
+        <img class="sign-img" src="/assets/sign.png" alt="Signature">
+        <div class="signature-line"></div>
+        <div class="signature-label">सह-अर्जदार २</div>
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <div class="fname">सॅटिन फिनसर्व्ह लिमिटेड</div>
+      नोंदणीकृत कार्यालयाचा पत्ता: चौथा मजला, बी विंग, प्लॉट क्र. ४९२ उद्योग विहार, फेज ३ गुरुग्राम हरियाणा १२२०१६<br>
+      सीआयएन (CIN): U65999HR2018PLC099128<br>
+      संपर्क क्रमांक (Contact Number): ०१२४-४७१५४०० ईमेल (Email): info@satinfinserv.com
+    </div>
+  </div>
+
+</body>
+</html>
