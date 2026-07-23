@@ -96,7 +96,18 @@
 
   <%
     const safeBorrowerName = typeof borrowerName !== 'undefined' ? borrowerName : 'the Borrower';
-    const safeLoanAmount = typeof loanAmount !== 'undefined' ? loanAmount : '';
+    const safeCoBorrower1 = typeof coBorrower1 !== 'undefined' ? coBorrower1 : '';
+    const safeCoBorrower2 = typeof coBorrower2 !== 'undefined' ? coBorrower2 : '';
+    const safeGrossFinanceAmount = typeof grossFinanceAmount !== 'undefined' ? grossFinanceAmount : '';
+    const safeGrossFinanceAmountWords = typeof grossFinanceAmountWords !== 'undefined' ? grossFinanceAmountWords : '';
+    const safeAssetDetail = typeof assetDetail !== 'undefined' ? assetDetail : '';
+    const safeInterestRate = typeof interestRate !== 'undefined' ? interestRate : '';
+    const safeLoanTenor = typeof loanTenor !== 'undefined' ? loanTenor : '';
+    const safeLmsLoanNo = typeof lmsLoanNo !== 'undefined' ? lmsLoanNo : '';
+    const safeSanctionDate = typeof sanctionDate !== 'undefined' ? sanctionDate : '';
+
+    // Co-Borrower names joined for the parties clause
+    const coBorrowerList = [safeCoBorrower1, safeCoBorrower2].filter(Boolean).join(' and ');
   %>
 
   <!-- ================= PAGE 1 ================= -->
@@ -107,7 +118,7 @@
 
     <p><b>BETWEEN</b></p>
 
-    <p><b>The Persons</b> set out in Schedule 1 (hereinafter referred to as the <b>"Borrower"</b>);</p>
+    <p><b>The Persons</b> set out in Schedule 1, namely <b><%= safeBorrowerName %></b><% if (coBorrowerList) { %> along with <b><%= coBorrowerList %></b> as Co-Borrower(s)<% } %> (hereinafter referred to as the <b>"Borrower"</b>);</p>
 
     <p><b>AND</b></p>
 
@@ -121,11 +132,11 @@
 
     <div class="clause">
       <div class="num">A.</div>
-      <div class="txt">The Borrower has approached and requested the Lender to provide certain financial assistance for the purpose of acquisition of a commercial vehicle (the <b>"Purpose"</b>).</div>
+      <div class="txt">The Borrower has approached and requested the Lender to provide certain financial assistance for the purpose of acquisition of a commercial vehicle<% if (safeAssetDetail) { %>, being <b><%= safeAssetDetail %></b><% } %> (the <b>"Purpose"</b>).</div>
     </div>
     <div class="clause">
       <div class="num">B.</div>
-      <div class="txt">Accordingly, the Lender has agreed to provide to the Borrower financial assistance in the form of an Indian rupee denominated vehicle loan facility (<b>"Loan Facility"</b>) up to a maximum principal amount set out in Schedule 1 in accordance with the terms and conditions of this Agreement.</div>
+      <div class="txt">Accordingly, the Lender has agreed to provide to the Borrower financial assistance in the form of an Indian rupee denominated vehicle loan facility (<b>"Loan Facility"</b>) up to a maximum principal amount<% if (safeGrossFinanceAmount) { %> of <b>Rs. <%= safeGrossFinanceAmount %>/-</b><% if (safeGrossFinanceAmountWords) { %> (Rupees <%= safeGrossFinanceAmountWords %> Only)<% } %><% } %> as set out in Schedule 1<% if (safeLoanTenor) { %>, for a tenor of <b><%= safeLoanTenor %></b><% } %> in accordance with the terms and conditions of this Agreement.</div>
     </div>
     <div class="clause">
       <div class="num">C.</div>
@@ -172,7 +183,7 @@
     </div>
     <div class="clause">
       <div class="num">1.9.</div>
-      <div class="txt"><b>"Finance Documents"</b> shall mean this Agreement along with its schedules and annexures, the sanction letter and any other documents related to the loan application of the Borrower.</div>
+      <div class="txt"><b>"Finance Documents"</b> shall mean this Agreement along with its schedules and annexures, the sanction letter<% if (safeSanctionDate) { %> dated <b><%= safeSanctionDate %></b><% } %><% if (safeLmsLoanNo) { %> bearing LMS Loan No. <b><%= safeLmsLoanNo %></b><% } %> and any other documents related to the loan application of the Borrower.</div>
     </div>
     <div class="clause">
       <div class="num">1.10.</div>
@@ -297,7 +308,7 @@
 
     <div class="clause">
       <div class="num">6.1.</div>
-      <div class="txt">The rate of interest on the Loan Facility for the Interest Period is the Interest Rate set out in Schedule 1. The Borrower shall pay accrued interest on the amount disbursed as the Loan Facility on the Interest Payment Dates.</div>
+      <div class="txt">The rate of interest on the Loan Facility for the Interest Period is the Interest Rate set out in Schedule 1<% if (safeInterestRate) { %>, being <b><%= safeInterestRate %></b> per annum<% } %>. The Borrower shall pay accrued interest on the amount disbursed as the Loan Facility on the Interest Payment Dates.</div>
     </div>
     <div class="clause">
       <div class="num">6.2.</div>
