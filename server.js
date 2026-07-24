@@ -240,6 +240,18 @@ app.get('/kfs_english', async (req, res) => {
     res.status(500).send('Unable to load Key Facts Statement.');
   }
 });
+app.get('/kfs_vehicle_loan_agreement_marathi', async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, 'json', 'kfs_vehicle_loan_agreement_marathi.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const kfsData = JSON.parse(rawData);
+    res.render('kfs_vehicle_loan_agreement_marathi', kfsData);
+  } catch (error) {
+    console.error('Failed to load KFS Vehicle Loan Agreement Marathi JSON:', error);
+    res.status(500).send('Unable to load KFS Vehicle Loan Agreement.');
+  }
+});
+
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });

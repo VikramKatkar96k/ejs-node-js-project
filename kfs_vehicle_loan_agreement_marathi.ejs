@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>मुख्य तथ्य विवरण सॅटिन फिनसर्व्ह लिमिटेड</title>
+  <style>
+    /* A4 Dimensions and Page breaks for PDF engines */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body{
+    font-family:
+        "Nirmala UI",
+        "Kokila",
+        "Mangal",
+        "Noto Sans Devanagari",
+        sans-serif;
+    font-size:8.5pt;
+}
+    .container-e .container {
+      max-width: 1024px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .page {
+      position: relative;
+      width: 200mm;
+      height: 397mm;
+      padding: 15mm 15mm 25mm 15mm;
+      box-sizing: border-box;
+      page-break-after: always;
+      overflow: hidden;
+      color: #000000;
+      margin: 0 auto;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* Logo and Header Box */
+    .header-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    /* Annex / Title Styling */
+    .annex-label {
+      text-align: right;
+      font-size: 10pt;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .doc-header-title {
+      text-align: center;
+      font-size: 12pt;
+      font-weight: bold;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .doc-header-title .sub {
+      font-size: 10.5pt;
+    }
+
+    /* Table Styling */
+    table.kfs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+    }
+
+    table.kfs-table.joined {
+      margin-bottom: 0;
+    }
+
+    table.kfs-table td,
+    table.kfs-table th {
+      border: 1px solid #000000;
+      padding: 10px 8px;
+      font-size: 8.5pt;
+      vertical-align: top;
+      line-height: 1.4;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    table.kfs-table th {
+      font-weight: bold;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    /* Nested sub-table */
+    td.nested-cell {
+      padding: 0 !important;
+    }
+
+    table.nested-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    table.nested-table td,
+    table.nested-table th {
+      border: 1px solid #000000;
+      padding: 4px 6px;
+      font-size: 8.5pt;
+      line-height: 1.4;
+      vertical-align: top;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    table.nested-table th {
+      font-weight: bold;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    .sr {
+      text-align: center;
+      font-weight: bold;
+      width: 5%;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .note {
+      font-size: 7.5pt;
+      font-style: italic;
+      margin: 2px 0 12px 0;
+      line-height: 1.4;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 11pt;
+      font-weight: bold;
+      margin: 14px 0 10px 0;
+    }
+
+    /* Page Footer Styling */
+    .page-footer {
+      position: absolute;
+      bottom: 12mm;
+      left: 15mm;
+      right: 15mm;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      box-sizing: border-box;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 5px;
+    }
+
+    .footer-page-num {
+      font-size: 8pt;
+      font-weight: bold;
+      color: #5b7b9c;
+    }
+
+    /* Signature section */
+    .signature-section {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 9pt;
+      line-height: 1.6;
+    }
+
+    .signature-block {
+      width: 45%;
+    }
+
+    .signature-line {
+      border-bottom: 1px solid #000;
+      margin-bottom: 4px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <%
+    // ---- Safe variable assignment with mock fallbacks (project convention) ----
+    // भाग 1 - ओळख / कर्ज
+    const safeLoanProposalNo       = typeof loanProposalNo !== 'undefined' ? loanProposalNo : '';
+    const safeTypeOfLoan           = typeof typeOfLoan !== 'undefined' ? typeOfLoan : 'वाहन कर्ज';
+    const safeSanctionedLoanAmount = typeof sanctionedLoanAmount !== 'undefined' ? sanctionedLoanAmount : '1,74,000';
+    const safeProductName          = typeof productName !== 'undefined' ? productName : 'पिंक ईव्ही रिक्षा';
+    const safeCustomerName         = typeof customerName !== 'undefined' ? customerName : 'प्रियंका अशोक परदेशी';
+    const safeDisbursalSchedule    = typeof disbursalSchedule !== 'undefined' ? disbursalSchedule : '100% एकरकमी';
+    const safeLoanTerm             = typeof loanTerm !== 'undefined' ? loanTerm : '60 महिने';
+
+    // भाग 1 - हप्ता
+    const safeInstalmentType       = typeof instalmentType !== 'undefined' ? instalmentType : 'मासिक';
+    const safeNumberOfEpis         = typeof numberOfEpis !== 'undefined' ? numberOfEpis : '60';
+    const safeEpiAmount            = typeof epiAmount !== 'undefined' ? epiAmount : '5006';
+    const safeRepaymentCommence    = typeof repaymentCommence !== 'undefined' ? repaymentCommence : '05-ऑगस्ट-2026';
+
+    // भाग 1 - व्याज
+    const safeInterestRate         = typeof interestRate !== 'undefined' ? interestRate : '24';
+    const safeInterestType         = typeof interestType !== 'undefined' ? interestType : 'स्थिर';
+
+    // भाग 1 - तरंगत्या व्याजदर
+    const safeFloating             = typeof floatingRate !== 'undefined' ? floatingRate : {};
+
+    // भाग 1 - शुल्क / फी
+    const safeFees = (typeof fees !== 'undefined' && Array.isArray(fees) && fees.length) ? fees : [
+      { no: '(i)',   label: 'प्रक्रिया शुल्क',   reType: 'एकवेळ', reAmount: '3080', tpType: '', tpAmount: '' },
+      { no: '(ii)',  label: 'विमा शुल्क', reType: '', reAmount: '', tpType: '', tpAmount: '' },
+      { no: '(iii)', label: 'प्रतिबद्धता शुल्क',   reType: '', reAmount: '', tpType: '', tpAmount: '' },
+      { no: '(iv)',  label: 'दस्तऐवज शुल्क',   reType: 'एकवेळ', reAmount: '500', tpType: '', tpAmount: '' },
+      { no: '(v)',   label: 'CERSAI शुल्क',     reType: 'एकवेळ', reAmount: '59', tpType: '', tpAmount: '' }
+    ];
+
+    const safeApr                  = typeof apr !== 'undefined' ? apr : '';
+
+    // भाग 1 - आकस्मिक शुल्क
+    const safePenalCharges         = typeof penalCharges !== 'undefined' ? penalCharges : 'थकबाकी रकमेवर 24% प्रतिवर्ष, थकबाकी कालावधीसाठी';
+    const safeOtherPenalCharges    = typeof otherPenalCharges !== 'undefined' ? otherPenalCharges : '';
+    const safeForeclosureCharges   = typeof foreclosureCharges !== 'undefined' ? foreclosureCharges : 'थकित मुद्दलावर 5% + GST';
+    const safeSwitchingCharges     = typeof switchingCharges !== 'undefined' ? switchingCharges : '';
+    const safeOtherCharges         = typeof otherCharges !== 'undefined' ? otherCharges : '';
+
+    // भाग 2 - गुणात्मक माहिती
+    const safeRecoveryAgentClause  = typeof recoveryAgentClause !== 'undefined' ? recoveryAgentClause : '';
+    const safeGrievanceClause      = typeof grievanceClause !== 'undefined' ? grievanceClause : 'करार कलम क्र. 27';
+    const safeNodalOfficer         = typeof nodalOfficer !== 'undefined' ? nodalOfficer : '';
+    const safeTransferToOtherRE    = typeof transferToOtherRE !== 'undefined' ? transferToOtherRE : '';
+    const safeOriginatingRE        = typeof originatingRE !== 'undefined' ? originatingRE : '';
+    const safePartnerRE            = typeof partnerRE !== 'undefined' ? partnerRE : '';
+    const safeBlendedRate          = typeof blendedRate !== 'undefined' ? blendedRate : '';
+    const safeCoolingOffPeriod     = typeof coolingOffPeriod !== 'undefined' ? coolingOffPeriod : '';
+    const safeLspDetails           = typeof lspDetails !== 'undefined' ? lspDetails : '';
+    const safeValidityPeriod       = typeof validityPeriod !== 'undefined' ? validityPeriod : '5 दिवस';
+
+    // परिशिष्ट B - APR ची गणना
+    const safeTotalInterestAmount  = typeof totalInterestAmount !== 'undefined' ? totalInterestAmount : '1,26,360';
+    const safeFeeChargesPayable    = typeof feeChargesPayable !== 'undefined' ? feeChargesPayable : '3639';
+    const safePayableToRe          = typeof payableToRe !== 'undefined' ? payableToRe : '3639';
+    const safePayableToThirdParty  = typeof payableToThirdParty !== 'undefined' ? payableToThirdParty : '-';
+    const safeNetDisbursedAmount   = typeof netDisbursedAmount !== 'undefined' ? netDisbursedAmount : '1,70,361';
+    const safeTotalAmountPayable   = typeof totalAmountPayable !== 'undefined' ? totalAmountPayable : '3,00,360';
+    const safeScheduleOfDisbursement = typeof scheduleOfDisbursement !== 'undefined' ? scheduleOfDisbursement : '';
+    const safeDueDate              = typeof dueDate !== 'undefined' ? dueDate : 'प्रत्येक महिन्याच्या 5 तारखेला';
+
+    // स्वाक्षरी
+    const safeCoBorrowerName       = typeof coBorrowerName !== 'undefined' ? coBorrowerName : '';
+    const safeAuthorizedSignatory  = typeof authorizedSignatory !== 'undefined' ? authorizedSignatory : 'सॅटिन फिनसर्व्ह लिमिटेडसाठी';
+  %>
+
+  <div class="container-e">
+
+  <!-- ================= पृष्ठ 1 : परिशिष्ट A - भाग 1 ================= -->
+  <div class="page">
+
+    <div class="annex-label">परिशिष्ट A</div>
+
+    <div class="doc-header-title">
+      मुख्य तथ्य विवरण<br>
+      
+      <span class="sub">भाग १ (व्याजदर आणि शुल्क / फी)</span>
+    </div>
+
+    <!-- अनुक्रमांक 1 - 8 -->
+    <table class="kfs-table joined">
+      <tbody>
+        <tr>
+          <td class="sr">१</td>
+          <td style="width: 40%;">कर्ज प्रस्ताव / खाते क्र.</td>
+          <td style="width: 25%;"><%= safeLoanProposalNo %></td>
+          <td style="width: 15%;"><b>कर्जाचा प्रकार</b></td>
+          <td style="width: 15%;"><%= safeTypeOfLoan %></td>
+        </tr>
+        <tr>
+          <td class="sr">२</td>
+          <td>मंजूर कर्ज रक्कम (रुपयांमध्ये)</td>
+          <td class="bold"><%= safeSanctionedLoanAmount %></td>
+          <td><b>उत्पादनाचे नाव</b></td>
+          <td class="bold"><%= safeProductName %></td>
+        </tr>
+        <tr>
+          <td class="sr">३</td>
+          <td>ग्राहकाचे नाव</td>
+          <td colspan="3" class="bold"><%= safeCustomerName %></td>
+        </tr>
+        <tr>
+          <td class="sr">४</td>
+          <td>
+            वितरण वेळापत्रक<br>
+            (i) टप्प्याटप्प्याने वितरण किंवा 100% एकरकमी<br>
+            (ii) टप्प्याटप्प्याने असल्यास, कर्ज करारातील संबंधित तपशील असलेल्या कलमाचा उल्लेख करा
+          </td>
+          <td colspan="3"><%= safeDisbursalSchedule %></td>
+        </tr>
+        <tr>
+          <td class="sr">५</td>
+          <td>कर्ज कालावधी (वर्ष/महिने/दिवस)</td>
+          <td colspan="3" class="bold"><%= safeLoanTerm %></td>
+        </tr>
+        <tr>
+          <td class="sr">६</td>
+          <td colspan="4"><b>हप्त्यांचे तपशील</b></td>
+        </tr>
+        <tr>
+          <th>हप्त्यांचा प्रकार</th>
+          <th>EPIs ची संख्या</th>
+          <th>EPI (भारतीय रुपये)</th>
+          <th colspan="2">मंजुरीनंतर परतफेड सुरू होण्याची तारीख (दि-मही-वर्ष)</th>
+        </tr>
+        <tr>
+          <td class="center"><%= safeInstalmentType %></td>
+          <td class="center"><%= safeNumberOfEpis %></td>
+          <td class="center bold"><%= safeEpiAmount %></td>
+          <td colspan="2" class="center bold"><%= safeRepaymentCommence %></td>
+        </tr>
+        <tr>
+          <td class="sr">७</td>
+          <td colspan="3">व्याजदर (%) आणि प्रकार (स्थिर किंवा तरंगत्या किंवा संकरित)</td>
+          <td class="bold"><%= safeInterestRate %>% , <%= safeInterestType %></td>
+        </tr>
+        <tr>
+          <td class="sr">८</td>
+          <td colspan="3">तरंगत्या व्याजदराच्या बाबतीत अतिरिक्त माहिती</td>
+          <td class="bold center">लागू नाही</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- तरंगत्या व्याजदर बेंचमार्क उप-तक्ता -->
+    <table class="kfs-table joined" style="table-layout: fixed;">
+      <colgroup>
+        <col style="width: 16%;">
+        <col style="width: 12%;">
+        <col style="width: 10%;">
+        <col style="width: 14%;">
+        <col style="width: 6%;">
+        <col style="width: 6%;">
+        <col style="width: 18%;">
+        <col style="width: 18%;">
+      </colgroup>
+      <tbody>
+        <tr>
+          <th rowspan="2">संदर्भ बेंचमार्क</th>
+          <th rowspan="2">बेंचमार्क दर (%) (B)</th>
+          <th rowspan="2">स्प्रेड (%) (S)</th>
+          <th rowspan="2">अंतिम दर (%) R = (B) + (S)</th>
+          <th colspan="2">पुनर्स्थापना कालावधी (महिने)</th>
+          <th colspan="2">सांदभाबेंचमाका मधील बदलाचा पररणाम (‘R’ मध्ये२५ बेवससपॉइांट बदलासाठी, बदल:)</th>
+        </tr>
+        <tr>
+          <th>B</th>
+          <th>S</th>
+          <th>EPI (₹)</th>
+          <th>EPIs ची संख्या</th>
+        </tr>
+        <tr style="height: 26px;">
+          <td class="center"><%= safeFloating.benchmark || '' %></td>
+          <td class="center"><%= safeFloating.benchRate || '' %></td>
+          <td class="center"><%= safeFloating.spread || '' %></td>
+          <td class="center"><%= safeFloating.finalRate || '' %></td>
+          <td class="center"><%= safeFloating.resetB || '' %></td>
+          <td class="center"><%= safeFloating.resetS || '' %></td>
+          <td class="center"><%= safeFloating.impactEpi || '' %></td>
+          <td class="center"><%= safeFloating.impactNoEpis || '' %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- शुल्क / फी (अनुक्रमांक 9) + अनुक्रमांक 10-11 -->
+    <table class="kfs-table" style="table-layout: fixed;">
+      <colgroup>
+        <col style="width: 5%;">
+        <col style="width: 27%;">
+        <col style="width: 14%;">
+        <col style="width: 20%;">
+        <col style="width: 14%;">
+        <col style="width: 20%;">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td class="sr">९</td>
+          <td colspan="5"><b>शुल्क/आकार¹</b></td>
+        </tr>
+        <tr>
+          <th rowspan="2"></th>
+          <th rowspan="2"></th>
+          <th colspan="2">RE ला देय (A)</th>
+          <th colspan="2">RE मार्फत तृतीय पक्षाला देय (B)</th>
+        </tr>
+        <tr>
+          <th>एकवेळ / वारंवार</th>
+          <th>रक्कम (भारतीय रुपये) किंवा टक्केवारी (%)</th>
+          <th>एकवेळ / वारंवार</th>
+          <th>रक्कम (भारतीय रुपये) किंवा टक्केवारी (%)</th>
+        </tr>
+        <% safeFees.forEach(function (fee) { %>
+        <tr>
+          <td class="sr"><%= fee.no %></td>
+          <td><%= fee.label %></td>
+          <td class="center"><%= fee.reType || '' %></td>
+          <td class="center"><%= fee.reAmount || '' %></td>
+          <td class="center"><%= fee.tpType || '' %></td>
+          <td class="center"><%= fee.tpAmount || '' %></td>
+        </tr>
+        <% }) %>
+        <tr>
+          <td class="sr">१०</td>
+          <td colspan="3">वार्षिक टक्केवारी दर (APR) (%)</td>
+          <td colspan="2" class="center bold"><%= safeApr %> %</td>
+        </tr>
+        <tr>
+          <td class="sr">११</td>
+          <td colspan="4">आकस्मिक शुल्कांचे तपशील (भारतीय रुपये किंवा %, लागू असल्यास)</td>
+          <td colspan="1"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="page-footer">
+      <div class="footer-page-num">पृष्ठ 1 | 3</div>
+    </div>
+  </div>
+
+  <!-- ================= पृष्ठ 2 : आकस्मिक शुल्क + भाग 2 ================= -->
+  <div class="page">
+
+    <table class="kfs-table" style="margin-top: 5px;">
+      <tbody>
+        <tr>
+          <td class="sr">(i)</td>
+          <td style="width: 65%;">विलंबित भरणाच्या बाबतीत दंड शुल्क, असल्यास</td>
+          <td><%= safePenalCharges %></td>
+        </tr>
+        <tr>
+          <td class="sr">(ii)</td>
+          <td>इतर दंड शुल्क, असल्यास</td>
+          <td><%= safeOtherPenalCharges %></td>
+        </tr>
+        <tr>
+          <td class="sr">(iii)</td>
+          <td>कर्ज पूर्वबंदी शुल्क, लागू असल्यास</td>
+          <td><%= safeForeclosureCharges %></td>
+        </tr>
+        <tr>
+          <td class="sr">(iv)</td>
+          <td>तरंगत्या व्याजदरावरून स्थिर व्याजदरावर आणि उलट बदलण्यासाठी शुल्क</td>
+          <td><%= safeSwitchingCharges %></td>
+        </tr>
+        <tr>
+          <td class="sr">(v)</td>
+          <td>इतर कोणतेही शुल्क (कृपया निर्दिष्ट करा)</td>
+          <td><%= safeOtherCharges %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      १. REs GST सारख्या करांच्या निव्वळ रकमेचा खुलासा करू शकतात<br>
+      २. कृपया परिशिष्ट B पहा
+    </div>
+
+    <div class="section-title">भाग २ (इतर गुणात्मक माहिती)</div>
+
+    <table class="kfs-table" style="table-layout: fixed;">
+      <colgroup>
+        <col style="width: 5%;">
+        <col style="width: 55%;">
+        <col style="width: 40%;">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td class="sr">१</td>
+          <td>वसुली एजंट नियुक्त करण्याशी संबंधित कर्ज कराराचे कलम</td>
+          <td><%= safeRecoveryAgentClause %></td>
+        </tr>
+        <tr>
+          <td class="sr">२</td>
+          <td>तक्रार निवारण यंत्रणेचे तपशील देणारे कर्ज कराराचे कलम</td>
+          <td><%= safeGrievanceClause %></td>
+        </tr>
+        <tr>
+          <td class="sr">३</td>
+          <td>नोडल तक्रार निवारण अधिकाऱ्यांचा फोन नंबर आणि ईमेल आयडी</td>
+          <td><%= safeNodalOfficer %></td>
+        </tr>
+        <tr>
+          <td class="sr">४</td>
+          <td>कर्ज सध्या किंवा भविष्यात इतर REs कडे हस्तांतरित किंवा सुरक्षितीकरणासाठी विषय आहे का (होय / नाही)</td>
+          <td><%= safeTransferToOtherRE %></td>
+        </tr>
+        <tr>
+          <td class="sr">५</td>
+          <td colspan="2">सहयोगी कर्ज व्यवस्थेंतर्गत कर्ज असल्यास (उदा. सह-कर्ज / आउटसोर्सिंग), खालील अतिरिक्त तपशील दिले जाऊ शकतात:</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="nested-cell">
+            <table class="nested-table">
+              <colgroup>
+                <col style="width: 40%;">
+                <col style="width: 35%;">
+                <col style="width: 25%;">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>उत्पत्ती RE चे नाव, निधीच्या प्रमाणासह</th>
+                  <th>भागीदार RE चे नाव, निधीच्या प्रमाणासह</th>
+                  <th>मिश्रित व्याजदर</th>
+                </tr>
+                <tr>
+                  <td class="center"><%= safeOriginatingRE %>&nbsp;</td>
+                  <td class="center"><%= safePartnerRE %></td>
+                  <td class="center"><%= safeBlendedRate %></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="sr">६</td>
+          <td colspan="2">डिजिटल कर्जाच्या बाबतीत, खालील विशिष्ट खुलासे दिले जाऊ शकतात:</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>(i) कूलिंग ऑफ / लुक-अप कालावधी, RE च्या मंडळ मंजूर धोरणानुसार, ज्यादरम्यान कर्जदाराकडून कर्ज पूर्वभरणावर कोणताही दंड आकारला जाणार नाही</td>
+          <td><%= safeCoolingOffPeriod %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>(ii) वसुली एजंट म्हणून काम करणाऱ्या आणि कर्जदाराकडे जाण्यास अधिकृत LSP चे तपशील</td>
+          <td><%= safeLspDetails %></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="page-footer">
+      <div class="footer-page-num">पृष्ठ 2 | 3</div>
+    </div>
+  </div>
+
+  <!-- ================= पृष्ठ 3 : परिशिष्ट B - APR ची गणना ================= -->
+  <div class="page">
+
+    <div class="annex-label">परिशिष्ट B</div>
+
+    <div class="doc-header-title">APR ची गणना</div>
+
+    <table class="kfs-table">
+      <thead>
+        <tr>
+          <th style="width: 8%;">अ.क्र.</th>
+          <th>मापदंड</th>
+          <th style="width: 25%;">तपशील</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center">१</td>
+          <td>मंजूर कर्ज रक्कम (रुपयांमध्ये) (KFS टेम्पलेट - भाग 1 मधील अ.क्र. 2)</td>
+          <td class="center bold"><%= safeSanctionedLoanAmount %></td>
+        </tr>
+        <tr>
+          <td class="center">२</td>
+          <td>कर्ज कालावधी (वर्षे / महिने / दिवसांमध्ये) (KFS टेम्पलेट - भाग 1 मधील अ.क्र. 5)</td>
+          <td class="center bold"><%= safeLoanTerm %></td>
+        </tr>
+        <tr>
+          <td class="center">a)</td>
+          <td>असमान नियतकालिक कर्जाच्या बाबतीत मुद्दल भरणा हप्त्यांची संख्या</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="center">b)</td>
+          <td>EPI चा प्रकार, प्रत्येक EPI ची रक्कम (रुपयांमध्ये) आणि EPIs ची संख्या (KFS टेम्पलेट - भाग 1 मधील अ.क्र. 6)</td>
+          <td class="center bold"><%= safeInstalmentType %><br><%= safeEpiAmount %><br><%= safeNumberOfEpis %></td>
+        </tr>
+        <tr>
+          <td class="center">c)</td>
+          <td>भांडवलीकृत व्याज भरणा हप्त्यांची संख्या, असल्यास</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="center">d)</td>
+          <td>मंजुरीनंतर परतफेड सुरू होण्याची तारीख (दि-मही-वर्ष) (KFS टेम्पलेट - भाग 1 मधील अ.क्र. 6)</td>
+          <td class="center bold"><%= safeRepaymentCommence %></td>
+        </tr>
+        <tr>
+          <td class="center">३</td>
+          <td>व्याजदर प्रकार (स्थिर किंवा तरंगत्या किंवा संकरित) (KFS टेम्पलेट - भाग 1 मधील अ.क्र. 7)</td>
+          <td class="center bold"><%= safeInterestType %></td>
+        </tr>
+        <tr>
+          <td class="center">४</td>
+          <td>व्याजदर (KFS टेम्पलेट - भाग 1 मधील अ.क्र. 7)</td>
+          <td class="center bold"><%= safeInterestRate %>%</td>
+        </tr>
+        <tr>
+          <td class="center">५</td>
+          <td>मंजुरी तारखेनुसार प्रचलित दरानुसार कर्ज कालावधीत एकूण व्याज रक्कम (रुपयांमध्ये)</td>
+          <td class="center bold"><%= safeTotalInterestAmount %></td>
+        </tr>
+        <tr>
+          <td class="center">६</td>
+          <td>देय शुल्क / फी (रुपयांमध्ये)</td>
+          <td class="center bold"><%= safeFeeChargesPayable %></td>
+        </tr>
+        <tr>
+          <td class="center">A</td>
+          <td>RE ला देय (KFS टेम्पलेट - भाग 1 मधील अ.क्र. 9A)</td>
+          <td class="center bold"><%= safePayableToRe %></td>
+        </tr>
+        <tr>
+          <td class="center">B</td>
+          <td>RE मार्फत तृतीय पक्षाला देय (KFS टेम्पलेट - भाग 1 मधील अ.क्र. 9B)</td>
+          <td class="center bold"><%= safePayableToThirdParty %></td>
+        </tr>
+        <tr>
+          <td class="center">७</td>
+          <td>निव्वळ वितरित रक्कम (1-6) (रुपयांमध्ये)</td>
+          <td class="center bold"><%= safeNetDisbursedAmount %></td>
+        </tr>
+        <tr>
+          <td class="center">८</td>
+          <td>कर्जदाराने देय एकूण रक्कम (1 आणि 5 ची बेरीज) (रुपयांमध्ये)</td>
+          <td class="center bold"><%= safeTotalAmountPayable %></td>
+        </tr>
+        <tr>
+          <td class="center">९</td>
+          <td>वार्षिक टक्केवारी दर - प्रभावी वार्षिक व्याजदर (टक्केवारीत) (KFS टेम्पलेट - भाग 1 मधील अ.क्र. 9)</td>
+          <td class="center bold"><%= safeApr %></td>
+        </tr>
+        <tr>
+          <td class="center">१०</td>
+          <td>अटी व शर्तींनुसार वितरणाचे वेळापत्रक</td>
+          <td class="center"><%= safeScheduleOfDisbursement %></td>
+        </tr>
+        <tr>
+          <td class="center">११</td>
+          <td>हप्ता आणि व्याज भरणाची देय तारीख</td>
+          <td class="center bold"><%= safeDueDate %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      3. जेथे मंजुरीपूर्वी अशा शुल्कांचे निर्धारण करता येत नाही, तेथे REs कमाल मर्यादा दर्शवू शकतात<br>
+      4. तपशीलवार परतफेड वेळापत्रकांतर्गत दिलेल्या हप्त्यांच्या एकूणातून गणना केलेल्या परतफेड रकमेतील आणि (8) अंतर्गत नमूद रकमेतील फरक हा तपशीलवार परतफेड वेळापत्रकांतर्गत हप्त्याची रक्कम पूर्णांकित केल्यामुळे आहे<br>
+      5. निव्वळ वितरित रकमेवर IRR पद्धती आणि घटती शिल्लक पद्धत वापरून गणना केली आहे
+    </div>
+
+      <div class="page-footer">
+      <div class="footer-page-num">पृष्ठ 3 | 3</div>
+    </div>
+  </div>
+
+  </div>
+</body>
+</html>
